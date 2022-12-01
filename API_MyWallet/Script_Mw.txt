@@ -1,0 +1,127 @@
+CREATE DATABASE db_myWalletUpdt;
+
+use db_myWalletUpdt;
+
+-- TABELAS ----------------------------------------------
+
+CREATE TABLE tb_usuarios(
+    id int primary key auto_increment,
+    nome varchar(250),
+    email varchar (250),
+    telefone varchar (250),
+    nascimento date,
+    cidade varchar(50),
+    estado varchar(50)
+);
+
+CREATE TABLE tb_conta(
+    id int primary key auto_increment,
+    nomeUsuario varchar(150),
+    senha varchar(150),
+  	id_usuario int
+);
+
+CREATE TABLE tb_carteiras(
+  	id int primary key auto_increment,
+  	nomeCarteira varchar(150),
+  	dinheiro double,
+  	id_usuario int,
+  	id_conta int,
+  	id_cartao int
+);
+
+CREATE TABLE tb_movimentacoes(
+	id int primary key auto_increment,
+  	dataMovimentacao date,
+  	dinheiro double,
+  	id_usuario int,
+  	id_tipo int,
+  	id_carteira int,
+  	id_conta int,
+  	id_cartao int
+);
+
+CREATE TABLE tb_tiposTransacoes(
+	id int primary key auto_increment,
+  	descricao varchar(150)
+);
+
+CREATE TABLE tb_listas(
+	id int primary key auto_increment,
+  	conteudo varchar(150),
+  	dinheiro double,
+  	id_usuario int,
+  	id_conta int, 
+  	id_carteira int,
+  	id_cartao int
+);
+
+CREATE TABLE tb_cartoes(
+	id int primary key auto_increment,
+  	banco varchar(250),
+  	id_usuario int
+);
+
+-- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_MOVIMENTACOES -------------------------------------------------------
+ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_usuarioM FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tiposTransacoes(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_contaM FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_carteiraM FOREIGN KEY(id_carteira) REFERENCES tb_carteiras(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_cartaoM FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+
+
+-- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTEIRAS -------------------------------------------------------
+ALTER TABLE tb_carteiras ADD CONSTRAINT fk_usuarioC FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteiras ADD CONSTRAINT fk_contaC FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteiras ADD CONSTRAINT fk_cartaoC FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+
+
+-- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_LISTAS -------------------------------------------------------
+ALTER TABLE tb_listas ADD CONSTRAINT fk_usuarioL FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
+ALTER TABLE tb_listas ADD CONSTRAINT fk_contaL FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_listas ADD CONSTRAINT fk_carteiraL FOREIGN KEY(id_carteira) REFERENCES tb_carteiras(id) ON DELETE CASCADE;
+ALTER TABLE tb_listas ADD CONSTRAINT fk_cartaoL FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+
+
+-- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTOES -------------------------------------------------------
+ALTER TABLE tb_cartoes ADD CONSTRAINT fk_usuarioCts FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
+
+-- SELECTS -------------------------------------------------------
+SELECT * FROM tb_carteiras;
+SELECT * FROM tb_cartoes;
+SELECT * FROM tb_conta;
+SELECT * FROM tb_usuarios;
+SELECT * FROM tb_listas;
+SELECT * FROM tb_movimentacoes;
+SELECT * FROM tb_tipoTransacoes;
+
+-- DROPS -------------------------------------------------------
+DROP DATABASE db_myWalletUpdt;
+DROP TABLE tb_carteiras;
+DROP TABLE tb_cartoes;
+DROP TABLE tb_conta;
+DROP TABLE tb_usuarios;
+DROP TABLE tb_listas;
+DROP TABLE tb_movimentacoes;
+DROP TABLE tb_tipoTransacoes;
+
+-- SELECT COM JOINS -------------------------------------------------------
+
+
+SELECT M.money , U.userName, T.description FROM tb_movimentation M INNER JOIN tb_users U ON U.id = M.id_user
+																   INNER JOIN tb_typeMovi T ON T.id = M.id_type 
+                                                                   WHERE T.id = 2;
+                                                                   
+SELECT M.money, M.moviDate, U.personName, T.description FROM tb_movimentation M INNER JOIN tb_users U ON U.id = M.id_user 
+																			 INNER JOIN tb_typeMovi T ON T.id = M.id_type 
+                                                                             WHERE id_user = 4;
+
+
+
+
+
+
+
+
+
+
