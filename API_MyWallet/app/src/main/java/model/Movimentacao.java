@@ -55,12 +55,6 @@ public class Movimentacao {
 		this.id_cartao = id_cartao;
 	}
 	
-	@Override
-	public String toString() {
-		return "Movimentacao [id=" + id + ", dataMovimentacao=" + dataMovimentacao + ", dinheiro=" + dinheiro
-				+ ", id_usuario=" + id_usuario + ", id_tipo=" + id_tipo + ", id_carteira=" + id_carteira + ", id_conta="
-				+ id_conta + ", id_cartao=" + id_cartao + "]";
-	}
 	
 	
 }

@@ -201,14 +201,19 @@ public class MovimentacaoDAO {
 	
 	//Lista todas as transações feitas por um determinado usuário
 	public List<Movimentacao> listarTransacoes(int idConta){
+		
 		List<Movimentacao> listaDeTransacoes = new ArrayList<Movimentacao>();
 		ResultSet rs = null;
 		Movimentacao mvt = null;
 		Conta conta = null;
 		TipoTransacao tipo = null;
+		Usuario usu = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT ;";
+		String sql = "SELECT C.nomeUsuario, M.dataMovimentacao, M.dinheiro, T.descricao, U.nome, U.email  FROM tb_movimentacao M INNER JOIN tb_conta C ON C.id = M.id_conta \r\n"
+				+ "																								  INNER JOIN tb_tipostransacao T ON T.id = M.id_tipo  \r\n"
+				+ "                                                                                                  INNER JOIN tb_usuario U ON U.id = C.id_usuario\r\n"
+				+ "																								  WHERE id_conta = ?";
 		
 		
 		try {
@@ -216,6 +221,7 @@ public class MovimentacaoDAO {
 			PreparedStatement ps;
 			
 			ps = conex.prepareStatement(sql);
+			
 			ps.setInt(1, idConta);
 			rs = ps.executeQuery();
 			
@@ -223,14 +229,18 @@ public class MovimentacaoDAO {
 				conta = new Conta();
 				tipo = new TipoTransacao();
 				mvt = new Movimentacao();
+				usu = new Usuario();
 				
 				mvt.setId_conta(conta);
 				mvt.setId_tipo(tipo);
+				mvt.getId_conta().setId_usuario(usu);;
 				
 				mvt.setDinheiro(rs.getDouble("dinheiro"));
 				mvt.setDataMovimentacao(rs.getDate("dataMovimentacao"));
 				mvt.getId_conta().setNomeUsuario(rs.getString("nomeUsuario"));
 				mvt.getId_tipo().setDescricao(rs.getString("descricao"));
+				mvt.getId_conta().getId_usuario().setNome(rs.getString("nome"));
+				mvt.getId_conta().getId_usuario().setEmail(rs.getString("email"));
 				
 				listaDeTransacoes.add(mvt);
 			}
