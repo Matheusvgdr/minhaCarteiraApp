@@ -3,8 +3,7 @@ package model;
 public class Carteira {
 	private int id;
 	private String nomeCarteria;
-	private float dinheiro;
-	private Usuario id_usuario;
+	private double dinheiro;
 	private Conta id_conta;
 	private Cartao id_cartao;
 	
@@ -21,18 +20,13 @@ public class Carteira {
 		this.nomeCarteria = nomeCarteria;
 	}
 	
-	public float getDinheiro() {
+	public double getDinheiro() {
 		return dinheiro;
 	}
-	public void setDinheiro(float dinheiro) {
+	public void setDinheiro(double dinheiro) {
 		this.dinheiro = dinheiro;
 	}
-	public Usuario getId_usuario() {
-		return id_usuario;
-	}
-	public void setId_usuario(Usuario id_usuario) {
-		this.id_usuario = id_usuario;
-	}
+
 	public Conta getId_conta() {
 		return id_conta;
 	}
@@ -44,12 +38,6 @@ public class Carteira {
 	}
 	public void setId_cartao(Cartao id_cartao) {
 		this.id_cartao = id_cartao;
-	}
-	
-	@Override
-	public String toString() {
-		return "Carteira [id=" + id + ", nomeCarteria=" + nomeCarteria + ", id_usuario=" + id_usuario + ", id_conta="
-				+ id_conta + ", id_cartao=" + id_cartao + "]";
 	}
 	
 	

@@ -6,7 +6,6 @@ public class Movimentacao {
 	private int id;
 	private Date dataMovimentacao;
 	private double dinheiro;
-	private Usuario id_usuario;
 	private TipoTransacao id_tipo;
 	private Carteira id_carteira;
 	private Conta id_conta;
@@ -30,12 +29,7 @@ public class Movimentacao {
 	public void setDinheiro(double dinheiro) {
 		this.dinheiro = dinheiro;
 	}
-	public Usuario getId_usuario() {
-		return id_usuario;
-	}
-	public void setId_usuario(Usuario id_usuario) {
-		this.id_usuario = id_usuario;
-	}
+
 	public TipoTransacao getId_tipo() {
 		return id_tipo;
 	}

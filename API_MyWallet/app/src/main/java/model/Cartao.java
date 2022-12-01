@@ -3,7 +3,7 @@ package model;
 public class Cartao {
 	private int id;
 	private String banco;
-	private Usuario id_usuario;
+	private Conta id_conta;
 	
 	public int getId() {
 		return id;
@@ -17,17 +17,14 @@ public class Cartao {
 	public void setBanco(String banco) {
 		this.banco = banco;
 	}
-	public Usuario getId_usuario() {
-		return id_usuario;
+	public Conta getId_conta() {
+		return id_conta;
 	}
-	public void setId_usuario(Usuario id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setId_conta(Conta id_conta) {
+		this.id_conta = id_conta;
 	}
 	
-	@Override
-	public String toString() {
-		return "Cartao [id=" + id + ", banco=" + banco + ", id_usuario=" + id_usuario + "]";
-	}
+
 	
 	
 }

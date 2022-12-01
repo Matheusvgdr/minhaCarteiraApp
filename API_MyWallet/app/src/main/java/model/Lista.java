@@ -3,11 +3,11 @@ package model;
 public class Lista {
 	private int id;
 	private String conteudo;
-	private float dinheiro;
-	private Usuario id_usuario;
+	private double dinheiro;
 	private Conta id_conta;
 	private Carteira id_carteira;
 	private Cartao id_cartao;
+	
 	public int getId() {
 		return id;
 	}
@@ -20,18 +20,13 @@ public class Lista {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
-	public float getDinheiro() {
+	public double getDinheiro() {
 		return dinheiro;
 	}
-	public void setDinheiro(float dinheiro) {
+	public void setDinheiro(double dinheiro) {
 		this.dinheiro = dinheiro;
 	}
-	public Usuario getId_usuario() {
-		return id_usuario;
-	}
-	public void setId_usuario(Usuario id_usuario) {
-		this.id_usuario = id_usuario;
-	}
+	
 	public Conta getId_conta() {
 		return id_conta;
 	}
@@ -50,12 +45,6 @@ public class Lista {
 	public void setId_cartao(Cartao id_cartao) {
 		this.id_cartao = id_cartao;
 	}
-	
-	@Override
-	public String toString() {
-		return "Lista [id=" + id + ", conteudo=" + conteudo + ", dinheiro=" + dinheiro + ", id_usuario=" + id_usuario
-				+ ", id_conta=" + id_conta + ", id_carteira=" + id_carteira + ", id_cartao=" + id_cartao + "]";
-	}
-	
+		
 	
 }
