@@ -4,15 +4,16 @@ use db_myWalletUpdt;
 
 -- TABELAS ----------------------------------------------
 
-CREATE TABLE tb_usuarios(
+CREATE TABLE tb_usuario(
     id int primary key auto_increment,
     nome varchar(250),
     email varchar (250),
     telefone varchar (250),
     nascimento date,
-    cidade varchar(50),
-    estado varchar(50)
+  	cep varchar(250)
 );
+
+INSERT INTO tb_usuario(nome, email, telefone, nascimento, cep) VALUES("Matheus", "matheus@gmail.com", "(21)97536-2567", 2001-06-06, "24753-110");
 
 CREATE TABLE tb_conta(
     id int primary key auto_increment,
@@ -21,70 +22,79 @@ CREATE TABLE tb_conta(
   	id_usuario int
 );
 
-CREATE TABLE tb_carteiras(
+INSERT INTO tb_conta(nomeUsuario, senha, id_usuario) VALUES("Maths", "12345", 1);
+
+CREATE TABLE tb_carteira(
   	id int primary key auto_increment,
   	nomeCarteira varchar(150),
   	dinheiro double,
-  	id_usuario int,
   	id_conta int,
   	id_cartao int
 );
 
-CREATE TABLE tb_movimentacoes(
+INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_conta, id_cartao) VALUES("casa", 150, 1, 1);
+
+CREATE TABLE tb_movimentacao(
 	id int primary key auto_increment,
   	dataMovimentacao date,
   	dinheiro double,
-  	id_usuario int,
   	id_tipo int,
   	id_carteira int,
   	id_conta int,
   	id_cartao int
 );
 
-CREATE TABLE tb_tiposTransacoes(
+INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id_conta, id_cartao) VALUES(01-12-2022, 150, 1, 2, 1, 1);
+
+CREATE TABLE tb_tiposTransacao(
 	id int primary key auto_increment,
   	descricao varchar(150)
 );
 
-CREATE TABLE tb_listas(
+INSERT INTO tb_tiposTransacao(descricao) VALUES("Depósito");
+INSERT INTO tb_tiposTransacao(descricao) VALUES("Saque");
+
+
+CREATE TABLE tb_lista(
 	id int primary key auto_increment,
   	conteudo varchar(150),
   	dinheiro double,
-  	id_usuario int,
   	id_conta int, 
   	id_carteira int,
   	id_cartao int
 );
 
-CREATE TABLE tb_cartoes(
+INSERT INTO tb_lista(conteudo, dinheiro, id_conta, id_carteira, id_cartao) VALUES("batata", 10, 1, 2, 1);
+
+CREATE TABLE tb_cartao(
 	id int primary key auto_increment,
   	banco varchar(250),
-  	id_usuario int
+  	id_conta int
 );
 
+INSERT INTO tb_cartao(banco, id_conta) VALUES("Nubank", 1)
+
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_MOVIMENTACOES -------------------------------------------------------
-ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_usuarioM FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tiposTransacoes(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_contaM FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_carteiraM FOREIGN KEY(id_carteira) REFERENCES tb_carteiras(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacoes ADD CONSTRAINT fk_cartaoM FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tiposTransacao(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_contaM FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_carteiraM FOREIGN KEY(id_carteira) REFERENCES tb_carteira(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_cartaoM FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTEIRAS -------------------------------------------------------
-ALTER TABLE tb_carteiras ADD CONSTRAINT fk_usuarioC FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
-ALTER TABLE tb_carteiras ADD CONSTRAINT fk_contaC FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
-ALTER TABLE tb_carteiras ADD CONSTRAINT fk_cartaoC FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteira ADD CONSTRAINT fk_contaC FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteira ADD CONSTRAINT fk_cartaoC FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_LISTAS -------------------------------------------------------
-ALTER TABLE tb_listas ADD CONSTRAINT fk_usuarioL FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
-ALTER TABLE tb_listas ADD CONSTRAINT fk_contaL FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
-ALTER TABLE tb_listas ADD CONSTRAINT fk_carteiraL FOREIGN KEY(id_carteira) REFERENCES tb_carteiras(id) ON DELETE CASCADE;
-ALTER TABLE tb_listas ADD CONSTRAINT fk_cartaoL FOREIGN KEY(id_cartao) REFERENCES tb_cartoes(id) ON DELETE CASCADE;
+ALTER TABLE tb_lista ADD CONSTRAINT fk_contaL FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_lista ADD CONSTRAINT fk_carteiraL FOREIGN KEY(id_carteira) REFERENCES tb_carteira(id) ON DELETE CASCADE;
+ALTER TABLE tb_lista ADD CONSTRAINT fk_cartaoL FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTOES -------------------------------------------------------
-ALTER TABLE tb_cartoes ADD CONSTRAINT fk_usuarioCts FOREIGN KEY(id_usuario) REFERENCES tb_usuarios(id) ON DELETE CASCADE;
+ALTER TABLE tb_cartao ADD CONSTRAINT fk_contaCt FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+
 
 -- SELECTS -------------------------------------------------------
 SELECT * FROM tb_carteiras;
@@ -108,7 +118,7 @@ DROP TABLE tb_tipoTransacoes;
 -- SELECT COM JOINS -------------------------------------------------------
 
 
-SELECT M.money , U.userName, T.description FROM tb_movimentation M INNER JOIN tb_users U ON U.id = M.id_user
+SELECT D.dinheiro , N.nome, T.descricao FROM tb_movimentacao D INNER JOIN tb_users N ON U.id = M.id_user
 																   INNER JOIN tb_typeMovi T ON T.id = M.id_type 
                                                                    WHERE T.id = 2;
                                                                    
