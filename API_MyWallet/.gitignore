@@ -13,12 +13,15 @@
 
 # Created by https://www.gitignore.io/api/git,java,maven,eclipse,windows
 
+### Servers###
+
+.Servers
+
 ### Eclipse ###
 
 .metadata
 bin/
 tmp/
-/Servers
 *.tmp
 *.bak
 *.swp
