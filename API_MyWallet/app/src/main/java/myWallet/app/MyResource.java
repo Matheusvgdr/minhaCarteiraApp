@@ -2,6 +2,7 @@ package myWallet.app;
 
 import java.util.List;
 
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -23,15 +24,21 @@ public class MyResource {
 	// Encontra as movimentações relativas a determinado usuario
 
 	// Insere uma transação no banco de dados
-	/*
+	//EXEMPLO DE UMA REQUISIÇÃO POST
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("inserirTransacaoBD")
-	public boolean postInserirTransacaoBD(@QueryParam("idConta") int idConta) {
+	@Path("realizarTransacao")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response postRealizarTransacao(Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
+		boolean resposta;
+		
+		resposta = servico.realizarTransacao(mov);
+			
+		
+		return Response.status(200).entity(resposta).build();
 
-	}*/
+	}
 
 	// Faz o calculo para determinar o saldo final do usuario
 	/*
