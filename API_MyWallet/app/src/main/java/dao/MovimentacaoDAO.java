@@ -134,7 +134,7 @@ public class MovimentacaoDAO {
 		Movimentacao mvt = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_usuario = ? AND id_tipo = ?;";
+		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_conta = ? AND id_tipo = ?;";
 		
 		PreparedStatement ps;
 		try {
@@ -168,7 +168,7 @@ public class MovimentacaoDAO {
 		Movimentacao mvt = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_usuario = ? AND id_tipo = ?;";
+		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_conta = ? AND id_tipo = ?;";
 		
 		PreparedStatement ps;
 		

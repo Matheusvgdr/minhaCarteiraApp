@@ -23,6 +23,7 @@ public class MyResource {
 	// Encontra as movimentações relativas a determinado usuario
 
 	// Insere uma transação no banco de dados
+	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("inserirTransacaoBD")
@@ -30,9 +31,10 @@ public class MyResource {
 
 		MovimentacaoService servico = new MovimentacaoService();
 
-	}
+	}*/
 
 	// Faz o calculo para determinar o saldo final do usuario
+	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("calculoSaldoFinal")
@@ -41,7 +43,7 @@ public class MyResource {
 		MovimentacaoService servico = new MovimentacaoService();
 
 	}
-
+*/
 	// Retorna um JSON com uma lista de saques feitos por um determinado usuário
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -85,6 +87,7 @@ public class MyResource {
 	}
 
 	// Insere uma transação realizada para uma carteira, que pertence a um usuário
+	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("inserirTransacaoCarteira")
@@ -92,6 +95,6 @@ public class MyResource {
 
 		MovimentacaoService servico = new MovimentacaoService();
 
-	}
+	}*/
 
 }
