@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Usuario {
 	private int id;
@@ -8,8 +8,7 @@ public class Usuario {
 	private String email;
 	private String telefone;
 	private Date nascimento;
-	private String cidade;
-	private String estado;
+	private String cep;
 	
 	public int getId() {
 		return id;
@@ -41,25 +40,12 @@ public class Usuario {
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
-	public String getCidade() {
-		return cidade;
+	public String getCep() {
+		return cep;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", nascimento="
-				+ nascimento + ", cidade=" + cidade + ", estado=" + estado + "]";
-	}
-	
 	
 	
 }
