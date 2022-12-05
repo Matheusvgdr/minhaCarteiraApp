@@ -24,11 +24,11 @@ public class MyResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("procurarPorID")
-	public Response getProcurarPorID(@QueryParam("mov") Movimentacao mov) {
+	public Response getProcurarPorID(@QueryParam("id") int id) {
 
 		MovimentacaoService servico = new MovimentacaoService();
 
-		Movimentacao resultado = servico.procurarPorId(mov);
+		Movimentacao resultado = servico.procurarPorId(id);
 		Response response = Response.ok().entity(resultado).build();
 
 		return response;
