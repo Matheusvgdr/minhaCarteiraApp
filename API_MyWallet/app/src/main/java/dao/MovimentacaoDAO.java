@@ -100,7 +100,7 @@ public class MovimentacaoDAO {
 		
 		double saldoDeposito = 0;
 		
-		listaDeposito = this.listarDepositos(saldo.getId_conta().getId_usuario().getId(), saldo.getId_tipo().getId());
+		listaDeposito = this.listarDepositos(saldo.getId_conta().getId(), saldo.getId_tipo().getId());
 		
 		for(Movimentacao mov: listaDeposito) {
 			
@@ -109,7 +109,7 @@ public class MovimentacaoDAO {
 		
 		double saldoSaque = 0;
 		
-		listaSaques = this.listarSaques(saldo.getId_conta().getId_usuario().getId(), saldo.getId_tipo().getId());
+		listaSaques = this.listarSaques(saldo.getId_conta().getId(), saldo.getId_tipo().getId());
 		
 		for(Movimentacao mov: listaSaques) {
 			saldoSaque += mov.getDinheiro();
@@ -284,10 +284,10 @@ public class MovimentacaoDAO {
 		
 			ps = conex.prepareStatement(sqlCarteira);
 			
-			ps.setString(1, mvt.getId_carteira().getNomeCarteria());
-			ps.setDouble(2, mvt.getId_carteira().getDinheiro());
-			ps.setInt(3, mvt.getId_carteira().getId_conta().getId());
-			ps.setInt(4, mvt.getId_carteira().getId_cartao().getId());
+			ps.setString(1, mvt.getId_carteira().getNomeCarteira());
+			ps.setDouble(2, mvt.getDinheiro());
+			ps.setInt(3, mvt.getId_conta().getId());
+			ps.setInt(4, mvt.getId_cartao().getId());
 			
 			retornoQueryCarte = ps.executeUpdate();
 			

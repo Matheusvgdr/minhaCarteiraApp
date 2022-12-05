@@ -21,10 +21,7 @@ public class MyResource {
 		return "Got it!";
 	}
 
-	// Encontra as movimentações relativas a determinado usuario
-
 	// Insere uma transação no banco de dados
-	//EXEMPLO DE UMA REQUISIÇÃO POST
 	@POST
 	@Path("realizarTransacao")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -40,25 +37,14 @@ public class MyResource {
 
 	}
 
-	// Faz o calculo para determinar o saldo final do usuario
-	/*
-	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("calculoSaldoFinal")
-	public boolean postCalculoSaldoFinal(@QueryParam("idConta") int idConta) {
-
-		MovimentacaoService servico = new MovimentacaoService();
-
-	}
-*/
 	// Retorna um JSON com uma lista de saques feitos por um determinado usuário
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("listarSaques")
-	public Response getSaque(@QueryParam("idConta") int idConta) {
+	public Response getSaque(@QueryParam("idConta") int idConta,@QueryParam("idTipo") int idTipo) {
 
 		MovimentacaoService servico = new MovimentacaoService();
-		List<Movimentacao> listaDeSaques = servico.listarSaques(idConta, idConta);
+		List<Movimentacao> listaDeSaques = servico.listarSaques(idConta, idTipo);
 
 		Response response = Response.ok().entity(listaDeSaques).build();
 
@@ -69,10 +55,10 @@ public class MyResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("listarDepositos")
-	public Response getDeposito(@QueryParam("idConta") int idConta) {
+	public Response getDeposito(@QueryParam("idConta") int idConta, @QueryParam("idTipo") int idTipo) {
 
 		MovimentacaoService servico = new MovimentacaoService();
-		List<Movimentacao> listaDeDepositos = servico.listarDepositos(idConta, idConta);
+		List<Movimentacao> listaDeDepositos = servico.listarDepositos(idConta, idTipo);
 
 		Response response = Response.ok().entity(listaDeDepositos).build();
 
@@ -94,14 +80,15 @@ public class MyResource {
 	}
 
 	// Insere uma transação realizada para uma carteira, que pertence a um usuário
-	/*
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("inserirTransacaoCarteira")
-	public boolean postInserirTransacaoCarteira(@QueryParam("idConta") int idConta) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("realizarTransacaoCarteira")
+	public Response postRealizarTransacaoCarteira(Movimentacao movi) {
 
 		MovimentacaoService servico = new MovimentacaoService();
-
-	}*/
+		boolean resposta = servico.realizarTransacaoCarteira(movi);
+		
+		return Response.ok(200).entity(resposta).build();
+	}
 
 }

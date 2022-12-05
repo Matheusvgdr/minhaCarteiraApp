@@ -23,13 +23,18 @@ public class MovimentacaoService {
 	}
 	
 	public boolean realizarTransacao(Movimentacao movi) {
+		boolean resultado = true;
 		
-		return mvt.realizarTransacao(movi);
-	}
-	
-	public boolean verificarSaldo(Movimentacao saldo) {
-		
-		return mvt.verificarSaldo(saldo);
+		if(mvt.verificarSaldo(movi)) {
+			
+			mvt.realizarTransacao(movi);
+			
+		}else {
+			
+			resultado = false;
+			
+		}
+		return resultado;
 	}
 	
 	public List<Movimentacao> listarSaques (int idConta, int idTipo){
@@ -43,8 +48,16 @@ public class MovimentacaoService {
 	}
 	
 	public boolean realizarTransacaoCarteira(Movimentacao movi) {
+		boolean resultado = true;
 		
-		return mvt.realizarTransacaoCarteira(movi);
+		if(mvt.verificarSaldo(movi)) {
+			
+			mvt.realizarTransacaoCarteira(movi);
+		
+		}else {
+			 resultado = false;
+		}
+		return resultado;
 	}
 	
 }
