@@ -21,29 +21,44 @@ public class MyResource {
 	}
 
 	// Encontra as movimentações relativas a determinado usuario
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("procurarPorID")
+	public Response getProcurarPorID(@QueryParam("mov") Movimentacao mov) {
+
+		MovimentacaoService servico = new MovimentacaoService();
+
+		Movimentacao resultado = servico.procurarPorId(mov);
+		Response response = Response.ok().entity(resultado).build();
+
+		return response;
+	}
 
 	// Insere uma transação no banco de dados
-	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("inserirTransacaoBD")
-	public boolean postInserirTransacaoBD(@QueryParam("idConta") int idConta) {
+	public Response postInserirTransacaoBD(@QueryParam("mov") Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
+		boolean resultado = servico.realizarTransacao(mov);
 
-	}*/
+		return Response.status(200).entity(resultado).build();
+
+	}
 
 	// Faz o calculo para determinar o saldo final do usuario
-	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("calculoSaldoFinal")
-	public boolean postCalculoSaldoFinal(@QueryParam("idConta") int idConta) {
+	public Response postCalculoSaldoFinal(@QueryParam("mov") Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
+		boolean resultado = servico.verificarSaldo(mov);
 
+		return Response.status(200).entity(resultado).build();
 	}
-*/
+
 	// Retorna um JSON com uma lista de saques feitos por um determinado usuário
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -87,14 +102,15 @@ public class MyResource {
 	}
 
 	// Insere uma transação realizada para uma carteira, que pertence a um usuário
-	/*
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("inserirTransacaoCarteira")
-	public boolean postInserirTransacaoCarteira(@QueryParam("idConta") int idConta) {
+	public Response postInserirTransacaoCarteira(@QueryParam("mov") Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
+		boolean resultado = servico.realizarTransacaoCarteira(mov);
 
-	}*/
+		return Response.status(200).entity(resultado).build();
+	}
 
 }
