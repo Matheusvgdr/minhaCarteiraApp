@@ -144,7 +144,7 @@ public List<Carteira> listarCarteira(int idConta){
 	conex = DAO.criarConexao();
 	
 	
-	String sql = "SELECT dinheiro FROM tb_carteira WHERE id_conta = ? AND id_tipo = ?;";
+	String sql = "SELECT * FROM tb_carteira WHERE id_conta = ? AND id_tipo = ?;";
 	
 	PreparedStatement ps;
 	
