@@ -100,7 +100,7 @@ public class MovimentacaoDAO {
 		
 		double saldoDeposito = 0;
 		
-		listaDeposito = this.listarDepositos(saldo.getId_conta().getId(), saldo.getId_tipo().getId());
+		listaDeposito = this.listarDepositos(saldo.getId_conta().getId(), 1);
 		
 		for(Movimentacao mov: listaDeposito) {
 			
@@ -109,7 +109,7 @@ public class MovimentacaoDAO {
 		
 		double saldoSaque = 0;
 		
-		listaSaques = this.listarSaques(saldo.getId_conta().getId(), saldo.getId_tipo().getId());
+		listaSaques = this.listarSaques(saldo.getId_conta().getId(), 2);
 		
 		for(Movimentacao mov: listaSaques) {
 			saldoSaque += mov.getDinheiro();
