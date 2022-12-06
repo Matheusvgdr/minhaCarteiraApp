@@ -144,7 +144,7 @@ public List<Carteira> listarCarteira(int idConta){
 	conex = DAO.criarConexao();
 	
 	
-	String sql = "SELECT * FROM tb_carteira WHERE id_conta = ? AND id_tipo = ?;";
+	String sql = "SELECT * FROM tb_carteira WHERE id_conta = ?;";
 	
 	PreparedStatement ps;
 	
@@ -158,7 +158,12 @@ public List<Carteira> listarCarteira(int idConta){
 		while(rs.next()) {
 			car = new Carteira();
 			
+			car.setId(rs.getInt("id"));
 			car.setDinheiro(rs.getDouble("dinheiro"));
+			car.setNomeCarteira(rs.getString("nomeCarteira"));
+			car.getId_cartao().setId(rs.getInt("id_cartao"));
+			car.getId_conta().setId(rs.getInt("id_conta"));
+			
 			listaDeCarteira.add(car);
 		}
 		}catch (SQLException e) {
