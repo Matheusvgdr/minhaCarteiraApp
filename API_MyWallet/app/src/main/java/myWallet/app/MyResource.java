@@ -2,6 +2,7 @@ package myWallet.app;
 
 import java.util.List;
 
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -19,7 +20,7 @@ public class MyResource {
 	public String getIt() {
 		return "Got it!";
 	}
-
+/*
 	// Encontra as movimentações relativas a determinado usuario
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -33,12 +34,12 @@ public class MyResource {
 
 		return response;
 	}
-
+*/
 	// Insere uma transação no banco de dados
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("inserirTransacaoBD")
-	public Response postInserirTransacaoBD(@QueryParam("mov") Movimentacao mov) {
+	public Response postInserirTransacaoBD(Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
 		boolean resultado = servico.realizarTransacao(mov);
@@ -46,10 +47,10 @@ public class MyResource {
 		return Response.status(200).entity(resultado).build();
 
 	}
-
+/*
 	// Faz o calculo para determinar o saldo final do usuario
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.TEXT_PLAIN)
 	@Path("calculoSaldoFinal")
 	public Response postCalculoSaldoFinal(@QueryParam("mov") Movimentacao mov) {
 
@@ -58,7 +59,8 @@ public class MyResource {
 
 		return Response.status(200).entity(resultado).build();
 	}
-
+*/
+/*
 	// Retorna um JSON com uma lista de saques feitos por um determinado usuário
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -103,14 +105,14 @@ public class MyResource {
 
 	// Insere uma transação realizada para uma carteira, que pertence a um usuário
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("inserirTransacaoCarteira")
-	public Response postInserirTransacaoCarteira(@QueryParam("mov") Movimentacao mov) {
+	public Response postInserirTransacaoCarteira(Movimentacao mov) {
 
 		MovimentacaoService servico = new MovimentacaoService();
 		boolean resultado = servico.realizarTransacaoCarteira(mov);
 
 		return Response.status(200).entity(resultado).build();
 	}
-
+*/
 }
