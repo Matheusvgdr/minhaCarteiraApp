@@ -2,7 +2,7 @@ package model;
 
 public class Carteira {
 	private int id;
-	private String nomeCarteria;
+	private String nomeCarteira;
 	private double dinheiro;
 	private Conta id_conta;
 	private Cartao id_cartao;
@@ -13,11 +13,11 @@ public class Carteira {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNomeCarteria() {
-		return nomeCarteria;
+	public String getNomeCarteira() {
+		return nomeCarteira;
 	}
-	public void setNomeCarteria(String nomeCarteria) {
-		this.nomeCarteria = nomeCarteria;
+	public void setNomeCarteira(String nomeCarteria) {
+		this.nomeCarteira = nomeCarteria;
 	}
 	
 	public double getDinheiro() {
