@@ -12,7 +12,6 @@ import model.Carteira;
 public class CarteiraDAO {
 	Connection conex = null;
 
-
 public Carteira procurarCarteira(int id){
 	
 	Carteira car = null;
@@ -33,8 +32,6 @@ public Carteira procurarCarteira(int id){
 				car.setId(rs.getInt("id"));
 				car.setDinheiro(rs.getDouble("dinheiro"));
 				car.setNomeCarteira(rs.getString("nomeCarteira"));
-				car.getId_cartao().setId(rs.getInt("id_cartao"));
-				car.getId_conta().setId(rs.getInt("id_conta"));
 			}
 		
 		}catch (SQLException e) {
@@ -84,7 +81,7 @@ public boolean deletarCarteira(int id) {
 	
 	conex = DAO.criarConexao();
 	
-	String sql = "DELETE FROM tb_carteira WHERE id?;";
+	String sql = "DELETE FROM tb_carteira WHERE id = ?;";
 	
 	try {
 		
@@ -114,7 +111,7 @@ public boolean modificarCarteira(Carteira md) {
 	
 	conex = DAO.criarConexao();
 	
-	String sql = "UPDATE tb_carteira SET nomeCarteira = ? WHERE id?;";
+	String sql = "UPDATE tb_carteira SET nomeCarteira = ? WHERE id = ?;";
 	
 	try {
 		
@@ -159,15 +156,15 @@ public List<Carteira> listarCarteira(int idConta){
 			car = new Carteira();
 			
 			car.setId(rs.getInt("id"));
-			car.setDinheiro(rs.getDouble("dinheiro"));
 			car.setNomeCarteira(rs.getString("nomeCarteira"));
-			car.getId_cartao().setId(rs.getInt("id_cartao"));
-			car.getId_conta().setId(rs.getInt("id_conta"));
+			car.setDinheiro(rs.getDouble("dinheiro"));			
 			
 			listaDeCarteira.add(car);
 		}
 		}catch (SQLException e) {
+			
 			e.printStackTrace();
+			
 		}
 	
 		return listaDeCarteira;

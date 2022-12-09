@@ -40,5 +40,4 @@ public class Carteira {
 		this.id_cartao = id_cartao;
 	}
 	
-	
 }
