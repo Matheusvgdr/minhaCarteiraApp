@@ -13,8 +13,8 @@ import model.Movimentacao;
 import service.MovimentacaoService;
 import jakarta.ws.rs.QueryParam;
 
-@Path("myresource")
-public class MyResource {
+@Path("movimentacao")
+public class MovimentacaoResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getIt() {

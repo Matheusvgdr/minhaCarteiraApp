@@ -8,8 +8,8 @@ import model.Carteira;
 public class CarteiraService {
 	CarteiraDAO carteira = new CarteiraDAO();
 
-	public List<Carteira> listarCarteiras(int idCarteira) {
-		return carteira.listarCarteira(idCarteira);
+	public List<Carteira> listarCarteiras(int idConta) {
+		return carteira.listarCarteira(idConta);
 	}
 
 	public Carteira procurarCarteira(int id) {
