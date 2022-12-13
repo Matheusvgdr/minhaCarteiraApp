@@ -1,0 +1,17 @@
+.pagina{
+    display: flex;
+    flex-direction: row;
+    gap: 1.9%;
+    height: 100%;
+    
+    .container{
+        width: 83.6%;
+        height: 100%;
+    
+    }
+    .sidebar{
+        width: 14.5%;
+        height: 100%;
+    }
+    
+}

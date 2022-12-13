@@ -1,0 +1,287 @@
+@import "../../../styles.scss";
+
+.container-home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: $fonte-texto;
+
+    .topo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 10.3%;
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 2.1%;
+        padding: 1.25% 5.10%;
+
+        i{
+            transform: scale(1.4);
+        }
+
+        .procurar{
+            display: flex;
+            flex-direction: row;
+            gap: 4%;
+            align-items: center;
+          
+            width: 29.55%;
+            padding: .7% 2%;
+            border-radius: 4px;
+
+            
+            input{
+                font-family: $fonte-texto;
+                background: none;
+                border: none;
+                outline: none;
+               
+            }
+        }
+        .hora{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12%;
+            font-size: $fonte-pequena;           
+            
+        }
+
+        .data{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12%;
+            font-size: $fonte-pequena;
+           
+        }
+
+        .toggle{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+
+        }
+
+        .perfil{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            
+            .resumo-perfil{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+             
+            }
+            .foto{
+                height: 40px;
+                width: 50px;
+                border-radius: 7px;
+                //TODO background-image: ;
+                font-size: $fonte-pequena;
+            }
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: transparent;
+                border: none;
+                border-radius: 3px;
+            }
+        }
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: row;
+        gap: 30%;
+        padding: 1.25% 2.10%; //15px 25px
+        width: 100%;
+        height: 22.3%;
+        margin-bottom: 2.1%;
+        border-radius: 14px;
+
+        .texto{
+            height: 100%;
+
+            a{
+                font-size: $fonte-pequena;
+                border-radius: 30px;
+                text-decoration: none;
+                
+                font-weight: 800;
+                padding: 2.5% 7%;
+        
+            }
+
+            .boas-vindas{
+                margin-bottom: 6%;
+                
+                p:nth-child(1){
+                   
+                    font-weight: 800;
+                    font-size: $font-media;
+                    margin-bottom: 1.8%;
+                }
+                p{
+                    font-size: $fonte-pequena;
+                    
+    
+                    span{
+                       
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        
+
+    }
+
+    .visao-geral {
+        width: 100%;
+        height: 23.9%;
+        margin-bottom: 2.1%;
+        border-radius: 14px;
+        padding: 1.25% 2.10%; //15px 25px
+
+        .titulo {
+           
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 0.9%;
+
+            i {
+                transform: scale(1.6);
+            }
+        }
+
+        .grid-info {
+            width: 100%;
+            height: 75%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2.1%;
+
+
+            .card {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 25%;
+                width: 100%;
+                height: 99.2%;
+                
+                border-radius: 10px;
+                padding: 2% 5.5%; //16px 20px
+                
+
+
+                img {
+                    width: 69px;
+                }
+
+                .subtitulo {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 8px;
+                    
+                    margin-bottom: 7%;
+
+                    p {
+                        font-size: $fonte-pequena;
+                    }
+
+                    i {
+                        transform: scale(1.6);
+                    }
+                }
+
+                .destaque {
+                    font-size: $fonte-grande;
+                    font-weight: 800;
+                }
+            }
+
+            .total {
+                
+
+            }
+
+            .saidas {
+           
+
+            }
+
+            .entradas {
+                
+
+            }
+        }
+
+    }
+
+    .grid-area {
+        display: grid;
+        grid-gap: 2.1%;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        height: 48%;
+
+        .grafico {
+            padding: 1.9% 3.1%; //15px 25px
+            height: 100%;
+            width: 100%;
+            grid-column: 1/3;
+            border-radius: 14px;
+
+
+            .titulo {
+            
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 13px;
+                margin-bottom: 0.9%;
+
+                i {
+                    transform: scale(1.6);
+                }
+            }
+        }
+
+        .cartao {
+            padding: 3.9% 6.6%; //15px 25px
+            height: 100%;
+            width: 100%;
+            grid-column: 3/4;
+            border-radius: 14px;
+
+
+            .titulo {
+            
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 13px;
+                margin-bottom: 0.9%;
+
+                i {
+                    transform: scale(1.6);
+                }
+            }
+        }
+    }
+}
+

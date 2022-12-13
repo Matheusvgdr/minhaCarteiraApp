@@ -5,5 +5,5 @@ export {Cartao}
 interface Cartao{
     id: number;
     banco: string;
-    id_usuario?: Usuario;
+    id_conta?: Usuario;
 }

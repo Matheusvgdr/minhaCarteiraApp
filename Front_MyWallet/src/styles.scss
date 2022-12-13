@@ -1,1 +1,153 @@
-/* You can add global styles to this file, and also import other style files */
+//*VARIAVEIS DOS TEMAS
+:root{
+    --cor-card: #282433;
+    --cor-primaria: #18161C;
+    --cor-secundaria: #1F1C26;
+    --cor-terciaria: #7E41A0;
+    --cor-texto: #FFFFFF;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+}
+
+body.light{
+    --cor-card: #EEEEEE;
+    --cor-primaria: #EEEEEE;
+    --cor-secundaria: #FFFFFF;
+    --cor-terciaria: #1F1D26;
+    --cor-texto: #282433;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+}
+
+body.caramel{
+    --cor-card: #FFFFFF;
+    --cor-primaria: #FFFFFF;
+    --cor-secundaria: #FFDCA9;
+    --cor-terciaria: #CD782A;
+    --cor-texto: #282433;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+}
+
+body.grey{
+    --cor-card: #FFFFFF;
+    --cor-primaria: #FFFFFF;
+    --cor-secundaria: #EEEEEE;
+    --cor-terciaria: #1F1D26; 
+    --cor-texto: #282433;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+
+}
+
+body.rose{
+    --cor-card: #FFFFFF;
+    --cor-primaria: #FFFFFF;
+    --cor-secundaria: #F0E9D2;
+    --cor-terciaria: #1F1D26;
+    --cor-texto: #282433;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+}
+
+//* ESTILO-FONTES
+$fonte-texto: 'Poppins', sans-serif;
+
+//* TAMANHO-FONTES
+$fonte-pequena: 13px;
+$font-media: 20px;
+$fonte-grande: 26px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 27px;
+    background-color: var(--cor-primaria);
+    height: 100vh;
+    transition: .5s;
+}
+
+//*----------- SIDEBAR -----------
+.sidebar{
+    .logo, .menu, .anuncio{
+        background: var(--cor-secundaria);
+        transition: .5s;
+    }
+
+    .btn{
+        color: var(--cor-texto);
+        background-color: var(--cor-card);
+        transition: .5s;
+    }
+
+    .separador{
+        background-color: var(--cor-primaria);
+        transition: .5s;
+    }
+    a{
+        color: var(--cor-texto);
+        transition: .5s;
+    }
+
+    a.exe{
+        background: var(--cor-terciaria);
+        color: var(--cor-destaque);
+        transition: .5s;
+    }
+}
+//*----------- HOME ----------- 
+.container-home{
+
+    .topo, .visao-geral, .banner, .grafico, .cartao {
+        background-color: var(--cor-secundaria);
+        color: var(--cor-texto);
+        transition: .5s;
+       
+    }
+    .card, .procurar, .foto{
+        background: var(--cor-card);
+        color: var(--cor-texto);
+        transition: .5s;
+    }
+
+    .total{
+        background: var(--cor-terciaria);
+        color: var(--cor-destaque);
+        transition: .5s;
+    }
+    button{
+        color: var(--cor-texto);
+        transition: .5s;
+    }
+
+    .toggle{
+        background: var(--cor-card);
+        transition: .5s;
+    }
+    .texto{
+        a{
+            background: var(--detalhe);
+            color: var(--cor-card);
+            transition: .5s;
+        }
+
+        span{
+            color: var(--cor-texto);
+            transition: .5s;
+        }
+    }
+    
+    input{
+        color: var(--cor-texto);
+        transition: .5s;
+    }
+}
+
+//*----------- MODO LIGHT -----------
+
+
+
