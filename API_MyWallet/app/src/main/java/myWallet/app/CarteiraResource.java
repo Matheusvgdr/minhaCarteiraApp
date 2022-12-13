@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -34,7 +35,7 @@ public class CarteiraResource {
 		return Response.status(200).entity(resposta).build();
 	}
 	
-	@POST
+	@DELETE
 	@Path("deletarCarteira")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postDeletarCarteira(@QueryParam("idCarteira") int idCarteira) {
