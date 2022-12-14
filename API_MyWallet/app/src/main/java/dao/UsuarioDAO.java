@@ -114,7 +114,7 @@ public class UsuarioDAO {
 
 		conex = DAO.criarConexao();
 
-		String sql = "UPDATE tb_usuario(nome, email, telefone, nascimento, cep) VALUES(?, ?, ?, ?, ?);";
+		String sql = "UPDATE tb_usuario SET nome=?, email=?, telefone=?, nascimento=?, cep=? WHERE id=?;";
 
 		try {
 
