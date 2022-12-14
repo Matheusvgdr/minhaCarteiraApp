@@ -114,14 +114,19 @@ public class UsuarioDAO {
 
 		conex = DAO.criarConexao();
 
-		String sql = "UPDATE tb_user SET nomeUsuario = ? WHERE id = ?;";
+		String sql = "UPDATE tb_usuario(nome, email, telefone, nascimento, cep) VALUES(?, ?, ?, ?, ?);";
 
 		try {
 
 			PreparedStatement ps = conex.prepareStatement(sql);
 
-			ps.setString(1, user.getNome());
-			ps.setInt(2, user.getId());
+			ps.setInt(1, user.getId());
+			ps.setString(2, user.getNome());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getTelefone());
+			ps.setString(5, user.getTelefone());
+			ps.setDate(6, user.getNascimento());
+			ps.setString(7, user.getCep());
 
 			retornoQuery = ps.executeUpdate();
 
