@@ -14,11 +14,13 @@ import service.UsuarioService;
 
 @Path("usuario")
 public class UsuarioResource {
+	
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getIt() {
 		return "Got it!";
 	}
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("procurarUsuario")
@@ -30,6 +32,7 @@ public class UsuarioResource {
 		return Response.ok().entity(usuario).build();
 	
 	}
+	
 	@POST
 	@Path("cadastrarUsuario")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -40,6 +43,7 @@ public class UsuarioResource {
 		
 		return Response.status(200).entity(resposta).build();
 	}
+	
 	@DELETE
 	@Path("deletarUsuario")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -50,6 +54,7 @@ public class UsuarioResource {
 		
 		return Response.status(200).entity(resposta).build();
 	}
+	
 	@POST
 	@Path("modificarUsuario")
 	@Consumes(MediaType.APPLICATION_JSON)
