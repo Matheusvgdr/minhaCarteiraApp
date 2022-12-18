@@ -9,16 +9,13 @@ import { HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    HomeComponent,
-    LoginComponent,
-    CadastroComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
