@@ -56,12 +56,11 @@ public class UsuarioDAO {
 		try {
 			ps = conex.prepareStatement(sql);
 
-			ps.setInt(1, user.getId());
-			ps.setString(2, user.getNome());
-			ps.setString(3, user.getEmail());
-			ps.setString(4, user.getTelefone());
-			ps.setDate(5, user.getNascimento());
-			ps.setString(6, user.getCep());
+			ps.setString(1, user.getNome());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getTelefone());
+			ps.setDate(4, user.getNascimento());
+			ps.setString(5, user.getCep());
 
 			retornoQuery = ps.executeUpdate();
 
@@ -120,13 +119,13 @@ public class UsuarioDAO {
 
 			PreparedStatement ps = conex.prepareStatement(sql);
 
-			ps.setInt(1, user.getId());
-			ps.setString(2, user.getNome());
-			ps.setString(3, user.getEmail());
-			ps.setString(4, user.getTelefone());
-			ps.setString(5, user.getTelefone());
-			ps.setDate(6, user.getNascimento());
-			ps.setString(7, user.getCep());
+			ps.setString(1, user.getNome());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getTelefone());
+			ps.setDate(4, user.getNascimento());
+			ps.setString(5, user.getCep());
+			
+			ps.setInt(6, user.getId());
 
 			retornoQuery = ps.executeUpdate();
 

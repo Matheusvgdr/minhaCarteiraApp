@@ -65,7 +65,7 @@ $fonte-grande: 26px;
 }
 
 body{
-    padding: 27px;
+    font-family: $fonte-texto;
     background-color: var(--cor-primaria);
     height: 100vh;
     transition: .5s;
