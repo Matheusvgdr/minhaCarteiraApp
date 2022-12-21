@@ -1,0 +1,26 @@
+package dao;
+
+import java.sql.Connection;
+
+import com.mysql.cj.protocol.Resultset;
+
+import model.Usuario;
+
+public class UsuarioDAO {
+	Connection conex = null;
+	
+	public Usuario procurarUsuario(int id) {
+		Usuario user = null;
+		Resultset rs = null;
+		conex = DAO.criarConexao();
+		
+		String sql = "SELECT * FROM tb_usuario WHERE id = ?";
+		
+		try {
+			
+		}catch{
+			
+		}
+		return user;
+	}
+}

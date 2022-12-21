@@ -1,0 +1,77 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.mysql.cj.protocol.Resultset;
+
+import model.Usuario;
+
+public class UsuarioDAO {
+	Connection conex = null;
+
+	// PROCURAR USUÁRIO
+	public Usuario procurarUsuario(int id) {
+		Usuario user = null;
+		Resultset rs = null;
+		conex = DAO.criarConexao();
+
+		String sql = "SELECT * FROM tb_usuario WHERE id = ?";
+
+		try {
+			PreparedStatement ps = conex.prepareStatement(sql);
+			ps.setInt(1, id);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				user = new Usuario();
+
+				user.setId(rs.getInt("id"));
+				user.setCep(rs.getString("cep"));
+				user.setEmail(rs.getString("email"));
+				user.setNascimento(rs.getDate("nascimento"));
+				user.setNome(rs.getString("nome"));
+				user.setTelefone(rs.getString("telefone"));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	// CADASTRAR USUÁRIO
+	public boolean cadastrarUsuario(Usuario user) {
+		boolean resultado = true;
+		int retornoQuery;
+		conex = DAO.criarConexao();
+		
+		String sql = "INSERT INTO tb_usuario( nomeCarteira, dinheiro, id_cartao, id_conta) VALUES(?, ?, ?, ?);";
+		
+		PreparedStatement ps;
+		try {
+			ps = conex.prepareStatement(sql);
+			
+			ps.setString(1, cdt.getNomeCarteira());
+			ps.setDouble(2, cdt.getDinheiro());
+			ps.setInt(3, cdt.getId_cartao().getId());
+			ps.setInt(4, cdt.getId_conta().getId());
+			
+			retornoQuery = ps.executeUpdate();
+			
+			if(retornoQuery <= 0) {
+				resultado = false;
+			}
+			
+		}catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return resultado;
+
+	}
+}
