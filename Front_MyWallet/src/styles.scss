@@ -7,11 +7,12 @@
     --cor-texto: #FFFFFF;
     --detalhe: #FECE2F;
     --cor-destaque: #FFFFFF;
+    --botao-enviar: ;
 }
 
 body.light{
     --cor-card: #EEEEEE;
-    --cor-primaria: #EEEEEE;
+    --cor-primaria: #dddddd;
     --cor-secundaria: #FFFFFF;
     --cor-terciaria: #1F1D26;
     --cor-texto: #282433;
@@ -22,7 +23,7 @@ body.light{
 body.caramel{
     --cor-card: #FFFFFF;
     --cor-primaria: #FFFFFF;
-    --cor-secundaria: #FFDCA9;
+    --cor-secundaria: #FAEAB1;//#FCF9BE;
     --cor-terciaria: #CD782A;
     --cor-texto: #282433;
     --detalhe: #FECE2F;
@@ -57,6 +58,7 @@ $fonte-texto: 'Poppins', sans-serif;
 $fonte-pequena: 13px;
 $font-media: 20px;
 $fonte-grande: 26px;
+$fonte-button: 16px;
 
 *{
     margin: 0;
@@ -125,7 +127,6 @@ body{
     }
 
     .toggle{
-        background: var(--cor-card);
         transition: .5s;
     }
     .texto{
@@ -148,6 +149,64 @@ body{
 }
 
 //*----------- MODO LIGHT -----------
+
+html *:before,
+html *:after {
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+}
+
+html *{
+    transition: 0.2s ease-in-out;
+}
+
+*:before,
+*:after {
+  z-index: -1;
+}
+
+
+[class^=btn-] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;  
+  padding: 10px 10px;
+  border: 2px solid #03a66a;
+  border-radius: 8px;
+}
+
+.btn-1 {
+  color: #03a66a;
+  z-index: 6;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: $fonte-button;
+  font-family: $fonte-texto;
+}
+.btn-1:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  left: 0;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid #03a66a;
+  transform: translateX(-100%);
+  
+}
+.btn-1:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.btn-1:hover:before {
+  transform: translateX(0);
+}
+  
 
 
 

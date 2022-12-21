@@ -1,0 +1,125 @@
+@import '../../../styles.scss';
+.container-carteiras{
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+
+    .topo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 2.1%;
+        padding: 1.25% 5.10%;
+        background: var(--cor-secundaria);
+        color: var(--cor-texto);
+    
+        i{
+            transform: scale(1.4);
+        }
+    
+        .procurar{
+            display: flex;
+            flex-direction: row;
+            gap: 4%;
+            align-items: center;
+            background: var(--cor-card);
+            width: 29.55%;
+            padding: .7% 2%;
+            border-radius: 4px;
+    
+            
+            input{
+                font-family: $fonte-texto;
+                color: var(--cor-texto);
+                background: none;
+                border: none;
+                outline: none;
+               
+            }
+        }
+    
+    
+        .perfil{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            
+            .resumo-perfil{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+             
+            }
+            .foto{
+                height: 40px;
+                width: 50px;
+                border-radius: 7px;
+                //TODO background-image: ;
+                font-size: $fonte-pequena;
+                background: var(--cor-card);
+            }
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: transparent;
+                border: none;
+                border-radius: 3px;
+                color: var(--cor-texto);
+            }
+        }
+    }
+
+    .carteiras{
+        height: 87.7%;
+        border-radius: 14px;
+        background: var(--cor-secundaria);
+        padding: 2% 2.5%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        
+        .carteira{
+            background: var(--cor-card);
+            height: 25%;
+            border-radius: 8px;
+            padding: 7% 9%;
+            color: var(--cor-texto);
+            display: flex;
+
+            img{
+                transform: scale(.6);
+            }
+
+            .valor{
+                font-size: 24px;
+                font-weight: 700;
+                margin-top: 3px;
+            }
+
+            .titulo{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20%;
+            }
+
+            .info-dinheiro{
+                font-size: $fonte-pequena;
+            }
+
+            .circulo{
+                background: var(--cor-primaria);
+                height: 30px;
+                width: 30px;
+                border-radius: 15px;
+            }
+        }
+    }
+}
