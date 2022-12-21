@@ -15,14 +15,14 @@
             <p>10/12/2022</p>
         </div>
 
-        <button class="toggle" (click)="myfun()">
+        <div class="toggle"  #toggle id="toggle">
             <i class="ph-palette-bold"></i>
-            <div class="tema"></div>
-            <div class="tema"></div>
-            <div class="tema"></div>
-            <div class="tema"></div>
-            <div class="tema"></div>
-        </button>
+            <div class="tema" (click)="mudarTemaLight()"></div>
+            <div class="tema" (click)="mudarTemaCaramel()"></div>
+            <div class="tema" (click)="mudarTemaGrey()"></div>
+            <div class="tema" (click)="mudarTemaRose()"></div>
+            <div class="tema" (click)="mudarTemaDark()"></div>
+        </div>
 
 
         <div class="perfil">
