@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\Vinicius Bastos\Documents\minhaCarteiraApp\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2528167643.index
-4205343461.index
-1846186492.index
-763477834.index
-2603344230.index
-2758668796.index
