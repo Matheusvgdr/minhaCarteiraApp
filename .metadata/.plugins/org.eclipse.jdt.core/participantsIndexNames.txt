@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\Vinicius Bastos\Documents\minhaCarteiraApp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1966633299.index
-\app\src\main\java
