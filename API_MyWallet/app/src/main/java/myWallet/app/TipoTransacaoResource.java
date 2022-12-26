@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 import model.TipoTransacao;
 import service.TipoTransacaoService;
 
+@Path("tipoTransacao")
 public class TipoTransacaoResource {
 
 	@GET

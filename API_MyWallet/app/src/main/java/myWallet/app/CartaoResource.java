@@ -11,6 +11,7 @@ import jakarta.ws.rs.core.Response;
 import model.Cartao;
 import service.CartaoService;
 
+@Path("cartao")
 public class CartaoResource {
 	
 	@GET

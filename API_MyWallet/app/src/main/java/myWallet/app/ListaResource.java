@@ -14,6 +14,7 @@ import jakarta.ws.rs.core.Response;
 import model.Lista;
 import service.ListaService;
 
+@Path("lista")
 public class ListaResource {
 	// PROCURAR ITEM
 	@GET

@@ -12,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 import model.Conta;
 import service.ContaService;
 
+@Path("conta")
 public class ContaResource {
 
 	// PROCURAR CONTA

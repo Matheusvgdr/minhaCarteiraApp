@@ -28,7 +28,7 @@ public class CartaoDAO {
 			while(rs.next()) {
 				cartao = new Cartao();
 				
-				cartao.setId(rs.getInt("int"));
+				cartao.setId(rs.getInt("id"));
 				cartao.setBanco(rs.getString("banco"));
 				cartao.getId_conta().setId(rs.getInt("id_conta"));
 				
