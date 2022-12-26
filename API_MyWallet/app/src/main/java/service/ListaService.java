@@ -34,6 +34,5 @@ public List<Lista> listarItem(int idConta){
 	
 	return list.listarItens(idConta);
 	
-}
-
+	}
 }
