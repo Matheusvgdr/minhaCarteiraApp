@@ -120,6 +120,22 @@
                 background-color: transparent;
                 border: none;
                 border-radius: 3px;
+                z-index: 3;
+            }
+
+            .dropdown{
+                
+                ul{
+                    list-style: none;
+                    background: var(--cor-card);
+                    padding: 10px 40px;
+                    position:absolute;
+                    border-radius: 6px;
+                    right: 5%;
+                    top: -6%;
+                    transition: .6s;
+                    opacity: 0;
+                }
             }
         }
     }

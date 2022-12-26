@@ -165,6 +165,17 @@ html *{
   z-index: -1;
 }
 
+.down{
+    position:absolute;            
+    right: 6%;
+    top: 10%;
+    background: #fff;
+}
+.up{
+    position:absolute;            
+    right: 6%;
+    top: -10%;
+}
 
 [class^=btn-] {
   position: relative;

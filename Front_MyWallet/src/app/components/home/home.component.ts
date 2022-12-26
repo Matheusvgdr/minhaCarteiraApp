@@ -7,6 +7,11 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('ul') ul: ElementRef | undefined;
+  @ViewChild('drop') drop: ElementRef | undefined;
+
+  constructor(private renderer: Renderer2) { }
+
   mudarTemaLight(){
     this.renderer.addClass(document.body, 'light');
     this.renderer.removeClass(document.body, 'caramel');
@@ -43,7 +48,18 @@ export class HomeComponent implements OnInit {
     this.renderer.removeClass(document.body, 'light');
   }
 
-  constructor(private renderer: Renderer2) { }
+  descer(){
+      const dropMenu = this.ul?.nativeElement;
+      this.renderer.setStyle(dropMenu, 'top', '10%' );
+      this.renderer.setStyle(dropMenu, 'opacity', '1' );
+      
+  }
+
+  teste(){
+    const dropMenu = this.ul?.nativeElement;
+    this.renderer.setStyle(dropMenu, 'top', '-10%' );
+    this.renderer.setStyle(dropMenu, 'opacity', '0' );
+  }
 
   ngOnInit(): void {
   }

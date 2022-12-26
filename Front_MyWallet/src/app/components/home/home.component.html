@@ -38,8 +38,15 @@
 
                 
             </div>
-            <button class="btn"><i class="ph-caret-circle-down"></i></button>
-           
+            <button class="btn" (click)="descer()" (dblclick)="teste()" #drop id="drop"><i class="ph-caret-circle-down"></i></button>
+            <div class="dropdown" >
+                <ul #ul id="ul">
+                    <li><i></i>Ver perfil</li>
+                    <li><i></i>Alterar perfil</li>
+                    <li><i></i>Alterar perfil</li>
+                    <li><i></i>Alterar perfil</li>
+                </ul>
+            </div>
 
         </div>
     </div>
