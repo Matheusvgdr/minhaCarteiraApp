@@ -27,7 +27,7 @@
     <div class="carteiras">
 
         <div class="container-carteira">
-            <button class="adicionar-carteira">
+            <button class="adicionar-carteira" id="myBtn" #myBtn (click)="mostrar()">
                 <i class="bx bx-plus-circle"></i>
             </button>
             <div class="carteira">
@@ -115,5 +115,18 @@
             
         </div>
 
+            <!-- The Modal -->
+<div id="myModal" #myModal class="modal" (click)="fecharModal()">
+
+    <!-- Modal content -->
+    <div class="modal-content" id="modalContent" #modalContent>
+      <span class="close" id="close" #close (click)="fechar()">&times;</span>
+      <p>Some text in the Modal..</p>
     </div>
+  
+  </div>
+
 </div>
+
+    </div>
+
