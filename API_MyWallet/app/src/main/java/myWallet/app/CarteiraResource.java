@@ -49,10 +49,10 @@ public class CarteiraResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("listarCarteiras")
-	public Response getListarCarteiras(@QueryParam("idConta") int idConta) {
+	public Response getListarCarteiras(@QueryParam("idUsuario") int idUsuario) {
 		
 		CarteiraService servico = new CarteiraService();
-		List<Carteira> listaDeCarteiras = servico.listarCarteiras(idConta);
+		List<Carteira> listaDeCarteiras = servico.listarCarteiras(idUsuario);
 				
 		return Response.ok().entity(listaDeCarteiras).build();
 		

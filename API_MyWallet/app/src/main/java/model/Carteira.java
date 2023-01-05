@@ -4,9 +4,21 @@ public class Carteira {
 	private int id;
 	private String nomeCarteira;
 	private double dinheiro;
-	private Conta id_conta;
-	private Cartao id_cartao;
+	private Usuario id_usuario;
+	private Banco id_banco;
 	
+	public Usuario getId_usuario() {
+		return id_usuario;
+	}
+	public void setId_usuario(Usuario id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+	public Banco getId_banco() {
+		return id_banco;
+	}
+	public void setId_banco(Banco id_banco) {
+		this.id_banco = id_banco;
+	}
 	public int getId() {
 		return id;
 	}
@@ -27,17 +39,5 @@ public class Carteira {
 		this.dinheiro = dinheiro;
 	}
 
-	public Conta getId_conta() {
-		return id_conta;
-	}
-	public void setId_conta(Conta id_conta) {
-		this.id_conta = id_conta;
-	}
-	public Cartao getId_cartao() {
-		return id_cartao;
-	}
-	public void setId_cartao(Cartao id_cartao) {
-		this.id_cartao = id_cartao;
-	}
 	
 }

@@ -1,7 +1,7 @@
-import { Cartao } from "./cartao.model";
+import { Banco } from "./banco.model";
 import { Carteira } from "./carteira.model";
-import { Conta } from "./conta.model";
 import { TT } from "./tipoTransacao.mode";
+import { Usuario } from "./usuario.model";
 
 export {Movimentacao as Movi}
 
@@ -11,6 +11,6 @@ interface Movimentacao{
     dinheiro: number;
     id_tipo: TT;
     id_carteira: Carteira;
-    id_conta: Conta;
-    id_cartao: Cartao;
+    id_usuario: Usuario;
+    id_banco: Banco;
 }

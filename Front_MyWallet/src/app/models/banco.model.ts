@@ -1,10 +1,9 @@
 import { Usuario } from "./usuario.model";
 
-export {Conta};
+export {Banco}
 
-interface Conta{
+interface Banco{
     id: number;
-    nomeUsuario: string;
-    senha: string;
+    banco: string;
     id_usuario: Usuario;
 }

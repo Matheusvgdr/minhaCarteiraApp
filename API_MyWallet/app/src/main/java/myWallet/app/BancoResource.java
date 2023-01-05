@@ -8,19 +8,19 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.Cartao;
-import service.CartaoService;
+import model.Banco;
+import service.BancoService;
 
 @Path("cartao")
-public class CartaoResource {
+public class BancoResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("listarCartao")
-	public Response getCartao(@QueryParam("idCartao") int idCartao) {
+	@Path("listarBancos")
+	public Response getCartao() {
 
-		CartaoService servico = new CartaoService();
-		List<Cartao> listaDeCartao = servico.listarCartao();
+		BancoService servico = new BancoService();
+		List<Banco> listaDeCartao = servico.listarBancos();
 
 		Response response = Response.ok().entity(listaDeCartao).build();
 

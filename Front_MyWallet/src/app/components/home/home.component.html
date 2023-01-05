@@ -15,7 +15,7 @@
             <p>10/12/2022</p>
         </div>
 
-        <div class="toggle"  #toggle id="toggle">
+        <div class="toggle" #toggle id="toggle">
             <i class="ph-palette-bold"></i>
             <div class="tema" (click)="mudarTemaLight()"></div>
             <div class="tema" (click)="mudarTemaCaramel()"></div>
@@ -27,19 +27,20 @@
 
         <div class="perfil">
 
-            
-                <i class="ph-bell"></i>
-           
+
+            <i class="ph-bell"></i>
+
 
             <div class="resumo-perfil">
                 <div class="foto">
                 </div>
                 <p>Matheus</p>
 
-                
+
             </div>
-            <button class="btn" (click)="descer()" (dblclick)="teste()" #drop id="drop"><i class="ph-caret-circle-down"></i></button>
-            <div class="dropdown" >
+            <button class="btn" (click)="descer()" (dblclick)="teste()" #drop id="drop"><i
+                    class="ph-caret-circle-down"></i></button>
+            <div class="dropdown">
                 <ul #ul id="ul">
                     <li><i></i>Ver perfil</li>
                     <li><i></i></li>
@@ -132,14 +133,17 @@
             <div class="titulo">
                 <p>Gastos recentes</p> <i class="ph-chart-bar"></i>
             </div>
+            <div class="chart-container">
+                <canvas id="MyChart"></canvas>
+                <!-- <canvas  id="MyChartBubble"></canvas> -->
+            </div>
         </div>
         <div class="cartao">
             <div class="titulo">
-                <p>Cartão</p> <i class="ph-credit-card"></i>
+                <p>Banco</p> <i class="ph-credit-card"></i>
             </div>
 
         </div>
+
     </div>
 </div>
-
-<script src="../../js/change-mode.js"></script>

@@ -33,6 +33,17 @@ public class UsuarioResource {
 	
 	}
 	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("verificarUsuario")
+	public Response getVerificarUsuario(@QueryParam("nomeUsuario") String nomeUsuario, @QueryParam("senha") String senha) {
+		
+		UsuarioService servico = new UsuarioService();
+		Usuario usuario = servico.verificarUsuario(nomeUsuario, senha);
+		
+		return Response.ok().entity(usuario).build();
+	}
+	
 	@POST
 	@Path("cadastrarUsuario")
 	@Consumes(MediaType.APPLICATION_JSON)

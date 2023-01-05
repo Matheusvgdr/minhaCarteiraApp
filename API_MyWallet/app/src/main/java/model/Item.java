@@ -1,12 +1,12 @@
 package model;
 
-public class Lista {
+public class Item {
 	private int id;
 	private String conteudo;
 	private double dinheiro;
-	private Conta id_conta;
+	private Usuario id_usuario;
 	private Carteira id_carteira;
-	private Cartao id_cartao;
+	private Banco id_banco;
 	
 	public int getId() {
 		return id;
@@ -20,6 +20,18 @@ public class Lista {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
+	public Usuario getId_usuario() {
+		return id_usuario;
+	}
+	public void setId_usuario(Usuario id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+	public Banco getId_banco() {
+		return id_banco;
+	}
+	public void setId_banco(Banco id_banco) {
+		this.id_banco = id_banco;
+	}
 	public double getDinheiro() {
 		return dinheiro;
 	}
@@ -27,24 +39,11 @@ public class Lista {
 		this.dinheiro = dinheiro;
 	}
 	
-	public Conta getId_conta() {
-		return id_conta;
-	}
-	public void setId_conta(Conta id_conta) {
-		this.id_conta = id_conta;
-	}
 	public Carteira getId_carteira() {
 		return id_carteira;
 	}
 	public void setId_carteira(Carteira id_carteira) {
 		this.id_carteira = id_carteira;
-	}
-	public Cartao getId_cartao() {
-		return id_cartao;
-	}
-	public void setId_cartao(Cartao id_cartao) {
-		this.id_cartao = id_cartao;
-	}
-		
+	}		
 	
 }

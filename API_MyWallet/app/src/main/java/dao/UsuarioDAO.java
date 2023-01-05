@@ -30,11 +30,15 @@ public class UsuarioDAO {
 				user = new Usuario();
 
 				user.setId(rs.getInt("id"));
-				user.setCep(rs.getString("cep"));
-				user.setEmail(rs.getString("email"));
-				user.setNascimento(rs.getDate("nascimento"));
 				user.setNome(rs.getString("nome"));
+				user.setEmail(rs.getString("email"));
+				user.setNomeUsuario(rs.getString("nomeUsuario"));
+				user.setSenha(rs.getString("senha"));
 				user.setTelefone(rs.getString("telefone"));
+				user.setNascimento(rs.getDate("nascimento"));
+				user.setCidade(rs.getString("cidade"));
+				user.setEstado(rs.getString("estado"));
+				
 			}
 
 		} catch (SQLException e) {
@@ -50,7 +54,7 @@ public class UsuarioDAO {
 		int retornoQuery;
 		conex = DAO.criarConexao();
 
-		String sql = "INSERT INTO tb_usuario(nome, email, telefone, nascimento, cep) VALUES(?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO tb_usuario(nome, email, nomeUsuario, senha, telefone, nascimento, cidade, estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 
 		PreparedStatement ps;
 		try {
@@ -58,9 +62,12 @@ public class UsuarioDAO {
 
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getTelefone());
-			ps.setDate(4, user.getNascimento());
-			ps.setString(5, user.getCep());
+			ps.setString(3, user.getNomeUsuario());
+			ps.setString(4, user.getSenha());
+			ps.setString(5, user.getTelefone());
+			ps.setDate(6, user.getNascimento());
+			ps.setString(7, user.getCidade());
+			ps.setString(8, user.getEstado());
 
 			retornoQuery = ps.executeUpdate();
 
@@ -113,7 +120,7 @@ public class UsuarioDAO {
 
 		conex = DAO.criarConexao();
 
-		String sql = "UPDATE tb_usuario SET nome=?, email=?, telefone=?, nascimento=?, cep=? WHERE id=?;";
+		String sql = "UPDATE tb_usuario SET nome=?, email=?, nomeUsuario=?, senha=?, telefone=?, nascimento=?, cidade=?, estado=? WHERE id=?;";
 
 		try {
 
@@ -121,9 +128,12 @@ public class UsuarioDAO {
 
 			ps.setString(1, user.getNome());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getTelefone());
-			ps.setDate(4, user.getNascimento());
-			ps.setString(5, user.getCep());
+			ps.setString(3, user.getNomeUsuario());
+			ps.setString(4, user.getSenha());
+			ps.setString(5, user.getTelefone());
+			ps.setDate(6, user.getNascimento());
+			ps.setString(7, user.getCidade());
+			ps.setString(8, user.getEstado());
 			
 			ps.setInt(6, user.getId());
 
@@ -139,4 +149,43 @@ public class UsuarioDAO {
 
 		return resultado;
 	}
+	
+	//VERIFICA SE A SENHA E O NOME DE USUÁRIO ESTÃO CORRETOS
+	public Usuario verificarUsuario(String nomeUsu, String senha) {
+		Usuario usu =null;
+		ResultSet rs = null;
+		
+		conex = DAO.criarConexao();
+		
+		String sql = "SELECT * FROM tb_usuario WHERE nomeUsuario = ? AND senha = ?;";
+		
+		try {
+			PreparedStatement ps = conex.prepareStatement(sql);
+			
+			ps.setString(1, nomeUsu);
+			ps.setString(2, senha);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				usu = new Usuario();
+				
+				usu.setId(rs.getInt("id"));
+				usu.setNome(rs.getString("nome"));
+				usu.setEmail(rs.getString("email"));
+				usu.setNomeUsuario(rs.getString("nomeUsuario"));
+				usu.setSenha(rs.getString("senha"));
+				usu.setTelefone(rs.getString("telefone"));
+				usu.setNascimento(rs.getDate("nascimento"));
+				usu.setCidade(rs.getString("cidade"));
+				usu.setEstado(rs.getString("estado"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return usu;
+	}
+
 }
