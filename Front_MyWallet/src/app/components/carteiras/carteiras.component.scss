@@ -204,3 +204,40 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  form input{
+    padding: 8px 15px;
+    width: 300px;
+    border: 2px solid #c3c3c3;
+    border-radius: 8px;
+    font-family: var(--font-SubTitle);
+}
+
+form input:focus{
+    outline: none;
+    border: 2px solid #636363;
+}
+
+.info_input{
+    width: 100%;
+    margin: 18px 0px;
+}
+
+.info_input i{
+    position: relative;
+    left: -30px;
+    transform: scale(1.1);
+    color: #616161;
+}
+
+.info_input a{
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--color-input);
+    transition: .4s;
+}
+
+.info_input a:hover{
+    color: #616161;
+    
+}

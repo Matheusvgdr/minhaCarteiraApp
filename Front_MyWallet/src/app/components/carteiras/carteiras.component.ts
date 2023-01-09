@@ -34,8 +34,5 @@ export class CarteirasComponent implements OnInit {
     this.renderer.setStyle(modal, 'display', "none");
   }
 
-  fecharModal(){
-    const modal = this.modal?.nativeElement;
-    this.renderer.setStyle(modal, 'display', "none");
-  }
+
 }

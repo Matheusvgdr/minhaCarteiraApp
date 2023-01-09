@@ -116,12 +116,35 @@
         </div>
 
         <!-- The Modal -->
-        <div id="myModal" #myModal class="modal" (click)="fecharModal()">
+        <div id="myModal" #myModal class="modal">
 
             <!-- Modal content -->
             <div class="modal-content" id="modalContent" #modalContent>
                 <span class="close" id="close" #close (click)="fechar()">&times;</span>
-                <p>Some text in the Modal..</p>
+                <p>Crie sua carteira</p>
+                <form action="" method="post">
+                    <div class="info_input">
+                        <label for="">Nome da carteira</label> <br>
+                        <input type="text" name="userName" id="userName"  autocomplete="off">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="info_input">
+                        <label for="">Dinheiro</label> <br>
+                        <input type="password" name="password" id="password" autocomplete="off">
+                        <i class="bx bx-lock-alt"></i>
+                        <br>
+                    </div>
+    
+                    <div class="buttons">
+                        <button class="btn-1" id="enter">
+    
+                            <strong>Confirmar</strong>
+                            <i class="bx bx"></i>
+    
+                        </button>
+                    </div>
+    
+                </form>
             </div>
 
         </div>
