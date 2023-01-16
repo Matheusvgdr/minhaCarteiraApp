@@ -4,7 +4,7 @@ import { Usuario } from "./usuario.model";
 export {Carteira}
 
 interface Carteira{
-    id: number;
+    id?: number;
     nomeCarteira: string;
     dinheiro: number;
     id_usuario: Usuario;

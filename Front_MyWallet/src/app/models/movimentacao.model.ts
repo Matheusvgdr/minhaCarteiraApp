@@ -6,7 +6,7 @@ import { Usuario } from "./usuario.model";
 export {Movimentacao as Movi}
 
 interface Movimentacao{
-    id: number;
+    id?: number;
     dataMovimentacao: Date;
     dinheiro: number;
     id_tipo: TT;

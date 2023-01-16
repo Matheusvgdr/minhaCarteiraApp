@@ -122,15 +122,15 @@
             <div class="modal-content" id="modalContent" #modalContent>
                 <span class="close" id="close" #close (click)="fechar()">&times;</span>
                 <p>Crie sua carteira</p>
-                <form action="" method="post">
+                <form action="" #form="ngForm">
                     <div class="info_input">
                         <label for="">Nome da carteira</label> <br>
-                        <input type="text" name="userName" id="userName"  autocomplete="off">
+                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" [(ngModel)]="carteira.nomeCarteira">
                         <i class="bx bx-user"></i>
                     </div>
                     <div class="info_input">
                         <label for="">Dinheiro</label> <br>
-                        <input type="password" name="password" id="password" autocomplete="off">
+                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" [(ngModel)]="carteira.dinheiro">
                         <i class="bx bx-lock-alt"></i>
                         <br>
                     </div>

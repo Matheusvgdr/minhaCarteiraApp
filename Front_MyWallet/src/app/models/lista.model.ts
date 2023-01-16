@@ -3,7 +3,7 @@ import { Carteira } from "./carteira.model";
 import { Usuario } from "./usuario.model";
 
 interface Lista{
-    id: number;
+    id?: number;
     conteudo: string;
     dinheiro: number;
     id_usuario: Usuario;

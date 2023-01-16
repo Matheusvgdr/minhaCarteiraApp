@@ -15,13 +15,16 @@ import { ReciboComponent } from './components/recibo/recibo.component';
 import { CarteirasComponent } from './components/carteiras/carteiras.component';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './service/usuario.service';
-import { GraficoComponent } from './components/grafico/grafico.component';
 import { NgChartsModule } from 'ng2-charts';
 import { BancoService } from './service/banco.service';
 import { CarteiraService } from './service/carteira.service';
 import { ListaService } from './service/lista.service';
 import { MovimentacaoService } from './service/movimentacao.service';
 import { TipoTransacaoService } from './service/tipo-transacao.service';
+import { TransacaoComponent } from './components/transacao/transacao.component';
+import { BancoComponent } from './components/banco/banco.component';
+import { CambioComponent } from './components/cambio/cambio.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { TipoTransacaoService } from './service/tipo-transacao.service';
     CadastrarComponent,
     ReciboComponent,
     CarteirasComponent,
-    GraficoComponent,
+    TransacaoComponent,
+    BancoComponent,
+    CambioComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

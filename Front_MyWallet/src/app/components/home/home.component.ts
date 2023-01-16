@@ -92,18 +92,5 @@ export class HomeComponent implements OnInit {
     this.renderer.removeClass(document.body, 'rose');
     this.renderer.removeClass(document.body, 'light');
   }
-
-  descer(){
-      const dropMenu = this.ul?.nativeElement;
-      this.renderer.setStyle(dropMenu, 'top', '10%' );
-      this.renderer.setStyle(dropMenu, 'opacity', '1' );
-      
-  }
-
-  teste(){
-    const dropMenu = this.ul?.nativeElement;
-    this.renderer.setStyle(dropMenu, 'top', '-10%' );
-    this.renderer.setStyle(dropMenu, 'opacity', '0' );
-  }
   
 }

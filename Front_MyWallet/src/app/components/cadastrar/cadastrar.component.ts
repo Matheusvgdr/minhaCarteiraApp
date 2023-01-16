@@ -23,28 +23,13 @@ export class CadastrarComponent implements OnInit {
 
   }
 
-  @ViewChild('teste') teste: ElementRef | undefined;
-  @ViewChild('img') img: ElementRef | undefined;
-
-  mover(){
-  }
-  constructor(private renderer: Renderer2, private servico: UsuarioService) { }
+  constructor( private servico: UsuarioService) { }
 
   ngOnInit(): void {
-    // this.renderer.listen('document', 'click', () => {
-    //   console.log(this.dat);
-
-    //this.data.transform(new Date(this.testeData), 'MM/dd/yyyy');
-    // })
-  }
-
-  testar(): void{
-    const img = this.img?.nativeElement;
-    this.renderer.setStyle(img, 'left', '-100%');
+   
   }
 
   onSubmit(){
-    //console.log(this.nome,this.email,this.nascimento, this.estado, this.cidade);
    this.postCadastrarUsuario(this.usuario);
   }
 
@@ -55,6 +40,5 @@ export class CadastrarComponent implements OnInit {
         console.log(response);
       }
     })
-
   }
 }
