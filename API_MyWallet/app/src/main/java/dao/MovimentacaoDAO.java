@@ -259,6 +259,7 @@ public class MovimentacaoDAO {
 	//Insere uma transação realizada para uma carteira, que pertence a um usuário
 	public boolean realizarTransacaoCarteira(Movimentacao mvt){
 		
+		//USAR SELECT COM INNER JOIN
 		boolean resultado = true;
 		int retornoQueryMovi, retornoQueryCarte;
 		
