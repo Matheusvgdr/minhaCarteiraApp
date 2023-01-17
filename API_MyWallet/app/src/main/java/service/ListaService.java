@@ -3,17 +3,17 @@ package service;
 import java.util.List;
 
 import dao.ListaDAO;
-import model.Lista;
+import model.Item;
 
 public class ListaService {
 	ListaDAO list = new ListaDAO();
 	
-public Lista procurarItem(int id){
+public Item procurarItem(int id){
 		
 		return list.procurarItem(id);
 	}
 
-public boolean cadastrarItem(Lista item){
+public boolean cadastrarItem(Item item){
 	
 	return list.cadastrarItem(item);
 	}
@@ -24,13 +24,13 @@ public boolean deletarLista(int idItem){
 
 	}
 
-public boolean  modificarLista(Lista item){
+public boolean  modificarLista(Item item){
 
 	return list.modificarItem(item);
 	
 	}
 
-public List<Lista> listarItem(int idConta){
+public List<Item> listarItem(int idConta){
 	
 	return list.listarItens(idConta);
 	

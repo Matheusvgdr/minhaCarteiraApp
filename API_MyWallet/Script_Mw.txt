@@ -8,33 +8,29 @@ CREATE TABLE tb_usuario(
     id int primary key auto_increment,
     nome varchar(250),
     email varchar (250),
+ 	nomeUsuario varchar(40),
+  	senha varchar(20),
     telefone varchar (250),
     nascimento date,
-  	cep varchar(250)
+  	cidade varchar(80),
+  	estado varchar(80)
 );
 
-CREATE TABLE tb_conta(
-    id int primary key auto_increment,
-    nomeUsuario varchar(150),
-    senha varchar(150),
-  	id_usuario int
-);
-
-CREATE TABLE tb_cartao(
+CREATE TABLE tb_banco(
 	id int primary key auto_increment,
   	banco varchar(250),
-  	id_conta int
+  	id_usuario int
 );
 
 CREATE TABLE tb_carteira(
   	id int primary key auto_increment,
   	nomeCarteira varchar(150),
   	dinheiro double,
-  	id_conta int,
-  	id_cartao int
+  	id_usuario int,
+  	id_banco int
 );
 
-CREATE TABLE tb_tiposTransacao(
+CREATE TABLE tb_tipoTransacao(
 	id int primary key auto_increment,
   	descricao varchar(150)
 );
@@ -45,83 +41,67 @@ CREATE TABLE tb_movimentacao(
   	dinheiro double,
   	id_tipo int,
   	id_carteira int,
-  	id_conta int,
-  	id_cartao int
+  	id_usuario int,
+  	id_banco int
 );
 
-CREATE TABLE tb_lista(
+CREATE TABLE tb_item(
 	id int primary key auto_increment,
   	conteudo varchar(150),
   	dinheiro double,
-  	id_conta int, 
+  	id_usuario int, 
   	id_carteira int,
-  	id_cartao int
+  	id_banco int
 );
 
 
 -- TESTE -------------------------------------------------------
 
-INSERT INTO tb_usuario(nome, email, telefone, nascimento, cep) VALUES("Matheus", "matheus@gmail.com", "(21)97536-2567", 2001-06-06, "24753-110");
-INSERT INTO tb_conta(nomeUsuario, senha, id_usuario) VALUES("Maths", "12345", 1);
-INSERT INTO tb_cartao(banco, id_conta) VALUES("Nubank", 1)
-INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_conta, id_cartao) VALUES("casa", 150, 1, 1);
-INSERT INTO tb_tiposTransacao(descricao) VALUES("Depósito");
-INSERT INTO tb_tiposTransacao(descricao) VALUES("Saque");
-INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id_conta, id_cartao) VALUES("2022-12-01", 250, 1, 1, 1, 1);
-INSERT INTO tb_lista(conteudo, dinheiro, id_conta, id_carteira, id_cartao) VALUES("batata", 10, 1, 1, 1);
+INSERT INTO tb_usuario(nome, email, nomeUsuario, senha, telefone, nascimento, cidade, estado) 
+VALUES("Matheus", "matheus@gmail.com","maths", "12345", "(21)97536-2567", "2001-06-06", "são gonçalo", "rio de janeiro");
+INSERT INTO tb_banco(banco, id_usuario) VALUES("Nubank", 1)
+INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_usuario, id_banco) VALUES("casa", 150, 1, 1);
+INSERT INTO tb_tipoTransacao(descricao) VALUES("Depósito");
+INSERT INTO tb_tipoTransacao(descricao) VALUES("Saque");
+INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco) VALUES("2022-12-01", 250, 1, 1, 1, 1);
+INSERT INTO tb_item(conteudo, dinheiro, id_usuario, id_carteira, id_banco) VALUES("batata", 10, 1, 1, 1);
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_MOVIMENTACOES -------------------------------------------------------
-ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tiposTransacao(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_contaM FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tipoTransacao(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_usuarioM FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
 ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_carteiraM FOREIGN KEY(id_carteira) REFERENCES tb_carteira(id) ON DELETE CASCADE;
-ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_cartaoM FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
+ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_bancoM FOREIGN KEY(id_banco) REFERENCES tb_banco(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTEIRAS -------------------------------------------------------
-ALTER TABLE tb_carteira ADD CONSTRAINT fk_contaC FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
-ALTER TABLE tb_carteira ADD CONSTRAINT fk_cartaoC FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteira ADD CONSTRAINT fk_usuarioC FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
+ALTER TABLE tb_carteira ADD CONSTRAINT fk_cartaoC FOREIGN KEY(id_banco) REFERENCES tb_banco(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_LISTAS -------------------------------------------------------
-ALTER TABLE tb_lista ADD CONSTRAINT fk_contaL FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
-ALTER TABLE tb_lista ADD CONSTRAINT fk_carteiraL FOREIGN KEY(id_carteira) REFERENCES tb_carteira(id) ON DELETE CASCADE;
-ALTER TABLE tb_lista ADD CONSTRAINT fk_cartaoL FOREIGN KEY(id_cartao) REFERENCES tb_cartao(id) ON DELETE CASCADE;
+ALTER TABLE tb_item ADD CONSTRAINT fk_usuarioI FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
+ALTER TABLE tb_item ADD CONSTRAINT fk_carteiraI FOREIGN KEY(id_carteira) REFERENCES tb_carteira(id) ON DELETE CASCADE;
+ALTER TABLE tb_item ADD CONSTRAINT fk_bancoI FOREIGN KEY(id_banco) REFERENCES tb_banco(id) ON DELETE CASCADE;
 
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTOES -------------------------------------------------------
-ALTER TABLE tb_cartao ADD CONSTRAINT fk_contaCt FOREIGN KEY(id_conta) REFERENCES tb_conta(id) ON DELETE CASCADE;
+ALTER TABLE tb_banco ADD CONSTRAINT fk_usuarioCT FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
 
 
 -- SELECTS -------------------------------------------------------
 SELECT * FROM tb_carteira;
-SELECT * FROM tb_cartao;
-SELECT * FROM tb_conta;
+SELECT * FROM tb_banco;
 SELECT * FROM tb_usuario;
-SELECT * FROM tb_lista;
+SELECT * FROM tb_item;
 SELECT * FROM tb_movimentacao;
-SELECT * FROM tb_tiposTransacao;
+SELECT * FROM tb_tipoTransacao;
 
 -- DROPS -------------------------------------------------------
 DROP DATABASE db_myWalletUpdt;
 DROP TABLE tb_carteira;
-DROP TABLE tb_cartao;
-DROP TABLE tb_conta;
+DROP TABLE tb_banco;
 DROP TABLE tb_usuario;
-DROP TABLE tb_lista;
+DROP TABLE tb_item;
 DROP TABLE tb_movimentacao;
-DROP TABLE tb_tiposTransacao;
-
--- SELECT COM JOINS -------------------------------------------------------
-
-SELECT C.nomeUsuario, M.dataMovimentacao, M.dinheiro, T.descricao, U.nome, U.email  FROM tb_movimentacao M INNER JOIN tb_conta C ON C.id = M.id_conta 
-																								  INNER JOIN tb_tipostransacao T ON T.id = M.id_tipo  
-                                                                                                  INNER JOIN tb_usuario U ON U.id = C.id_usuario
-																								  WHERE id_conta = 1;
-
-
-
-
-
-
-
+DROP TABLE tb_tipoTransacao;

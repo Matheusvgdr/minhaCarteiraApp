@@ -1,12 +1,12 @@
-import { Cartao } from "./cartao.model";
+import { Banco } from "./banco.model";
 import { Carteira } from "./carteira.model";
-import { Conta } from "./conta.model";
+import { Usuario } from "./usuario.model";
 
 interface Lista{
-    id: number;
+    id?: number;
     conteudo: string;
     dinheiro: number;
-    id_conta: Conta;
+    id_usuario: Usuario;
     id_carteira: Carteira;
-    id_cartao: Cartao;
+    id_banco: Banco;
 }

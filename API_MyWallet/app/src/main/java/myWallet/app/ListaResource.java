@@ -11,7 +11,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.Lista;
+import model.Item;
 import service.ListaService;
 
 @Path("lista")
@@ -23,7 +23,7 @@ public class ListaResource {
 	public Response getProcurarItem(@QueryParam("idLista") int idLista) {
 
 		ListaService servico = new ListaService();
-		Lista lista = servico.procurarItem(idLista);
+		Item lista = servico.procurarItem(idLista);
 
 		return Response.ok().entity(lista).build();
 	}
@@ -32,7 +32,7 @@ public class ListaResource {
 	@POST
 	@Path("cadastrarItem")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response postCadastrarItem(Lista lista) {
+	public Response postCadastrarItem(Item lista) {
 
 		ListaService servico = new ListaService();
 		boolean resposta = servico.cadastrarItem(lista);
@@ -56,7 +56,7 @@ public class ListaResource {
 	@POST
 	@Path("modificarItem")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response postModificarItem(Lista lista) {
+	public Response postModificarItem(Item lista) {
 
 		ListaService servico = new ListaService();
 		boolean resposta = servico.modificarLista(lista);
@@ -71,7 +71,7 @@ public class ListaResource {
 	public Response getListarItem(@QueryParam("idLista") int idLista) {
 
 		ListaService servico = new ListaService();
-		List<Lista> listaDeItem = servico.listarItem(idLista);
+		List<Item> listaDeItem = servico.listarItem(idLista);
 
 		Response response = Response.ok().entity(listaDeItem).build();
 

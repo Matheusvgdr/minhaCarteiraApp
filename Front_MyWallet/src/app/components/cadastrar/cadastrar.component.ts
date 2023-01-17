@@ -1,5 +1,8 @@
 import { style } from '@angular/animations';
+import { DatePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {  Usuario } from 'src/app/models/usuario.model';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'mw-cadastrar',
@@ -8,22 +11,34 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 })
 export class CadastrarComponent implements OnInit {
 
-  @ViewChild('teste') teste: ElementRef | undefined;
-  @ViewChild('img') img: ElementRef | undefined;
+  usuario: Usuario = {
+    nome: '',
+    email: '',
+    nomeUsuario: '',
+    senha: '',
+    telefone: '',
+    nascimento: '',
+    cidade: '',
+    estado: ''
 
-  mover(){
   }
-  constructor(private renderer: Renderer2) { }
+
+  constructor( private servico: UsuarioService) { }
 
   ngOnInit(): void {
-    this.renderer.listen('document', 'click', () => {
-      console.log('teste');
+   
+  }
+
+  onSubmit(){
+   this.postCadastrarUsuario(this.usuario);
+  }
+
+  private postCadastrarUsuario(usuario: Usuario){
+    this.servico.postCadastrarUsuario(usuario).subscribe({
+      next: (response) => {
+        this.usuario = response;
+        console.log(response);
+      }
     })
   }
-
-  testar(): void{
-    const img = this.img?.nativeElement;
-    this.renderer.setStyle(img, 'left', '-100%');
-  }
-
 }

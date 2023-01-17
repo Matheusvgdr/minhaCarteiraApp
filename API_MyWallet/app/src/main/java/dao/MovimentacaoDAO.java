@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Conta;
+import model.Banco;
 import model.Movimentacao;
 import model.TipoTransacao;
 import model.Usuario;
@@ -41,8 +41,8 @@ public class MovimentacaoDAO {
 				movi.setDinheiro(rs.getDouble("dinheiro"));
 				movi.getId_tipo().setId(rs.getInt("id_tipo"));
 				movi.getId_carteira().setId(rs.getInt("id_carteira"));
-				movi.getId_conta().setId(rs.getInt("id_conta"));
-				movi.getId_cartao().setId(rs.getInt("id_cartao"));
+				movi.getId_usuario().setId(rs.getInt("id_usuario"));
+				movi.getId_banco().setId(rs.getInt("id_banco"));
 			}
 			
 		} catch (SQLException e) {
@@ -63,7 +63,7 @@ public class MovimentacaoDAO {
 		
 		conex = DAO.criarConexao();
 		
-		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_carteira, id_conta, id_cartao ) VALUES(?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco ) VALUES(?, ?, ?, ?, ?, ?);";
 		
 		PreparedStatement ps;
 		try {
@@ -73,8 +73,8 @@ public class MovimentacaoDAO {
 			ps.setDouble(2, mvt.getDinheiro());
 			ps.setInt(3, mvt.getId_tipo().getId());
 			ps.setInt(4, mvt.getId_carteira().getId());
-			ps.setInt(5, mvt.getId_conta().getId());
-			ps.setInt(6, mvt.getId_cartao().getId());
+			ps.setInt(5, mvt.getId_usuario().getId());
+			ps.setInt(6, mvt.getId_banco().getId());
 			
 			retornoQuery = ps.executeUpdate();
 			
@@ -100,7 +100,7 @@ public class MovimentacaoDAO {
 		
 		double saldoDeposito = 0;
 		
-		listaDeposito = this.listarDepositos(saldo.getId_conta().getId(), 1);
+		listaDeposito = this.listarDepositos(saldo.getId_usuario().getId(), 1);
 		
 		for(Movimentacao mov: listaDeposito) {
 			
@@ -109,7 +109,7 @@ public class MovimentacaoDAO {
 		
 		double saldoSaque = 0;
 		
-		listaSaques = this.listarSaques(saldo.getId_conta().getId(), 2);
+		listaSaques = this.listarSaques(saldo.getId_usuario().getId(), 2);
 		
 		for(Movimentacao mov: listaSaques) {
 			saldoSaque += mov.getDinheiro();
@@ -136,7 +136,7 @@ public class MovimentacaoDAO {
 		Movimentacao mvt = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_conta = ? AND id_tipo = ?;";
+		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_usuario = ? AND id_tipo = ?;";
 		
 		PreparedStatement ps;
 		try {
@@ -170,7 +170,7 @@ public class MovimentacaoDAO {
 		Movimentacao mvt = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_conta = ? AND id_tipo = ?;";
+		String sql = "SELECT dinheiro FROM tb_movimentacao WHERE id_usuario = ? AND id_tipo = ?;";
 		
 		PreparedStatement ps;
 		
@@ -201,20 +201,20 @@ public class MovimentacaoDAO {
 	}
 	
 	//Lista todas as transações feitas por um determinado usuário
-	public List<Movimentacao> listarTransacoes(int idConta){
+	public List<Movimentacao> listarTransacoes(int idUsuario){
 		
 		List<Movimentacao> listaDeTransacoes = new ArrayList<Movimentacao>();
 		ResultSet rs = null;
 		Movimentacao mvt = null;
-		Conta conta = null;
 		TipoTransacao tipo = null;
 		Usuario usu = null;
+		Banco banco = null;
 		conex = DAO.criarConexao();
 		
-		String sql = "SELECT C.nomeUsuario, M.dataMovimentacao, M.dinheiro, T.descricao, U.nome, U.email  FROM tb_movimentacao M INNER JOIN tb_conta C ON C.id = M.id_conta \r\n"
-				+ "																								  INNER JOIN tb_tipostransacao T ON T.id = M.id_tipo  \r\n"
-				+ "                                                                                                  INNER JOIN tb_usuario U ON U.id = C.id_usuario\r\n"
-				+ "																								  WHERE id_conta = ?";
+		String sql = "SELECT U.nomeUsuario, M.dataMovimentacao, M.dinheiro, T.descricao, U.nome, C.banco FROM tb_movimentacao M INNER JOIN tb_usuario U ON U.id = M.id_usuario \r\n"
+				+ "																								  INNER JOIN tb_tipoTransacao T ON T.id = M.id_tipo \r\n"
+				+ "                                                                                               INNER JOIN tb_banco C ON C.id = M.id_banco\r\n"
+				+ "																								  WHERE M.id_usuario = ?;";
 		
 		
 		try {
@@ -223,25 +223,25 @@ public class MovimentacaoDAO {
 			
 			ps = conex.prepareStatement(sql);
 			
-			ps.setInt(1, idConta);
+			ps.setInt(1, idUsuario);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				conta = new Conta();
 				tipo = new TipoTransacao();
 				mvt = new Movimentacao();
 				usu = new Usuario();
+				banco = new Banco();
 				
-				mvt.setId_conta(conta);
+				mvt.setId_usuario(usu);
 				mvt.setId_tipo(tipo);
-				mvt.getId_conta().setId_usuario(usu);;
+				mvt.setId_banco(banco);
 				
 				mvt.setDinheiro(rs.getDouble("dinheiro"));
 				mvt.setDataMovimentacao(rs.getDate("dataMovimentacao"));
-				mvt.getId_conta().setNomeUsuario(rs.getString("nomeUsuario"));
+				mvt.getId_usuario().setNomeUsuario(rs.getString("nomeUsuario"));
 				mvt.getId_tipo().setDescricao(rs.getString("descricao"));
-				mvt.getId_conta().getId_usuario().setNome(rs.getString("nome"));
-				mvt.getId_conta().getId_usuario().setEmail(rs.getString("email"));
+				mvt.getId_usuario().setNome(rs.getString("nome"));
+				mvt.getId_banco().setBanco(rs.getString("banco"));
 				
 				listaDeTransacoes.add(mvt);
 			}
@@ -259,12 +259,13 @@ public class MovimentacaoDAO {
 	//Insere uma transação realizada para uma carteira, que pertence a um usuário
 	public boolean realizarTransacaoCarteira(Movimentacao mvt){
 		
+		//USAR SELECT COM INNER JOIN
 		boolean resultado = true;
 		int retornoQueryMovi, retornoQueryCarte;
 		
 		conex = DAO.criarConexao();
 		
-		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_carteira, id_conta, id_cartao ) VALUES(?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco ) VALUES(?, ?, ?, ?, ?, ?);";
 		
 		PreparedStatement ps;
 		
@@ -275,19 +276,19 @@ public class MovimentacaoDAO {
 			ps.setDouble(2, mvt.getDinheiro());
 			ps.setInt(3, mvt.getId_tipo().getId());
 			ps.setInt(4, mvt.getId_carteira().getId());
-			ps.setInt(5, mvt.getId_conta().getId());
-			ps.setInt(6, mvt.getId_cartao().getId());
+			ps.setInt(5, mvt.getId_usuario().getId());
+			ps.setInt(6, mvt.getId_banco().getId());
 			
 			retornoQueryMovi = ps.executeUpdate();
 		
-		String sqlCarteira = "INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_conta, id_cartao) VALUES(?, ?, ?, ?)";
+		String sqlCarteira = "INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_usuario, id_banco) VALUES(?, ?, ?, ?)";
 		
 			ps = conex.prepareStatement(sqlCarteira);
 			
 			ps.setString(1, mvt.getId_carteira().getNomeCarteira());
 			ps.setDouble(2, mvt.getDinheiro());
-			ps.setInt(3, mvt.getId_conta().getId());
-			ps.setInt(4, mvt.getId_cartao().getId());
+			ps.setInt(3, mvt.getId_usuario().getId());
+			ps.setInt(4, mvt.getId_banco().getId());
 			
 			retornoQueryCarte = ps.executeUpdate();
 			

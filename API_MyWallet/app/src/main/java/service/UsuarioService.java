@@ -32,4 +32,8 @@ public class UsuarioService {
 
 		return usuario.modificarUsuario(usu);
 	}
+	
+	public Usuario verificarUsuario(String nomeUsu, String senha) {
+		return usuario.verificarUsuario(nomeUsu, senha);
+	}
 }

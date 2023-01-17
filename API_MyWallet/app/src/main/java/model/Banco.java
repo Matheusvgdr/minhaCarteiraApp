@@ -1,9 +1,9 @@
 package model;
 
-public class Cartao {
+public class Banco {
 	private int id;
 	private String banco;
-	private Conta id_conta;
+	private Usuario id_usuario;
 	
 	public int getId() {
 		return id;
@@ -17,14 +17,11 @@ public class Cartao {
 	public void setBanco(String banco) {
 		this.banco = banco;
 	}
-	public Conta getId_conta() {
-		return id_conta;
+	public Usuario getId_usuario() {
+		return id_usuario;
 	}
-	public void setId_conta(Conta id_conta) {
-		this.id_conta = id_conta;
+	public void setId_usuario(Usuario id_usuario) {
+		this.id_usuario = id_usuario;
 	}
-	
 
-	
-	
 }

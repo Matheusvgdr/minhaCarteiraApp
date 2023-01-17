@@ -189,7 +189,7 @@ html *{
 
 .btn-1 {
   color: #03a66a;
-  z-index: 6;
+  z-index: 4;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -217,7 +217,72 @@ html *{
 .btn-1:hover:before {
   transform: translateX(0);
 }
-  
+
+//   GOOGLE
+.btn-2 {
+    color: #db4a39;
+    border: 2px solid #db4a39 ;
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    font-size: $fonte-button;
+    font-family: $fonte-texto;
+  }
+  .btn-2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    bottom: 0;
+    left: 0;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #db4a39;
+    transform: translateX(-100%);
+    
+  }
+  .btn-2:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-2:hover:before {
+    transform: translateX(0);
+  }
+
+//   LINKEDIN
+.btn-3 {
+    color: #0e76a8 ;
+    border: 2px solid #0e76a8 ;
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    font-size: $fonte-button;
+    font-family: $fonte-texto;
+  }
+  .btn-3:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    bottom: 0;
+    left: 0;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #0e76a8 ;
+    transform: translateX(-100%);
+    
+  }
+  .btn-3:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-3:hover:before {
+    transform: translateX(0);
+  }
 
 
 

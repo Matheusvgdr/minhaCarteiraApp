@@ -27,13 +27,13 @@
     <div class="carteiras">
 
         <div class="container-carteira">
-            <button class="adicionar-carteira">
+            <button class="adicionar-carteira" id="myBtn" #myBtn (click)="mostrar()">
                 <i class="bx bx-plus-circle"></i>
             </button>
             <div class="carteira">
                 <div class="info-carteira">
                     <div class="titulo">
-            
+
                         <p>Faculdade</p>
                         <div class="circulo">
                             <i class="bx bx-pencil"></i>
@@ -49,7 +49,7 @@
             <div class="carteira">
                 <div class="info-carteira">
                     <div class="titulo">
-            
+
                         <p>Passagem</p>
                         <div class="circulo">
                             <i class="bx bx-pencil"></i>
@@ -65,24 +65,7 @@
             <div class="carteira">
                 <div class="info-carteira">
                     <div class="titulo">
-            
-                        <p>Mercado</p>
-                        <div class="circulo">
-                            <i class="bx bx-pencil"></i>
-                        </div>
-                    </div>
-                    <div class="info-dinheiro">
-                        <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 50,00</p>
-                    </div>
-                </div>
-                <img src="../../../assets/img/moeda-pequena.svg" alt="">
-            </div>
-            
-            <div class="carteira">
-                <div class="info-carteira">
-                    <div class="titulo">
-            
+
                         <p>Mercado</p>
                         <div class="circulo">
                             <i class="bx bx-pencil"></i>
@@ -99,7 +82,7 @@
             <div class="carteira">
                 <div class="info-carteira">
                     <div class="titulo">
-            
+
                         <p>Mercado</p>
                         <div class="circulo">
                             <i class="bx bx-pencil"></i>
@@ -112,8 +95,60 @@
                 </div>
                 <img src="../../../assets/img/moeda-pequena.svg" alt="">
             </div>
-            
+
+            <div class="carteira">
+                <div class="info-carteira">
+                    <div class="titulo">
+
+                        <p>Mercado</p>
+                        <div class="circulo">
+                            <i class="bx bx-pencil"></i>
+                        </div>
+                    </div>
+                    <div class="info-dinheiro">
+                        <p class="total">Total da carteira</p>
+                        <p class="valor">R$ 50,00</p>
+                    </div>
+                </div>
+                <img src="../../../assets/img/moeda-pequena.svg" alt="">
+            </div>
+
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" #myModal class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" id="modalContent" #modalContent>
+                <span class="close" id="close" #close (click)="fechar()">&times;</span>
+                <p>Crie sua carteira</p>
+                <form action="" #form="ngForm">
+                    <div class="info_input">
+                        <label for="">Nome da carteira</label> <br>
+                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" [(ngModel)]="carteira.nomeCarteira">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="info_input">
+                        <label for="">Dinheiro</label> <br>
+                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" [(ngModel)]="carteira.dinheiro">
+                        <i class="bx bx-lock-alt"></i>
+                        <br>
+                    </div>
+    
+                    <div class="buttons">
+                        <button class="btn-1" id="enter">
+    
+                            <strong>Confirmar</strong>
+                            <i class="bx bx"></i>
+    
+                        </button>
+                    </div>
+    
+                </form>
+            </div>
+
         </div>
 
     </div>
+
 </div>

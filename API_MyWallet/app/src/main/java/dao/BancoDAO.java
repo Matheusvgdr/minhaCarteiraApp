@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Cartao;
+import model.Banco;
 
-public class CartaoDAO {
+public class BancoDAO {
 	Connection conex = null;
 	
-	public List<Cartao> listarCartao(){
+	public List<Banco> listarBancos(){
 		
-		List<Cartao> listaCartao = new ArrayList<Cartao>();
+		List<Banco> listaCartao = new ArrayList<Banco>();
 		ResultSet rs = null;
-		Cartao cartao = null;
+		Banco cartao = null;
 		conex = DAO.criarConexao();
-		String sql = "SELECT * FROM tb_cartao;";
+		String sql = "SELECT * FROM tb_banco;";
 		
 		try {
 			PreparedStatement ps = conex.prepareStatement(sql);
@@ -26,11 +26,11 @@ public class CartaoDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				cartao = new Cartao();
+				cartao = new Banco();
 				
 				cartao.setId(rs.getInt("id"));
 				cartao.setBanco(rs.getString("banco"));
-				cartao.getId_conta().setId(rs.getInt("id_conta"));
+				//cartao.getId_usuario().setId(rs.getInt("id_usuario"));
 				
 				listaCartao.add(cartao);
 			}

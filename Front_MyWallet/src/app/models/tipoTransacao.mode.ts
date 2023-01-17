@@ -1,6 +1,6 @@
 export {TipoTransacao as TT}
 
 interface TipoTransacao{
-    id: number;
+    id?: number;
     descricao: string;
 }

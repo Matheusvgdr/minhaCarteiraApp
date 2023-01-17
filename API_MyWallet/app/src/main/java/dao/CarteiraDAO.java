@@ -49,7 +49,7 @@ public boolean cadastrarCarteira(Carteira cdt) {
 	
 	conex = DAO.criarConexao();
 	
-	String sql = "INSERT INTO tb_carteira( nomeCarteira, dinheiro, id_cartao, id_conta) VALUES(?, ?, ?, ?);";
+	String sql = "INSERT INTO tb_carteira( nomeCarteira, dinheiro, id_banco, id_usuario) VALUES(?, ?, ?, ?);";
 	
 	PreparedStatement ps;
 	try {
@@ -57,8 +57,8 @@ public boolean cadastrarCarteira(Carteira cdt) {
 		
 		ps.setString(1, cdt.getNomeCarteira());
 		ps.setDouble(2, cdt.getDinheiro());
-		ps.setInt(3, cdt.getId_cartao().getId());
-		ps.setInt(4, cdt.getId_conta().getId());
+		ps.setInt(3, cdt.getId_banco().getId());
+		ps.setInt(4, cdt.getId_usuario().getId());
 		
 		retornoQuery = ps.executeUpdate();
 		
@@ -133,7 +133,7 @@ public boolean modificarCarteira(Carteira md) {
 	return resultado;
 }
 
-public List<Carteira> listarCarteira(int idConta){
+public List<Carteira> listarCarteira(int idUsuario){
 	
 	List<Carteira> listaDeCarteira = new ArrayList<Carteira>();
 	ResultSet rs = null;
@@ -141,14 +141,14 @@ public List<Carteira> listarCarteira(int idConta){
 	conex = DAO.criarConexao();
 	
 	
-	String sql = "SELECT * FROM tb_carteira WHERE id_conta = ?;";
+	String sql = "SELECT * FROM tb_carteira WHERE id_usuario = ?;";
 	
 	PreparedStatement ps;
 	
 	try {
 		
 		ps = conex.prepareStatement(sql);
-		ps.setInt(1, idConta);
+		ps.setInt(1, idUsuario);
 		
 		rs = ps.executeQuery();
 		

@@ -10,30 +10,28 @@
             </div>
             
 
-            <form action="" method="post">
+            <form action="" #form="ngForm" (submit)="onSubmit()" >
                 <div class="info_input">
                     <label for="">Usuário</label> <br>
-                    <input type="text" name="userName" id="userName"  autocomplete="off">
+                    <input type="text" name="usuario" id="usuario"  autocomplete="off" [(ngModel)]="nomeUsuario">
                     <i class="bx bx-user"></i>
                 </div>
                 <div class="info_input">
                     <label for="">Senha</label> <br>
-                    <input type="password" name="password" id="password" autocomplete="off">
+                    <input type="password" name="senha" id="senha" autocomplete="off" [(ngModel)]="senha">
                     <i class="bx bx-lock-alt"></i>
                     <br>
-                    <a href="/pages/nHome.html">Esqueceu a senha?</a>
+                    <a href="">Esqueceu a senha?</a>
                 </div>
-                <button class="btn btn1" id="enter">
 
-                    <strong> Enter</strong>
+                <div class="buttons">
+                    <button class="btn-1" id="enter">
 
-                </button>
+                        <strong>Entrar</strong>
+                        <i class="bx bx"></i>
 
-                <button class="btn btn2" id="enter">
-
-                    <strong>Sign Up</strong>
-
-                </button>
+                    </button>
+                </div>
 
             </form>
 
@@ -45,13 +43,13 @@
                     <div class="line"></div>
                 </div>
 
-                <button class="btn btn3" id="enter">
+                <button class="btn-2" id="google">
 
-                    <i class="bx bxl-github"></i>
+                    <i class="bx bxl-google"></i>
 
                 </button>
 
-                <button class="btn btn4" id="enter">
+                <button class="btn-3" id="linkedin">
 
                    <i class="bx bxl-linkedin"></i>
 
