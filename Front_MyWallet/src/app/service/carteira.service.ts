@@ -12,8 +12,8 @@ export class CarteiraService {
 
   constructor(private http: HttpClient) { }
 
-  postCadastrarCarteira(carterira: Carteira): Observable<Carteira>{
-    return this.http.post<Carteira>(environment.UrlApiUsuario + `${"/cadastrarCarteira"}`, carterira).pipe(catchError(ErrorHandler.handleError));
+  postCadastrarCarteira(carteira: Carteira): Observable<Carteira>{
+    return this.http.post<Carteira>(environment.UrlApiUsuario + `${"/cadastrarCarteira"}`, carteira).pipe(catchError(ErrorHandler.handleError));
   }
 
   postModificarCarteira(carteira: Carteira): Observable<Carteira>{
