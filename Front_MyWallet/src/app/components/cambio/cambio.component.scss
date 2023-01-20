@@ -1,6 +1,91 @@
+@import "../../../styles.scss";
+
 .container-cambio{
     width: 100%;
     height: 100%;
     border-radius: 14px;
     background-color: var(--cor-secundaria);
+    padding: 50px 40px;
 }
+
+    .container-carteira{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 16px;
+        max-height: 100%;
+    }
+    
+    .adicionar-carteira{
+        // background: var(--cor-card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 4px solid #D0FE6D;
+        background: none;
+        cursor: pointer;
+
+        i{
+            transform: scale(3);
+            color: #D0FE6D;
+        }
+    }
+
+    .adicionar-carteira:hover{
+        transform: translateY(-4px);
+    }
+    .carteira{
+        background: var(--cor-card);
+        border-radius: 8px;
+        border-left: 10px solid #D0FE6D;
+        padding: 15% 9%;
+        color: var(--cor-texto);
+        display: flex; 
+        justify-content: space-between;
+        
+        img{
+            width: 60px;
+        }
+
+        .titulo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 4px;
+            
+            i{
+                transform: scale(.9);
+            }
+        }
+
+        .info-dinheiro{
+            margin-top: 16px;
+
+            .total{
+                font-size: 11px;    
+            }
+
+            .valor{
+                font-size: $font-media;
+                font-weight: 700;
+            }
+        }
+
+        .circulo{
+            // background: var(--cor-primaria);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 22px;
+            width: 22px;
+            border-radius: 11px;
+
+        }
+    }
+
+    .carteira:hover{
+        transform: translateY(-4px);
+        cursor: pointer;
+    }

@@ -12,4 +12,13 @@ export class CambioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cambios = [
+    {moeda: "Dollar"},
+    {moeda: "Euro"},
+    {moeda: "Libra"},
+    {moeda: "Real"},
+    {moeda: "Yen"},
+    {moeda: "Dollar"}
+  ]
+
 }
