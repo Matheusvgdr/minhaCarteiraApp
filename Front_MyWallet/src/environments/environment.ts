@@ -5,8 +5,11 @@
 export const environment = {
   production: false,
   UrlApiUsuario: 'http://localhost:8080/app/webapi/usuario',
-  
-
+  UrlApiBanco:   'http://localhost:8080/app/webapi/cartao',
+  UrlApiCarteira: 'http://localhost:8080/app/webapi/carteira',
+  UrlApiMovimentacao: 'http://localhost:8080/app/webapi/movimentacao',
+  UrlApiTipoTransacao: 'http://localhost:8080/app/webapi/tipoTransacao',
+  UrlApiLista: 'http://localhost:8080/app/webapi/lista'
 };
 
 /*
