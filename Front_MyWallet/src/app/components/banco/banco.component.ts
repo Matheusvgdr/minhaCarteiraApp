@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Banco } from 'src/app/models/banco.model';
+import { BancoService } from 'src/app/service/banco.service';
 
 @Component({
   selector: 'mw-banco',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BancoComponent implements OnInit {
 
-  constructor() { }
+  banco!: Banco; 
+
+  constructor(private servico: BancoService) { }
 
   ngOnInit(): void {
+    this.getListarBanco();
   }
 
+  private getListarBanco(){
+    this.servico.getListarBanco().subscribe({
+      next: (response) => {
+        this.banco = response;
+        console.log(this.banco);
+      }
+    })
+  }
 }

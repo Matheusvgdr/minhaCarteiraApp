@@ -92,5 +92,5 @@ export class HomeComponent implements OnInit {
     this.renderer.removeClass(document.body, 'rose');
     this.renderer.removeClass(document.body, 'light');
   }
-  
+    
 }

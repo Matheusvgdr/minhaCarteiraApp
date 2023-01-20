@@ -13,23 +13,23 @@ export class CarteiraService {
   constructor(private http: HttpClient) { }
 
   postCadastrarCarteira(carteira: Carteira): Observable<Carteira>{
-    return this.http.post<Carteira>(environment.UrlApiUsuario + `${"/cadastrarCarteira"}`, carteira).pipe(catchError(ErrorHandler.handleError));
+    return this.http.post<Carteira>(environment.UrlApiCarteira + `${"/cadastrarCarteira"}`, carteira).pipe(catchError(ErrorHandler.handleError));
   }
 
   postModificarCarteira(carteira: Carteira): Observable<Carteira>{
-    return this.http.post<Carteira>(environment.UrlApiUsuario + `${"/modificarCarteira"}`, carteira).pipe(catchError(ErrorHandler.handleError));
+    return this.http.post<Carteira>(environment.UrlApiCarteira + `${"/modificarCarteira"}`, carteira).pipe(catchError(ErrorHandler.handleError));
   }
 
   getProcurarCarteira(idCarteira: number): Observable<Carteira>{
-    return this.http.get<Carteira>(environment.UrlApiUsuario + `${"/procurarCarteira"}`, {params: new HttpParams().set("idCarteira", idCarteira)}).pipe(catchError(ErrorHandler.handleError));
+    return this.http.get<Carteira>(environment.UrlApiCarteira + `${"/procurarCarteira"}`, {params: new HttpParams().set("idCarteira", idCarteira)}).pipe(catchError(ErrorHandler.handleError));
   }
 
   getListarCarteiras(idUsuario: number): Observable<Carteira[]>{
-    return this.http.get<Carteira[]>(environment.UrlApiUsuario + `${"/listarCarteiras"}`, {params: new HttpParams().set("idUsuario", idUsuario)}).pipe(catchError(ErrorHandler.handleError));
+    return this.http.get<Carteira[]>(environment.UrlApiCarteira + `${"/listarCarteiras"}`, {params: new HttpParams().set("idUsuario", idUsuario)}).pipe(catchError(ErrorHandler.handleError));
   }
 
   delDeletarCarteira(idCarteira: number): Observable<Carteira>{
-    return this.http.delete<Carteira>(environment.UrlApiUsuario + `${"/deletarCarteira"}`, {params: new HttpParams().set("idCarteira", idCarteira)}).pipe(catchError(ErrorHandler.handleError));
+    return this.http.delete<Carteira>(environment.UrlApiCarteira + `${"/deletarCarteira"}`, {params: new HttpParams().set("idCarteira", idCarteira)}).pipe(catchError(ErrorHandler.handleError));
   }
 
 }

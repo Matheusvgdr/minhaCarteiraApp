@@ -37,5 +37,4 @@ export class UsuarioService {
     return this.http.delete<Usuario>(environment.UrlApiUsuario + `${"/deletarUsuario"}`, {params: new HttpParams().set("idUsuario", idUsuario)
     }).pipe(catchError(ErrorHandler.handleError));
   }
-  
 }

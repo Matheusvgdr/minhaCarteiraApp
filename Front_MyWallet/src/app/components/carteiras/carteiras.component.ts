@@ -43,7 +43,6 @@ export class CarteirasComponent implements OnInit {
 
   onSubmit(){
     this.servico.postCadastrarCarteira(this.carteira);
-
   }
 
   private postCadastrarCarteria(carteira:Carteira){

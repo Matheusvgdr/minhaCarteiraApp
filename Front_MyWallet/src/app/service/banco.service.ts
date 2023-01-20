@@ -13,6 +13,6 @@ export class BancoService {
   constructor(private http: HttpClient) { }
 
   getListarBanco(): Observable<Banco>{
-    return this.http.get<Banco>(environment.UrlApiUsuario + `${"/listarBancos"}`).pipe(catchError(ErrorHandler.handleError));
+    return this.http.get<Banco>(environment.UrlApiBanco + `${"/listarBancos"}`).pipe(catchError(ErrorHandler.handleError));
   }
 }
