@@ -26,7 +26,7 @@ export class MovimentacaoService {
   }
 
   getListarMovimentacao(idMovimentacao: number): Observable<Movi[]>{
-    return this.http.get<Movi[]>(environment.UrlApiMovimentacao + `${"listarMovimentacao"}`, {params: new HttpParams().set("idMovimentacao", idMovimentacao)}).pipe(catchError(ErrorHandler.handleError));
+    return this.http.get<Movi[]>(environment.UrlApiMovimentacao + `${"/listarMovimentacao"}`, {params: new HttpParams().set("idConta", idMovimentacao)}).pipe(catchError(ErrorHandler.handleError));
   }
 
   postRealizarTransacaoCarteira(movimentacao: Movi): Observable<Movi>{

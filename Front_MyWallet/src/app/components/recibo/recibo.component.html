@@ -6,7 +6,6 @@
         </div>
     
         <div class="perfil">
-    
             
                 <i class="ph-bell"></i>
            
@@ -26,70 +25,26 @@
 
     <div class="card-recibos">
         <div class="recibos">
-            <div class="recibo">
+            <div class="recibo" *ngFor="let movimentacao of movimentacoes">
                 <div class="dinheiro">
                     <div class="circulo"><i class="ph-coins"></i></div>
-                    <p>R$ 45,88</p>
+                    <p>{{movimentacao.dinheiro}}</p>
                 </div>
                 <div class="tipo">
                     <div class="circulo"><i class="ph-bank"></i></div>
-                    <p>Saque</p>
+                    <p>{{movimentacao.id_tipo.descricao}}</p>
                 </div>
                 <div class="data">
                     <div class="circulo"><i class="ph-calendar-blank"></i></div>
-                    <p>10-12-2022</p>
+                    <p>{{movimentacao.dataMovimentacao}}</p>
                 </div>
                 <div class="cartao">
                     <div class="circulo"><i class="ph-credit-card"></i></div>
-                    <p>Nubank</p>
+                    <p>{{movimentacao.id_banco.banco}}</p>
                 </div>
                 <div class="carteira">
                     <div class="circulo"><i class="ph-wallet"></i></div>
-                    <p>Casa</p>
-                </div>
-            </div>
-            <div class="recibo">
-                <div class="dinheiro">
-                    <div class="circulo"><i class="ph-coins"></i></div>
-                    <p>R$ 45,88</p>
-                </div>
-                <div class="tipo">
-                    <div class="circulo"><i class="ph-bank"></i></div>
-                    <p>Saque</p>
-                </div>
-                <div class="data">
-                    <div class="circulo"><i class="ph-calendar-blank"></i></div>
-                    <p>10-12-2022</p>
-                </div>
-                <div class="cartao">
-                    <div class="circulo"><i class="ph-credit-card"></i></div>
-                    <p>Nubank</p>
-                </div>
-                <div class="carteira">
-                    <div class="circulo"><i class="ph-wallet"></i></div>
-                    <p>Casa</p>
-                </div>
-            </div>
-            <div class="recibo">
-                <div class="dinheiro">
-                    <div class="circulo"><i class="ph-coins"></i></div>
-                    <p>R$ 45,88</p>
-                </div>
-                <div class="tipo">
-                    <div class="circulo"><i class="ph-bank"></i></div>
-                    <p>Saque</p>
-                </div>
-                <div class="data">
-                    <div class="circulo"><i class="ph-calendar-blank"></i></div>
-                    <p>10-12-2022</p>
-                </div>
-                <div class="cartao">
-                    <div class="circulo"><i class="ph-credit-card"></i></div>
-                    <p>Nubank</p>
-                </div>
-                <div class="carteira">
-                    <div class="circulo"><i class="ph-wallet"></i></div>
-                    <p>Casa</p>
+                    <p>{{movimentacao.id_usuario.nomeUsuario}}</p>
                 </div>
             </div>
         </div>

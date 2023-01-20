@@ -30,87 +30,21 @@
             <button class="adicionar-carteira" id="myBtn" #myBtn (click)="mostrar()">
                 <i class="bx bx-plus-circle"></i>
             </button>
-            <div class="carteira">
+            <div class="carteira" *ngFor="let carteira of carteiras">
                 <div class="info-carteira">
                     <div class="titulo">
 
-                        <p>Faculdade</p>
+                        <p>{{carteira.nomeCarteira}}</p>
                         <div class="circulo">
                             <i class="bx bx-pencil"></i>
                         </div>
                     </div>
                     <div class="info-dinheiro">
                         <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 500,00</p>
+                        <p class="valor">R$ {{carteira.dinheiro}}</p>
                     </div>
                 </div>
                 <img src="../../../assets/img/moeda-grande.svg" alt="">
-            </div>
-            <div class="carteira">
-                <div class="info-carteira">
-                    <div class="titulo">
-
-                        <p>Passagem</p>
-                        <div class="circulo">
-                            <i class="bx bx-pencil"></i>
-                        </div>
-                    </div>
-                    <div class="info-dinheiro">
-                        <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 250,00</p>
-                    </div>
-                </div>
-                <img src="../../../assets/img/moeda-media.svg" alt="">
-            </div>
-            <div class="carteira">
-                <div class="info-carteira">
-                    <div class="titulo">
-
-                        <p>Mercado</p>
-                        <div class="circulo">
-                            <i class="bx bx-pencil"></i>
-                        </div>
-                    </div>
-                    <div class="info-dinheiro">
-                        <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 50,00</p>
-                    </div>
-                </div>
-                <img src="../../../assets/img/moeda-pequena.svg" alt="">
-            </div>
-
-            <div class="carteira">
-                <div class="info-carteira">
-                    <div class="titulo">
-
-                        <p>Mercado</p>
-                        <div class="circulo">
-                            <i class="bx bx-pencil"></i>
-                        </div>
-                    </div>
-                    <div class="info-dinheiro">
-                        <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 50,00</p>
-                    </div>
-                </div>
-                <img src="../../../assets/img/moeda-pequena.svg" alt="">
-            </div>
-
-            <div class="carteira">
-                <div class="info-carteira">
-                    <div class="titulo">
-
-                        <p>Mercado</p>
-                        <div class="circulo">
-                            <i class="bx bx-pencil"></i>
-                        </div>
-                    </div>
-                    <div class="info-dinheiro">
-                        <p class="total">Total da carteira</p>
-                        <p class="valor">R$ 50,00</p>
-                    </div>
-                </div>
-                <img src="../../../assets/img/moeda-pequena.svg" alt="">
             </div>
 
         </div>
@@ -125,12 +59,12 @@
                 <form action="" #form="ngForm">
                     <div class="info_input">
                         <label for="">Nome da carteira</label> <br>
-                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" [(ngModel)]="carteira.nomeCarteira">
+                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" >
                         <i class="bx bx-user"></i>
                     </div>
                     <div class="info_input">
                         <label for="">Dinheiro</label> <br>
-                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" [(ngModel)]="carteira.dinheiro">
+                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" >
                         <i class="bx bx-lock-alt"></i>
                         <br>
                     </div>

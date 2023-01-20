@@ -12,7 +12,7 @@ export class TipoTransacaoService {
 
   constructor(private http: HttpClient) { }
 
-  getListarTipos(idTipoTransacao: number): Observable<TT[]>{
-    return this.http.get<TT[]>(environment.UrlApiTipoTransacao + `${"/listarTipos"}`, {params: new HttpParams().set("idTipoTransacao", idTipoTransacao)}).pipe(catchError(ErrorHandler.handleError));
+  getListarTipos(): Observable<TT[]>{
+    return this.http.get<TT[]>(environment.UrlApiTipoTransacao + `${"/listarTipoTransacao"}`).pipe(catchError(ErrorHandler.handleError));
   }
 }

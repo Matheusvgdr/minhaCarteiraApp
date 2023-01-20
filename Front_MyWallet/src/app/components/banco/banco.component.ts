@@ -9,7 +9,7 @@ import { BancoService } from 'src/app/service/banco.service';
 })
 export class BancoComponent implements OnInit {
 
-  banco!: Banco; 
+  banco!: Banco[]; 
 
   constructor(private servico: BancoService) { }
 

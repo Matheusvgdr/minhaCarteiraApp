@@ -17,56 +17,51 @@ export class CarteirasComponent implements OnInit {
 
   constructor(private renderer: Renderer2, private servico: CarteiraService) { }
 
-  ngOnInit(): void {
-  }
-
   usuario: Usuario = {
-      id: 1,
-      nome: '',
-      email: '',
-      nomeUsuario: '',
-      senha: '',
-      telefone: '',
-      nascimento: '',
-      cidade: '',
-      estado: ''
-  }
-  
-  carteira: Carteira = {
-    nomeCarteira: "Teste",
-    dinheiro: 150,
-    id_usuario: this.usuario,
-    id_banco: {
-      banco: "nubank",
-      id_usuario: this.usuario
-    } 
+    id: 1,
+    nome: 'Lucas',
+    email: 'lucas@gmail.com',
+    nomeUsuario: 'Luc14',
+    senha: '12345',
+    telefone: '(21)98563-1245',
+    nascimento: '2000-02-05',
+    cidade: 'São Gonçalo',
+    estado: 'RJ'
   }
 
-  onSubmit(){
-    this.servico.postCadastrarCarteira(this.carteira);
+  carteiras!: Carteira[];
+
+  modelo!: Carteira;
+
+  ngOnInit(): void {
+    this.getListarCarteiras(1);
   }
 
-  private postCadastrarCarteria(carteira:Carteira){
-  this.servico.postCadastrarCarteira(carteira).subscribe({
-    next: (response) => {
-      console.log(response);
-    }
-  })
+  onSubmit() {
+    //this.servico.postCadastrarCarteira(this.carteira);
   }
 
-  mostrar(){
+  private postCadastrarCarteria(carteira: Carteira) {
+    this.servico.postCadastrarCarteira(carteira).subscribe({ next: (response) => { console.log(response); } })
+  }
+
+  private getListarCarteiras(idUsuario: number) {
+    this.servico.getListarCarteiras(idUsuario).subscribe({ next: (response) => { this.carteiras = response; console.log(response); } });
+  }
+
+  mostrar() {
     const btn = this.btn?.nativeElement;
     const close = this.close?.nativeElement;
     const modal = this.modal?.nativeElement;
     const modalContent = this.modalContent?.nativeElement;
 
-   // this.renderer.setStyle(close, 'display', "none");
+    // this.renderer.setStyle(close, 'display', "none");
     this.renderer.setStyle(modal, 'display', "block");
     this.renderer.setStyle(modalContent, 'top', "0");
     //this.renderer.setStyle(modalContent, 'display', "none");
   }
 
-  fechar(){
+  fechar() {
     const modal = this.modal?.nativeElement;
     this.renderer.setStyle(modal, 'display', "none");
   }

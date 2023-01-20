@@ -26,9 +26,7 @@
                     <label for="">Tipo</label> <br>
                     
                         <select name="" id="">
-                            <option>Escolha a transação</option>
-                            <option>Depósito</option>
-                            <option>Saque</option>
+                            <option *ngFor="let tipo of tiposT">{{tipo.descricao}}</option>
                         </select>
                        <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
                     
@@ -36,10 +34,7 @@
                 <div class="info_input">
                     <label for="">Banco</label> <br>
                     <select name="" id="">
-                        <option>Escolha o banco</option>
-                        <option>Nubank</option>
-                        <option>Itaú</option>
-                        <option>Caixa</option>
+                        <option *ngFor="let banco of bancos">{{banco.banco}}</option>
                     </select>
                 </div>
                 <button>
@@ -73,18 +68,13 @@
                 <div class="info_input">
                     <label for="">Tipo</label> <br>
                     <select name="" id="">
-                        <option>Escolha a transação</option>
-                        <option>Depósito</option>
-                        <option>Saque</option>
+                        <option *ngFor="let tipo of tiposT">{{tipo.descricao}}</option>
                     </select>
                 </div>
                 <div class="info_input">
                     <label for="">Banco</label> <br>
                     <select name="" id="">
-                        <option>Escolha o banco</option>
-                        <option>Nubank</option>
-                        <option>Itaú</option>
-                        <option>Caixa</option>
+                        <option *ngFor="let banco of bancos">{{banco.banco}}</option>
                     </select>
                 </div>
                 <button>
