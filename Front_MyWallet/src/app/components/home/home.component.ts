@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Usuario } from 'src/app/models/usuario.model';
 
 Chart.defaults.borderColor = '#fff';
 Chart.defaults.color = '#fff';
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom',]
 
   ngOnInit(): void {
+    
     new Chart('MyChart', {
       type: 'line',
       data: {
@@ -51,7 +53,9 @@ export class HomeComponent implements OnInit {
           }
         }
       }
+    
     });
+  
   }
 
   mudarTemaLight(){

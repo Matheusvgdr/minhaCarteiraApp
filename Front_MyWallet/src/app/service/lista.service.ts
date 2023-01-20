@@ -3,7 +3,7 @@ import { ErrorHandler } from '../error.handler';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Item } from '../models/lista.model';
+import { Item} from '../models/lista.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,9 @@ export class ListaService {
 
   constructor(private http: HttpClient) { }
 
-  getProcurarItem(item: Item): Observable<Item>{
-    return this.http.get<Item>(environment.UrlApiUsuario + `${"/procurarItem"}`, item).pipe(catchError(ErrorHandler.handleError));
-  }
+  // getProcurarItem(item: Item): Observable<Item>{
+  //   return this.http.get<Item>(environment.UrlApiUsuario + `${"/procurarItem"}`, item).pipe(catchError(ErrorHandler.handleError));
+  // }
 
   postCadastrarItem(item: Item): Observable<Item>{
     return this.http.post<Item>(environment.UrlApiUsuario + `${"/cadastrarItem"}`, item).pipe(catchError(ErrorHandler.handleError));

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'mw-login',
@@ -9,28 +10,40 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private servico: UsuarioService) { }
+  constructor(private servico: UsuarioService, private router: Router ) { }
 
- 
-    nomeUsuario: string = '';
-    senha: string =  '';
-    
-  usuario?: Usuario;
+  nomeUsuario: string = '';
+  senha: string = '';
 
   ngOnInit(): void {
+    
   }
 
-  onSubmit(){
-   this.getLogar(this.nomeUsuario, this.senha);
+  onSubmit() {
+    this.getLogar(this.nomeUsuario, this.senha);
+    
   }
 
-  private getLogar(usuario: string, senha: string){
+  private getLogar(usuario: string, senha: string) {
     this.servico.getVerificarUsuario(usuario, senha).subscribe({
       next: (response) => {
-        console.log(response);
+
+        if (response == null) {
+          console.log("erro");
+
+        } else {
+
+          sessionStorage.setItem("usuario", JSON.stringify(response));
+          console.log(sessionStorage);
+
+         this.router.navigate(["home"]);
+
+        }
+
       }
     })
+
+
   }
 
-  //sessionStorage;
 }

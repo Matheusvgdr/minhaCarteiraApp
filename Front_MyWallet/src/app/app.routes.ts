@@ -7,13 +7,24 @@ import { PerfilComponent } from "./components/perfil/perfil.component";
 import { ReciboComponent } from "./components/recibo/recibo.component";
 import { TransacaoComponent } from "./components/transacao/transacao.component";
 
-export const ROUTES: Routes = [
-    {path: "", component: HomeComponent},
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'; // CLI imports router
+import { LoginComponent } from "./components/login/login.component";
+
+const ROUTES: Routes = [
+    {path: "", component: LoginComponent},
+    {path: "home", component: HomeComponent},
     {path: "recibo", component: ReciboComponent},
     {path: "carteiras", component: CarteirasComponent},
     {path: "banco", component: BancoComponent},
     {path: "cambio", component: CambioComponent},
     {path: "perfil", component: PerfilComponent},
     {path: "transacao", component: TransacaoComponent}
-    
-];
+]; // sets up routes constant where you define your routes
+
+// configures NgModule imports and exports
+@NgModule({
+  imports: [RouterModule.forRoot(ROUTES)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

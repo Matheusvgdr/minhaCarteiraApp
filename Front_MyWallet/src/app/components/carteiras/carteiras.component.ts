@@ -31,6 +31,7 @@ export class CarteirasComponent implements OnInit {
       cidade: '',
       estado: ''
   }
+  
   carteira: Carteira = {
     nomeCarteira: "Teste",
     dinheiro: 150,

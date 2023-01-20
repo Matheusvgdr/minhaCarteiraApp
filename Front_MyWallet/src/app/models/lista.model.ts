@@ -2,7 +2,9 @@ import { Banco } from "./banco.model";
 import { Carteira } from "./carteira.model";
 import { Usuario } from "./usuario.model";
 
-interface Lista{
+export {Item}
+
+interface Item{
     id?: number;
     conteudo: string;
     dinheiro: number;

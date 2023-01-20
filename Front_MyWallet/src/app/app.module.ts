@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
-import { ROUTES } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 import { HttpClientModule} from '@angular/common/http'
 
@@ -15,7 +15,7 @@ import { ReciboComponent } from './components/recibo/recibo.component';
 import { CarteirasComponent } from './components/carteiras/carteiras.component';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './service/usuario.service';
-//import { NgChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 import { BancoService } from './service/banco.service';
 import { CarteiraService } from './service/carteira.service';
 import { ListaService } from './service/lista.service';
@@ -42,10 +42,10 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES),
+    AppRoutingModule,
     HttpClientModule,
-    FormsModule
-    //NgChartsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [
     UsuarioService,
