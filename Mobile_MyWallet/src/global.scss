@@ -1,0 +1,75 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root{
+    --cor-card: #282433;
+    --cor-primaria: #18161C;
+    --cor-secundaria: #1F1C26;
+    --cor-terciaria: #7E41A0;
+    --cor-texto: #FFFFFF;
+    --detalhe: #FECE2F;
+    --cor-destaque: #FFFFFF;
+    --botao-enviar: ;
+}
+
+$fonte-texto: "Poppins";
+$fonte-pequena: 14px;
+$fonte-media: 20px;
+$fonte-grande: 26px;
+$fonte-button: 16px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: $fonte-texto;
+}
+
+header{
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items:center;
+    padding: 0 0 16px 0;
+
+    i{
+        transform: scale(3);
+    }
+    
+    p{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}

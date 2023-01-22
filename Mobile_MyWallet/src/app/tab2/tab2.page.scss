@@ -1,0 +1,172 @@
+@import "../../global.scss";
+
+.carteiras {
+    font-family: $fonte-texto;
+    height: 100%;
+    width: 100%;
+    background: var(--cor-primaria);
+    padding: 10px 0 0 0;
+    //padding: 20px 0;
+
+    .sliding-carteira{  
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: $fonte-texto;
+
+        .nomeCar {
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 7px;
+            font-weight: 600;
+
+        }
+
+        .dinheiro {
+            margin-top: 2px;
+            font-size: $fonte-pequena;
+            
+        }
+        
+    }
+
+    .container{
+        width: 100%;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    img{
+        width: 70px;
+    }
+
+    .container-carteira {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 16px;
+        max-height: 100%;
+    }
+
+    .carteira {
+        background: var(--cor-card);
+        border-radius: 8px;
+        border-left: 6px solid #2fdf75;
+        color: var(--cor-texto);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 15px;
+
+        .nomeCar {
+            font-size: $fonte-pequena;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 7px;
+
+            .icons {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                transform: scale(1.15);
+            }
+        }
+
+        .dinheiro {
+            margin-top: 6px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+    }
+}
+
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    /* Could be more or less, depending on screen size */
+    position: relative;
+    left: 0;
+    top: -150px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form input {
+    padding: 8px 15px;
+    width: 300px;
+    border: 2px solid #c3c3c3;
+    border-radius: 8px;
+    font-family: var(--font-SubTitle);
+}
+
+form input:focus {
+    outline: none;
+    border: 2px solid #636363;
+}
+
+.info_input {
+    width: 100%;
+    margin: 18px 0px;
+}
+
+.info_input i {
+    position: relative;
+    left: -30px;
+    transform: scale(1.1);
+    color: #616161;
+}
+
+.info_input a {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--color-input);
+    transition: .4s;
+}
+
+.info_input a:hover {
+    color: #616161;
+
+}

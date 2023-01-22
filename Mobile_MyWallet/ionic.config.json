@@ -1,0 +1,7 @@
+{
+  "name": "Mobile_MyWallet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

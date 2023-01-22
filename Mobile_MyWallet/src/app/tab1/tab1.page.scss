@@ -1,0 +1,186 @@
+@import "../../global.scss";
+
+.conteudo {
+    font-family: $fonte-texto;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    padding: 20px 25px;
+    width: 100%;
+
+    .links-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--cor-card);
+
+            a {
+                text-decoration: none;
+                color: #222;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--cor-texto);
+
+                i {
+                    transform: scale(1.5);
+
+                }
+            }
+        }
+    }
+
+    .banco {
+        padding: 10px 25px;
+        width: 100%;
+        background: var(--cor-secundaria);
+        height: 50px;
+        border-radius: 8px;
+        margin: 25px 0 0 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: $fonte-pequena;
+
+        p {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            i {
+                transform: scale(1.2);
+            }
+        }
+
+    }
+
+    .visao-geral {
+        padding: 20px 25px;
+        margin: 25px 0 0 0;
+        width: 100%;
+        background-color: var(--cor-secundaria);
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 6px solid #7E41A0;
+
+        .dinheiro {
+            margin-top: 5px;
+            font-size: $fonte-media;
+            font-weight: 700;
+    
+        }
+    
+        .titulo {
+            font-size: $fonte-pequena;
+    
+            p {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+    
+                i{
+                    transform: scale(1.3);
+                }
+            }
+    
+    
+        }
+
+        img {
+            width: 50px;
+        }
+    }
+
+    .saques,
+    .depositos {
+        padding: 18px 16px;
+        margin: 20px 0 0 0;
+        width: 100%;
+        background-color: var(--cor-secundaria);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+
+        .dinheiro {
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: 600;
+    
+        }
+    
+        .titulo {
+            font-size: $fonte-pequena;
+    
+            p {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+    
+                i{
+                    transform: scale(1.3);
+                }
+            }
+    
+    
+        }
+    }
+
+    .depositos{
+        border-bottom: 6px solid #48B18F;
+    }
+    .saques{
+        border-bottom: 6px solid #eb445a;
+    }
+    .transacoes {
+        display: flex;
+        gap: 14px;
+
+    }
+
+    .carteiras{
+        padding: 10px 25px;
+        width: 100%;
+        background: var(--cor-secundaria);
+        height: 50px;
+        border-radius: 8px;
+        margin: 25px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $fonte-pequena;
+
+        p {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            i {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+
+    canvas {
+        margin: 25px 0 0 0;
+        background: var(--cor-secundaria);
+        border-radius: 8px;
+        color: #222;
+        padding: 10px 25px;
+    }
+
+
+
+
+
+}

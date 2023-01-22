@@ -1,0 +1,123 @@
+<ion-header [translucent]="true">
+  <header>
+    <i class="ph-wallet"></i>
+    <p>Suas carteiras</p>
+  </header>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <div class="carteiras">
+    <ion-item-sliding>
+      <ion-item color="dark">
+       
+        <div class="container">
+          <div class="sliding-carteira">
+            <div class="nomeCar">
+              <p>Casa</p>
+            </div>
+            <div class="dinheiro">
+              R$ 501,80
+            </div>
+          </div>
+          <img src="../../assets/img/dinheiro.png" alt="">
+        </div>
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="success"><i class="ph-currency-dollar"></i></ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options>
+        <ion-item-option color="primary"><i class="ph-pencil-simple"></i></ion-item-option>
+        <ion-item-option color="danger"><i class="ph-trash"></i></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    
+    <ion-item-sliding>
+      <ion-item color="dark">
+       
+        <div class="container">
+          <div class="sliding-carteira">
+            <div class="nomeCar">
+              <p>Passagem</p>
+            </div>
+            <div class="dinheiro">
+              R$ 501,80
+            </div>
+          </div>
+          <img src="../../assets/img/dinheiro.png" alt="">
+        </div>
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="success"><ion-icon name="checkmark-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options>
+        <ion-item-option color="primary"><i class="ph-pencil-simple"></i></ion-item-option>
+        <ion-item-option color="danger"><i class="ph-trash"></i></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <!-- <div class="container-carteira">
+
+      <div class="carteira">
+        <div class="nomeCar">
+          <p>Casa</p>
+          <div class="icons">
+            <i class="ph-pencil-simple"></i>
+            <i class="ph-trash"></i>
+          </div>
+        </div>
+
+        <div class="dinheiro">
+          R$ 162,60
+        </div>
+      </div>
+      <div class="carteira">
+
+        <div class="nomeCar">
+          <p>Casa</p>
+          <div class="icons">
+            <i class="ph-pencil-simple"></i>
+            <i class="ph-trash"></i>
+          </div>
+        </div>
+
+        <div class="dinheiro">
+          R$ 162,60
+        </div>
+      </div>
+
+      <div class="carteira">
+        
+      </div>
+      <div class="carteira">
+
+        <div class="nomeCar">
+          <p>Casa</p>
+          <div class="icons">
+            <i class="ph-pencil-simple"></i>
+            <i class="ph-trash"></i>
+          </div>
+        </div>
+
+        <div class="dinheiro">
+          R$ 162,60
+        </div>
+      </div>
+
+    </div> -->
+  </div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="add">
+
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
