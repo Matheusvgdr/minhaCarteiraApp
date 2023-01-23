@@ -16,7 +16,7 @@ public class TipoTransacaoResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("listarTipoTransacao")
-	public Response getCartao(@QueryParam("idTipoTransacao") int idTipoTransacao) {
+	public Response getCartao() {
 
 		TipoTransacaoService servico = new TipoTransacaoService();
 		List<TipoTransacao> listaDeTipoTransacao = servico.listarTipos();
