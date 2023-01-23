@@ -19,12 +19,44 @@
         color: var(--cor-texto);
         background-color: var(--cor-card);
 
+        h3{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            i{
+                transform: scale(1.2);
+            }
+        }
+
+        .enviar {
+            margin-top: 10px;
+            background: var(--cor-terciaria);
+            z-index: 4;
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            font-size: $fonte-button;
+            font-family: $fonte-texto;
+            color: var(--cor-texto);
+            border: none;
+        }
+        
+        .enviar:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+
         p {
             font-size: $fonte-pequena;
         }
 
         .content {
-            padding: 20px 40px;
+            padding: 40px;
         }
 
         i {
@@ -32,12 +64,12 @@
         }
 
         select {
-            background: none;
+            background: var(--cor-secundaria);
             color: var(--cor-texto);
             font-family: $fonte-texto;
             padding: 8px 15px;
             width: 100%;
-            border: 2px solid #c3c3c3;
+            margin-top: 5px;
             border-radius: 8px;
         }
 
@@ -50,10 +82,23 @@
             outline: none;
         }
     }
-
-    img {
+    .img-container{
         width: 100%;
+        height: 50%;
+        background-color: var(--cor-texto);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ilustracao{
+            width: 60%;
+        }
+        img {
+            width: 50%;
+            
+        }
     }
+    
 
     form {
         margin-top: 20px;
@@ -97,7 +142,8 @@
         justify-content: space-between;
         padding: 8px 15px;
         width: 100%;
-        border: 2px solid #c3c3c3;
+        background: var(--cor-secundaria);
+        margin-top: 5px;
         border-radius: 8px;
     }
 

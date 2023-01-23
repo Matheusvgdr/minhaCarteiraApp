@@ -1,10 +1,13 @@
 <div class="container-transacao">
 
     <div class="transacao-conta box">
-        <img src="../../../assets/img/backg_login.jpg" alt="">
+        <div class="img-container">
+            <img src="../../../assets/img/Allura - Feedback Session.png" class="ilustracao" alt="">
+        </div>
+        
         <div class="content">
             <div class="titulo">
-                <h3>Faça transações na sua conta</h3>
+                <h3> <i class="bx bx-sort-alt-2"></i> Faça transações na sua conta</h3>
                 <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
             </div>
             <form action="">
@@ -37,17 +40,20 @@
                         <option *ngFor="let banco of bancos">{{banco.banco}}</option>
                     </select>
                 </div>
-                <button>
-                    Enviar
+                <button class="enviar" id="enter">
+                    <strong>Enviar</strong>
+                    <i class="bx bx-money-withdraw"></i>
                 </button>
             </form>
         </div>
     </div>
     <div class="transacao-carteira box">
-        <img src="../../../assets/img/backg_login.jpg" alt="">
+        <div class="img-container">
+            <img src="../../../assets/img/cofre.png" alt="">
+        </div>
         <div class="content">
             <div class="titulo">
-                <h3>Transfira dinheiro para suas carteiras</h3>
+                <h3> <i class="bx bx-sort-alt-2"></i> Transfira dinheiro para suas carteiras</h3>
                 <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
             </div>
             <form action="">
@@ -77,8 +83,9 @@
                         <option *ngFor="let banco of bancos">{{banco.banco}}</option>
                     </select>
                 </div>
-                <button>
-                    Enviar
+                <button class="enviar" id="enter">
+                    <strong>Enviar</strong>
+                    <i class="bx bx-money-withdraw"></i>
                 </button>
             </form>
         </div>

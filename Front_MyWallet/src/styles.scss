@@ -182,7 +182,7 @@ html *{
   display: block;
   overflow: hidden;
   width: 100%;  
-  padding: 10px 10px;
+  padding: 10px;
   border: 2px solid #03a66a;
   border-radius: 8px;
 }
@@ -198,6 +198,7 @@ html *{
   font-size: $fonte-button;
   font-family: $fonte-texto;
 }
+
 .btn-1:before {
   content: "";
   position: absolute;

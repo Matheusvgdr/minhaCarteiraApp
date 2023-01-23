@@ -62,13 +62,15 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             border-radius: 8px;
             width: 100%;
-            padding: 8% 0px 8% 28%;
+            padding: 8%;
             font-size: $fonte-pequena;
             font-family: $fonte-texto;
             border: none;
+            cursor: pointer;
         }
 
         i{
