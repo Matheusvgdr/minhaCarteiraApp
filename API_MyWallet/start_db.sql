@@ -54,19 +54,6 @@ CREATE TABLE tb_item(
   	id_banco int
 );
 
-
--- TESTE -------------------------------------------------------
-
-INSERT INTO tb_usuario(nome, email, nomeUsuario, senha, telefone, nascimento, cidade, estado) 
-VALUES("Matheus", "matheus@gmail.com","maths", "12345", "(21)97536-2567", "2001-06-06", "são gonçalo", "rio de janeiro");
-INSERT INTO tb_banco(banco, id_usuario) VALUES("Nubank", 1)
-INSERT INTO tb_carteira(nomeCarteira, dinheiro, id_usuario, id_banco) VALUES("casa", 150, 1, 1);
-INSERT INTO tb_tipoTransacao(descricao) VALUES("Depósito");
-INSERT INTO tb_tipoTransacao(descricao) VALUES("Saque");
-INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco) VALUES("2022-12-01", 250, 1, 1, 1, 1);
-INSERT INTO tb_item(conteudo, dinheiro, id_usuario, id_carteira, id_banco) VALUES("batata", 10, 1, 1, 1);
-
-
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_MOVIMENTACOES -------------------------------------------------------
 ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_tipoM FOREIGN KEY(id_tipo) REFERENCES tb_tipoTransacao(id) ON DELETE CASCADE;
 ALTER TABLE tb_movimentacao ADD CONSTRAINT fk_usuarioM FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
@@ -89,19 +76,7 @@ ALTER TABLE tb_item ADD CONSTRAINT fk_bancoI FOREIGN KEY(id_banco) REFERENCES tb
 ALTER TABLE tb_banco ADD CONSTRAINT fk_usuarioCT FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
 
 
--- SELECTS -------------------------------------------------------
-SELECT * FROM tb_carteira;
-SELECT * FROM tb_banco;
-SELECT * FROM tb_usuario;
-SELECT * FROM tb_item;
-SELECT * FROM tb_movimentacao;
-SELECT * FROM tb_tipoTransacao;
 
--- DROPS -------------------------------------------------------
-DROP DATABASE db_myWalletUpdt;
-DROP TABLE tb_carteira;
-DROP TABLE tb_banco;
-DROP TABLE tb_usuario;
-DROP TABLE tb_item;
-DROP TABLE tb_movimentacao;
-DROP TABLE tb_tipoTransacao;
+
+
+
