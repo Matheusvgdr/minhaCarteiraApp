@@ -21,7 +21,19 @@ const routes: Routes = [
   {
     path: 'cambio',
     loadChildren: () => import('./components/cambio/cambio.module').then( m => m.CambioPageModule)
+  },  {
+    path: 'banco',
+    loadChildren: () => import('./components/banco/banco.module').then( m => m.BancoPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cadastrar',
+    loadChildren: () => import('./components/cadastrar/cadastrar.module').then( m => m.CadastrarPageModule)
   }
+
 ];
 @NgModule({
   imports: [

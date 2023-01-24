@@ -1,15 +1,13 @@
-import { style } from '@angular/animations';
-import { DatePipe } from '@angular/common';
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import {  Usuario } from 'src/app/models/usuario.model';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
-  selector: 'mw-cadastrar',
-  templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.scss']
+  selector: 'app-cadastrar',
+  templateUrl: './cadastrar.page.html',
+  styleUrls: ['./cadastrar.page.scss'],
 })
-export class CadastrarComponent implements OnInit {
+export class CadastrarPage implements OnInit {
 
   usuario: Usuario = {
     nome: '',
@@ -20,13 +18,11 @@ export class CadastrarComponent implements OnInit {
     nascimento: '',
     cidade: '',
     estado: ''
-
   }
 
   constructor(private servico: UsuarioService) { }
 
-  ngOnInit(): void {
-   
+  ngOnInit(): void{
   }
 
   onSubmit(){
