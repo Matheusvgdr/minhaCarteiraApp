@@ -23,4 +23,8 @@ export class PerfilComponent implements OnInit {
   private getProcurarUsuario(idUsuario: number){
     this.servico.getProcurarUsuario(idUsuario).subscribe({next: (response) =>{console.log(response); }})
   }
+
+  private postModificarUsuario(usuario: Usuario){
+    this.servico.postModificarUsuario(usuario).subscribe({next: (response) => {console.log(response); }});
+  }
 }

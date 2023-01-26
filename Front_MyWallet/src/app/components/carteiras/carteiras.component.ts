@@ -65,6 +65,4 @@ export class CarteirasComponent implements OnInit {
     const modal = this.modal?.nativeElement;
     this.renderer.setStyle(modal, 'display', "none");
   }
-
-
 }
