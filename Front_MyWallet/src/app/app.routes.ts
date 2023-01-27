@@ -12,8 +12,8 @@ import { RouterModule } from '@angular/router'; // CLI imports router
 import { LoginComponent } from "./components/login/login.component";
 
 const ROUTES: Routes = [
-    {path: "login", component: LoginComponent},
-    {path: "", component: HomeComponent},
+    {path: "", component: LoginComponent},
+    {path: "home", component: HomeComponent},
     {path: "recibo", component: ReciboComponent},
     {path: "carteiras", component: CarteirasComponent},
     {path: "banco", component: BancoComponent},

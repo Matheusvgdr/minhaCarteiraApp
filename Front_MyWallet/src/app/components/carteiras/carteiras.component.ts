@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Banco } from 'src/app/models/banco.model';
 import { Carteira } from 'src/app/models/carteira.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { BancoService } from 'src/app/service/banco.service';
 import { CarteiraService } from 'src/app/service/carteira.service';
 
 @Component({
@@ -15,33 +17,51 @@ export class CarteirasComponent implements OnInit {
   @ViewChild('myModal') modal: ElementRef | undefined;
   @ViewChild('modalContent') modalContent: ElementRef | undefined;
 
-  constructor(private renderer: Renderer2, private servico: CarteiraService) { }
-
-  usuario: Usuario = {
-    id: 1,
-    nome: 'Lucas',
-    email: 'lucas@gmail.com',
-    nomeUsuario: 'Luc14',
-    senha: '12345',
-    telefone: '(21)98563-1245',
-    nascimento: '2000-02-05',
-    cidade: 'São Gonçalo',
-    estado: 'RJ'
-  }
+  usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
 
   carteiras!: Carteira[];
 
-  modelo!: Carteira;
+
+  banc: Banco = {
+    banco: "",
+    id_usuario: this.usuario
+  }
+  
+  carteira: Carteira ={
+    nomeCarteira: "",
+    dinheiro: 0,
+    id_usuario: this.usuario,
+    id_banco: this.banc
+
+  }
+
+  bancos!: Banco[];
+
+
+  constructor(private renderer: Renderer2, private servico: CarteiraService, private bancoServ: BancoService) { }
+
 
   ngOnInit(): void {
-    this.getListarCarteiras(1);
+    this.getListarCarteiras(this.usuario.id || 0);
+    this.getListarBanco();
+
   }
 
   onSubmit() {
-    //this.servico.postCadastrarCarteira(this.carteira);
+    this.cadastrarCarteira(this.carteira);
+    
   }
 
-  private postCadastrarCarteria(carteira: Carteira) {
+  private getListarBanco(){
+    this.bancoServ.getListarBanco().subscribe({
+      next: (response) => {
+        this.bancos = response;
+        console.log(this.bancos);
+      }
+    })
+  }
+
+  private cadastrarCarteira(carteira: Carteira) {
     this.servico.postCadastrarCarteira(carteira).subscribe({ next: (response) => { console.log(response); } })
   }
 

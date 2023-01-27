@@ -18,6 +18,7 @@
 
 
             </div>
+
             <button class="btn"><i class="ph-caret-circle-down"></i></button>
 
 
@@ -30,6 +31,7 @@
             <button class="adicionar-carteira" id="myBtn" #myBtn (click)="mostrar()">
                 <i class="bx bx-plus-circle"></i>
             </button>
+            
             <div class="carteira" *ngFor="let carteira of carteiras">
                 <div class="info-carteira">
                     <div class="titulo">
@@ -56,18 +58,26 @@
             <div class="modal-content" id="modalContent" #modalContent>
                 <span class="close" id="close" #close (click)="fechar()">&times;</span>
                 <p>Crie sua carteira</p>
-                <form action="" #form="ngForm">
+                <form action="" #form="ngForm" (submit)="onSubmit()">
                     <div class="info_input">
                         <label for="">Nome da carteira</label> <br>
-                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" >
+                        <input type="text" name="nomeCarteira" id="nomeCarteira"  autocomplete="off" [(ngModel)]="carteira.nomeCarteira">
                         <i class="bx bx-user"></i>
                     </div>
                     <div class="info_input">
                         <label for="">Dinheiro</label> <br>
-                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" >
+                        <input type="text" name="dinheiro" id="dinheiro" autocomplete="off" [(ngModel)]="carteira.dinheiro">
                         <i class="bx bx-lock-alt"></i>
                         <br>
                     </div>
+
+                    <div class="info_input">
+                        <label for="">Banco</label> <br>
+                        <select name="id_banco" id="id_banco" [(ngModel)]="carteira.id_banco">
+                            <option [value]="banco.id" *ngFor="let banco of bancos">{{banco.banco}}</option>
+                        </select>
+                    </div>
+                    <input type="text" name="id_usuario" id="id_usuario" autocomplete="off" [(ngModel)]="carteira.id_usuario.id">
     
                     <div class="buttons">
                         <button class="btn-1">

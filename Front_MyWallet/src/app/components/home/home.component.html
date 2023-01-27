@@ -39,7 +39,7 @@
     <div class="banner">
         <div class="texto">
             <div class="boas-vindas">
-                <p>Bem vindo, Usuario</p>
+                <p>Bem vindo, {{usuario.nome}}</p>
                 <p>A My Wallet está muito feliz em recebê-lo, caso tenha dúvidas, <span>acesse a página Tutorial.</span>
                 </p>
             </div>
@@ -66,7 +66,7 @@
 
                     </div>
 
-                    <p class="destaque">R$ 1200,00</p>
+                    <p class="destaque">R$ {{totalDep - totalSaque}}</p>
 
                 </div>
 
@@ -84,7 +84,7 @@
 
                     </div>
 
-                    <p class="destaque">R$ 1200,00</p>
+                    <p class="destaque">R$ {{totalSaque}}</p>
 
                 </div>
 
@@ -102,7 +102,7 @@
 
                     </div>
 
-                    <p class="destaque">R$ 1200,00</p>
+                    <p class="destaque">R$ {{totalDep}}</p>
 
                 </div>
 

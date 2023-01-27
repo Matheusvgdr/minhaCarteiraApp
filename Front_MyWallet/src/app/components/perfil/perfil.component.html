@@ -4,7 +4,7 @@
             <div class="perfil">
                 <i class="bx bx-user"></i>
             </div>
-            <p>Seu perfil, Usuário</p>
+            <p>{{usuario.nome}}</p>
         </div>
     </div>
 
@@ -14,40 +14,70 @@
             <div class="card-info">
                 <p class="subtitulo"> <i class="bx bx-file"></i> Informações pessoais</p>
                 <div class="line"></div>
-                <form action="">
+                <form action=""  #form="ngForm" (submit)="onSubmit()">
                     <div class="info_input">
                         <label for="">Nome</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)] = "usuario.nome">
                             <i class="bx bxs-face"></i>
                         </div>
                     </div>
                     <div class="info_input">
                         <label for="">Nascimento</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off"  name="nascimento" id="nascimento" required [(ngModel)] = "usuario.nascimento">
                             <i class="bx bxs-calendar"></i>
+                        </div>
+                    </div>
+
+                    <div class="info_input">
+                        <label for="">Email</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="email" id="email" required [(ngModel)] = "usuario.email">
+                            <i class="bx bx-envelope"></i>
                         </div>
                     </div>
                     <div class="info_input">
                         <label for="">Telefone</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off"  name="telefone" id="telefone" required [(ngModel)] = "usuario.telefone">
                             <i class="bx bxs-phone"></i>
                         </div>
                     </div>
                     <div class="info_input">
                         <label for="">Cidade</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off"  name="cidade" id="cidade" required [(ngModel)] = "usuario.cidade">
                             <i class="bx bx-buildings"></i>
                         </div>
                     </div>
                     <div class="info_input">
                         <label for="">Estado</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off" name="estado" id="estado" required [(ngModel)] = "usuario.estado">
                             <i class="bx bx-world"></i>
+                        </div>
+                    </div>
+
+                    <div class="info_input" hidden="true">
+                        <label for="">Usuário</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off" name="nomeUsuario" id="nomeUsuario" required [(ngModel)] = "usuario.nomeUsuario">
+                            <i class="bx bxs-user"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Senha</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off" name="senha" id="senha" required [(ngModel)] = "usuario.senha">
+                            <i class="bx bxs-lock-alt"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Id</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="id" id="id" required [(ngModel)] = "usuario.id">
+                            <i class="bx bxs-phone"></i>
                         </div>
                     </div>
                     <button class="editar" id="enter">
@@ -59,18 +89,68 @@
             <div class="card-info">
                 <p class="subtitulo"><i class="bx bx-id-card"></i> Conta</p>
                 <div class="line"></div>
-                <form action="">
+                <form action=""  #form="ngForm" (submit)="onSubmit()">
+                    <div class="info_input" hidden="true">
+                        <label for="">Nome</label> <br>
+                        <div class="flex">
+                            <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)] = "usuario.nome">
+                            <i class="bx bxs-face"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Nascimento</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="nascimento" id="nascimento" required [(ngModel)] = "usuario.nascimento">
+                            <i class="bx bxs-calendar"></i>
+                        </div>
+                    </div>
+
+                    <div class="info_input" hidden="true">
+                        <label for="">Email</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="email" id="email" required [(ngModel)] = "usuario.email">
+                            <i class="bx bx-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Telefone</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="telefone" id="telefone" required [(ngModel)] = "usuario.telefone">
+                            <i class="bx bxs-phone"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Cidade</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="cidade" id="cidade" required [(ngModel)] = "usuario.cidade">
+                            <i class="bx bx-buildings"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Estado</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off" name="estado" id="estado" required [(ngModel)] = "usuario.estado">
+                            <i class="bx bx-world"></i>
+                        </div>
+                    </div>
+                    <div class="info_input" hidden="true">
+                        <label for="">Id</label> <br>
+                        <div class="flex">
+                            <input type="text" autocomplete="off"  name="id" id="id" required [(ngModel)] = "usuario.id">
+                            <i class="bx bxs-phone"></i>
+                        </div>
+                    </div>
                     <div class="info_input">
                         <label for="">Usuário</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off" name="nomeUsuario" id="nomeUsuario" required [(ngModel)] = "usuario.nomeUsuario">
                             <i class="bx bxs-user"></i>
                         </div>
                     </div>
                     <div class="info_input">
                         <label for="">Senha</label> <br>
                         <div class="flex">
-                            <input type="text" name="nome" id="nome" autocomplete="off" required>
+                            <input type="text" autocomplete="off" name="senha" id="senha" required [(ngModel)] = "usuario.senha">
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                     </div>
@@ -85,7 +165,7 @@
                     <p class="subtitulo"><i class="bx bx-wallet"></i> Total de carteiras</p>
                     
                         <div class="badge">
-                            <p>15</p>
+                            <p>{{carteiras.length}}</p>
                         </div>
              
                     
