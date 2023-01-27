@@ -4,11 +4,7 @@ import { Carteira } from 'src/app/models/carteira.model';
 import { TT } from 'src/app/models/tipoTransacao.mode';
 import { Usuario } from 'src/app/models/usuario.model';
 import { BancoService } from 'src/app/service/banco.service';
-<<<<<<< HEAD
-import { MovimentacaoService } from 'src/app/service/movimentacao.service';
-=======
 import { CarteiraService } from 'src/app/service/carteira.service';
->>>>>>> main
 import { TipoTransacaoService } from 'src/app/service/tipo-transacao.service';
 
 @Component({
@@ -18,11 +14,6 @@ import { TipoTransacaoService } from 'src/app/service/tipo-transacao.service';
 })
 export class TransacaoComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private servico: TipoTransacaoService, private bancoServ: BancoService, private MoviService: MovimentacaoService) { }
-
-=======
->>>>>>> main
   tiposT!: TT[];
   bancos!: Banco[]; 
   carteiras!: Carteira[];

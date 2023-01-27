@@ -10,11 +10,6 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class LoginComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private servico: UsuarioService, private router: Router) { }
-
-=======
->>>>>>> main
   nomeUsuario: string = '';
   senha: string = '';
 
@@ -46,11 +41,7 @@ export class LoginComponent implements OnInit {
           console.log(sessionStorage);
           this.exibirSidebarEmitter.emit(true);
 
-<<<<<<< HEAD
-         this.router.navigate(["home"]);
-=======
           this.router.navigate(["home"]);
->>>>>>> main
         }
       }
     })
