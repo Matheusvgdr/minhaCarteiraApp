@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Banco } from 'src/app/models/banco.model';
-import { Movi, Movi, Movi } from 'src/app/models/movimentacao.model';
 import { TT } from 'src/app/models/tipoTransacao.mode';
 import { BancoService } from 'src/app/service/banco.service';
 import { MovimentacaoService } from 'src/app/service/movimentacao.service';
@@ -17,7 +16,6 @@ export class TransacaoComponent implements OnInit {
 
   tiposT!: TT[];
   bancos!: Banco[]; 
-  movi!: Movi;
 
   ngOnInit(): void {
     this.getTipoTransacao();
@@ -42,12 +40,12 @@ export class TransacaoComponent implements OnInit {
     })
   }
 
- private postRealizarTransacao(){
+/*  private postRealizarTransacao(){
     this.MoviService.postRealizarTransacao().subscribe({
       next: (response) => {
         this.movi = response;
         console.log(response);
       }
     })
-  }
+  } */
 }
