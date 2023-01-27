@@ -1,4 +1,5 @@
 <div class="perfil-container">
+
     <div class="topo">
         <div class="titulo">
             <div class="perfil">
@@ -11,6 +12,7 @@
     <div class="conteudo">
         
         <div class="cards">
+            
             <div class="card-info">
                 <p class="subtitulo"> <i class="bx bx-file"></i> Informações pessoais</p>
                 <div class="line"></div>
@@ -86,6 +88,7 @@
                     </button>
                 </form>
             </div>
+
             <div class="card-info">
                 <p class="subtitulo"><i class="bx bx-id-card"></i> Conta</p>
                 <div class="line"></div>
@@ -160,20 +163,20 @@
                     </button>
                 </form>
             </div>
+
             <div class="card-info flex">
                 
                     <p class="subtitulo"><i class="bx bx-wallet"></i> Total de carteiras</p>
                     
                         <div class="badge">
                             <p>{{carteiras.length}}</p>
-                        </div>
-             
-                    
+                        </div>   
             </div>
+
             <div class="card-info flex">
                 <p class="subtitulo"><i class="bx bx-info-circle"></i>Desativar conta</p>
 
-                <button class="deletar" id="enter">
+                <button class="deletar" id="enter" onclick="delDeletarUsuario()">
                     <strong>Deletar</strong>
                     <i class="bx bx-trash"></i>
                 </button>
