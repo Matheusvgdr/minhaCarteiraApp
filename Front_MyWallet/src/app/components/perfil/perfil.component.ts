@@ -13,17 +13,14 @@ export class PerfilComponent implements OnInit {
 
   constructor(private servico: UsuarioService, private carteiraServ: CarteiraService) { }
 
-  usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
-
+  usuario!: Usuario;
   carteiras!: Carteira[];
-
-  onSubmit(){
-    this.postModificarUsuario(this.usuario);
-  }
   
   ngOnInit(): void {
 
-    this.getListarCarteiras(this.usuario.id || 0);
+    //this.usuario = JSON.parse(sessionStorage.getItem("usuario") || "");
+    console.log(sessionStorage.getItem("usuario"));
+
   }
 
   private postModificarUsuario(usuario: Usuario){
