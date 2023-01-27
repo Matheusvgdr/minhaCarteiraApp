@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -10,10 +10,19 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class LoginComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(private servico: UsuarioService, private router: Router) { }
 
+=======
+>>>>>>> main
   nomeUsuario: string = '';
   senha: string = '';
+
+  exibirSidebarEmitter = new EventEmitter<boolean>;
+
+  constructor(private servico: UsuarioService, private router: Router ) {
+    
+   }
 
   ngOnInit(): void {
     
@@ -35,8 +44,13 @@ export class LoginComponent implements OnInit {
 
           sessionStorage.setItem("usuario", JSON.stringify(response));
           console.log(sessionStorage);
+          this.exibirSidebarEmitter.emit(true);
 
+<<<<<<< HEAD
          this.router.navigate(["home"]);
+=======
+          this.router.navigate(["home"]);
+>>>>>>> main
         }
       }
     })

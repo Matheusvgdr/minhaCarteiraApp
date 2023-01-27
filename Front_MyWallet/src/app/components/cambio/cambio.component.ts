@@ -11,7 +11,6 @@ export class CambioComponent implements OnInit {
 
   deposito!: Movi[];
   saque!: Movi[];
-  teste!: Movi;
   totalDep: number = 0;
   totalSaque: number = 0;
   saldo: number = 0;

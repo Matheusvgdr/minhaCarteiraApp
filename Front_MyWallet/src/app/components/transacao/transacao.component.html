@@ -66,10 +66,10 @@
                 </div>
                 <div class="info_input">
                     <label for="">Carteira</label> <br>
-                    <div class="flex">
-                        <input type="text" name="nome" id="nome" autocomplete="off" required>
-                        <i class="bx bxs-wallet"></i>
-                    </div>
+                        <select name="" id="">
+                            <option *ngFor="let carteira of carteiras">{{carteira.nomeCarteira}}</option>
+                        </select>
+                   
                 </div>
                 <div class="info_input">
                     <label for="">Tipo</label> <br>

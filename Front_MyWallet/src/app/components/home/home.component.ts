@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Movi } from 'src/app/models/movimentacao.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 
 Chart.defaults.borderColor = '#fff';
 Chart.defaults.color = '#fff';
@@ -15,11 +17,24 @@ export class HomeComponent implements OnInit {
   @ViewChild('ul') ul: ElementRef | undefined;
   @ViewChild('drop') drop: ElementRef | undefined;
 
-  constructor(private renderer: Renderer2) { }
+  deposito!: Movi[];
+  saque!: Movi[];
+  totalDep: number = 0;
+  totalSaque: number = 0;
+  saldo: number = 0;
 
+  usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
+
+  constructor(private renderer: Renderer2, private servico: MovimentacaoService) { }
+
+
+  
   dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom',]
 
   ngOnInit(): void {
+
+    this.getListarDepositos(this.usuario.id || 0, 1);
+    this.getListarSaques(this.usuario.id || 0, 2);
     
     new Chart('MyChart', {
       type: 'line',
@@ -57,6 +72,49 @@ export class HomeComponent implements OnInit {
     });
   
   }
+
+  
+   getListarDepositos(idConta: number, idTipo: number){
+    this.servico.getListarDepositos(idConta, idTipo).subscribe({
+      next: (response) => {
+        this.deposito = response;
+        
+        console.log(this.deposito); //Qnt depositos realizados
+        this.calcularDep(response);//Calculo dos depositos
+      }
+    })
+  }
+
+   getListarSaques(idConta: number, idTipo: number){
+    this.servico.getListarSaques(idConta, idTipo).subscribe({
+      next: (response) =>{
+        this.saque = response;
+        console.log(this.saque);
+
+        this.calcularSaq(response);
+      }
+    })
+  }
+
+  calcularDep(dinheiro: Movi[]){
+    dinheiro.forEach(deposito => {
+      this.totalDep += deposito.dinheiro
+    })
+    console.log(this.totalDep);
+
+    /* for(let i = 0; i < dinheiro.length; i++){
+      this.total += dinheiro[i].dinheiro;
+    } */
+  }
+
+  calcularSaq(dinheiro: Movi[]){
+    dinheiro.forEach(saque => {
+      this.totalSaque += saque.dinheiro;
+    })
+    console.log(this.totalSaque);
+  }
+
+
 
   mudarTemaLight(){
     this.renderer.addClass(document.body, 'light');

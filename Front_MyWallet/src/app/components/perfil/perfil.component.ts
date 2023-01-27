@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Carteira } from 'src/app/models/carteira.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { CarteiraService } from 'src/app/service/carteira.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
@@ -9,22 +11,29 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private servico: UsuarioService) { }
+  constructor(private servico: UsuarioService, private carteiraServ: CarteiraService) { }
 
-  usuario!: Usuario;
+  usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
+
+  carteiras!: Carteira[];
+
+  onSubmit(){
+    this.postModificarUsuario(this.usuario);
+  }
   
   ngOnInit(): void {
-
-    //this.usuario = JSON.parse(sessionStorage.getItem("usuario") || "");
-    console.log(sessionStorage.getItem("usuario"));
-
-  }
-
-  private getProcurarUsuario(idUsuario: number){
-    this.servico.getProcurarUsuario(idUsuario).subscribe({next: (response) =>{console.log(response); }})
   }
 
   private postModificarUsuario(usuario: Usuario){
-    this.servico.postModificarUsuario(usuario).subscribe({next: (response) => {console.log(response); }});
+    this.servico.postModificarUsuario(usuario).subscribe({next: (response) => {console.log(response);}});
   }
+
+  private getListarCarteiras(idUsuario: number) {
+    this.carteiraServ.getListarCarteiras(idUsuario).subscribe({
+      next: (response) => {
+        this.carteiras = response;
+      }
+    })
+  }
+
 }
