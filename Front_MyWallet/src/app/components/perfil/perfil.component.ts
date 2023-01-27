@@ -22,12 +22,10 @@ export class PerfilComponent implements OnInit {
   }
   
   ngOnInit(): void {
-
-    this.getListarCarteiras(this.usuario.id || 0);
   }
 
   private postModificarUsuario(usuario: Usuario){
-    this.servico.postModificarUsuario(usuario).subscribe( response => { console.log(response)});
+    this.servico.postModificarUsuario(usuario).subscribe({next: (response) => {console.log(response);}});
   }
 
   private getListarCarteiras(idUsuario: number) {
