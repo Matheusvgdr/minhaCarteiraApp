@@ -35,6 +35,12 @@ export class PerfilComponent implements OnInit {
     this.servico.postModificarUsuario(usuario).subscribe({
       next: (response) => {
         console.log(response);
+        sessionStorage.clear();
+        if(sessionStorage.getItem("usuario") == null){
+          this.router.navigate([""]);
+        }else{
+          console.log("usuario não atualizado");
+        } 
       }
     });
   }

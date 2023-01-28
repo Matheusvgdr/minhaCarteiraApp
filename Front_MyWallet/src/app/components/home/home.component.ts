@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { Movi } from 'src/app/models/movimentacao.model';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -119,8 +120,6 @@ export class HomeComponent implements OnInit {
     })
     console.log(this.totalSaque);
   }
-
-
 
   mudarTemaLight(){
     this.renderer.addClass(document.body, 'light');

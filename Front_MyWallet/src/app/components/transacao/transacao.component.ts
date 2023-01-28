@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Banco } from 'src/app/models/banco.model';
 import { Carteira } from 'src/app/models/carteira.model';
+import { Movi } from 'src/app/models/movimentacao.model';
 import { TT } from 'src/app/models/tipoTransacao.mode';
 import { Usuario } from 'src/app/models/usuario.model';
 import { BancoService } from 'src/app/service/banco.service';
 import { CarteiraService } from 'src/app/service/carteira.service';
+import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 import { TipoTransacaoService } from 'src/app/service/tipo-transacao.service';
 
 @Component({
@@ -17,17 +19,20 @@ export class TransacaoComponent implements OnInit {
   tiposT!: TT[];
   bancos!: Banco[]; 
   carteiras!: Carteira[];
+  movimentacoes!: Movi;
 
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
-
-
-  constructor(private servico: TipoTransacaoService, private bancoServ: BancoService, private carteiraServ: CarteiraService) { }
+  constructor(private servico: TipoTransacaoService, private bancoServ: BancoService, private carteiraServ: CarteiraService, private movimentacaoServ: MovimentacaoService) { }
 
  
   ngOnInit(): void {
     this.getTipoTransacao();
     this.getListarBanco();
     this.getListarCarteiras(this.usuario.id || 0);
+  }
+
+  realizarTransacao(){
+    this.postRealizarTransacao();
   }
 
   private getListarCarteiras(idUsuario: number){
@@ -56,12 +61,12 @@ export class TransacaoComponent implements OnInit {
     })
   }
 
-/*  private postRealizarTransacao(){
-    this.MoviService.postRealizarTransacao().subscribe({
+    private postRealizarTransacao(){
+      this.movimentacaoServ.postRealizarTransacao(this.movimentacoes).subscribe({
       next: (response) => {
-        this.movi = response;
+        this.movimentacoes = response;
         console.log(response);
       }
     })
-  } */
+  } 
 }
