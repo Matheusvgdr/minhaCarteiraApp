@@ -13,7 +13,8 @@ export class ReciboComponent implements OnInit {
 
   constructor(private servico: MovimentacaoService, private UsuarioService: UsuarioService) { }
   
-  usu!: Usuario;
+  usu: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
+
   movimentacoes!: Movi[];
 
   ngOnInit(): void {

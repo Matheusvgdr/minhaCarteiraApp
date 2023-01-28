@@ -10,9 +10,11 @@ import { TransacaoComponent } from "./components/transacao/transacao.component";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'; // CLI imports router
 import { LoginComponent } from "./components/login/login.component";
+import { CadastrarComponent } from "./components/cadastrar/cadastrar.component";
 
 const ROUTES: Routes = [
     {path: "", component: LoginComponent},
+    {path: "cadastro", component: CadastrarComponent},
     {path: "home", component: HomeComponent},
     {path: "recibo", component: ReciboComponent},
     {path: "carteiras", component: CarteirasComponent},

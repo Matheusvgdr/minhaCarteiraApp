@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Carteira } from 'src/app/models/carteira.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { CarteiraService } from 'src/app/service/carteira.service';
@@ -11,10 +12,11 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private servico: UsuarioService, private carteiraServ: CarteiraService) { }
+  constructor(private servico: UsuarioService, private carteiraServ: CarteiraService, private router: Router) { }
 
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
 
+  idUsuario: number = this.usuario.id || 0;
   carteiras!: Carteira[];
 
   onSubmit(){
@@ -22,6 +24,11 @@ export class PerfilComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.getListarCarteiras(this.idUsuario);
+  }
+
+  deletarUsuario(){
+    this.delDeleteUsuario(this.idUsuario);
   }
 
   private postModificarUsuario(usuario: Usuario){
@@ -44,6 +51,12 @@ export class PerfilComponent implements OnInit {
     this.servico.delDeletarUsuario(idUsuario).subscribe({
       next: (response) => {
         console.log(response);
+        sessionStorage.clear();
+        if(sessionStorage.getItem("usuario") == null){
+          this.router.navigate([""]);
+        }else{
+          console.log("continua existindo");
+        } 
       }
     });
   }
