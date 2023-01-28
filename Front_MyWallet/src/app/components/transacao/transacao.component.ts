@@ -19,9 +19,44 @@ export class TransacaoComponent implements OnInit {
   tiposT!: TT[];
   bancos!: Banco[]; 
   carteiras!: Carteira[];
-  movimentacoes!: Movi;
+  
+  dinheiro!: number;
+  data!: Date;
 
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
+
+  banco: Banco = {
+    id: 0,
+    banco: "",
+    id_usuario: this.usuario
+  }
+
+  carteira: Carteira ={
+    id: 0,
+    nomeCarteira: "",
+    dinheiro: 0,
+    id_usuario: this.usuario,
+    id_banco: this.banco
+  }
+
+  tipo: TT = {
+    id: 0,
+    descricao: ""
+  }
+  
+  movimentacao: Movi = {
+    dataMovimentacao: "",
+    dinheiro: 0,
+    id_banco: this.banco,
+    id_usuario: this.usuario,
+    id_tipo: this.tipo
+  }
+
+teste(){
+  console.log(this.movimentacao);
+}
+
+
   constructor(private servico: TipoTransacaoService, private bancoServ: BancoService, private carteiraServ: CarteiraService, private movimentacaoServ: MovimentacaoService) { }
 
  
@@ -62,9 +97,9 @@ export class TransacaoComponent implements OnInit {
   }
 
     private postRealizarTransacao(){
-      this.movimentacaoServ.postRealizarTransacao(this.movimentacoes).subscribe({
+      this.movimentacaoServ.postRealizarTransacao(this.movimentacao).subscribe({
       next: (response) => {
-        this.movimentacoes = response;
+        this.movimentacao = response;
         console.log(response);
       }
     })

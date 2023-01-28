@@ -63,7 +63,7 @@ public class MovimentacaoDAO {
 		
 		conex = DAO.criarConexao();
 		
-		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco ) VALUES(?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO tb_movimentacao( dataMovimentacao, dinheiro, id_tipo, id_usuario, id_banco ) VALUES( ?, ?, ?, ?, ?);";
 		
 		PreparedStatement ps;
 		try {
@@ -72,9 +72,8 @@ public class MovimentacaoDAO {
 			ps.setDate(1, mvt.getDataMovimentacao());
 			ps.setDouble(2, mvt.getDinheiro());
 			ps.setInt(3, mvt.getId_tipo().getId());
-			ps.setInt(4, mvt.getId_carteira().getId());
-			ps.setInt(5, mvt.getId_usuario().getId());
-			ps.setInt(6, mvt.getId_banco().getId());
+			ps.setInt(4, mvt.getId_usuario().getId());
+			ps.setInt(5, mvt.getId_banco().getId());
 			
 			retornoQuery = ps.executeUpdate();
 			
