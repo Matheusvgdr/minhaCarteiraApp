@@ -25,7 +25,11 @@ export class PerfilComponent implements OnInit {
   }
 
   private postModificarUsuario(usuario: Usuario){
-    this.servico.postModificarUsuario(usuario).subscribe({next: (response) => {console.log(response);}});
+    this.servico.postModificarUsuario(usuario).subscribe({
+      next: (response) => {
+        console.log(response);
+      }
+    });
   }
 
   private getListarCarteiras(idUsuario: number) {
@@ -33,7 +37,14 @@ export class PerfilComponent implements OnInit {
       next: (response) => {
         this.carteiras = response;
       }
-    })
+    });
   }
 
+  private delDeleteUsuario(idUsuario: number){
+    this.servico.delDeletarUsuario(idUsuario).subscribe({
+      next: (response) => {
+        console.log(response);
+      }
+    });
+  }
 }

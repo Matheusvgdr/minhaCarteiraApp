@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Movi } from 'src/app/models/movimentacao.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { MovimentacaoService } from 'src/app/service/movimentacao.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'mw-recibo',
@@ -9,18 +11,16 @@ import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 })
 export class ReciboComponent implements OnInit {
 
-  constructor(private servico: MovimentacaoService) { }
+  constructor(private servico: MovimentacaoService, private UsuarioService: UsuarioService) { }
   
+  usu!: Usuario;
   movimentacoes!: Movi[];
 
   ngOnInit(): void {
     this.getListarMovimentacoes(1);
   }
 
-
   private getListarMovimentacoes(idUsuario: number){
     this.servico.getListarMovimentacao(idUsuario).subscribe({next: (response) => {this.movimentacoes = response; console.log(response); }})
   }
-
-
 }
