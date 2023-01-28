@@ -133,7 +133,7 @@ public class UsuarioDAO {
 			ps.setString(7, user.getCidade());
 			ps.setString(8, user.getEstado());
 			
-			ps.setInt(6, user.getId());
+			ps.setInt(9, user.getId());
 
 			retornoQuery = ps.executeUpdate();
 

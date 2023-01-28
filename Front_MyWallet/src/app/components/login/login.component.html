@@ -1,16 +1,15 @@
 <div class="all">
-    <div class="imgSide">
-    </div>
+    <div class="imgSide"></div>
+
     <div class="formSide">
-
         <div class="content">
-            <div class="logo">
 
-                <h1>Log in</h1> <i class="bx bx-home"></i>
+            <div class="logo">
+                <h1>Log in</h1>
+                <i class="bx bx-home"></i>
             </div>
             
-
-            <form action="" #form="ngForm" (submit)="onSubmit()" >
+            <form action="" #form="ngForm" (submit)="onSubmit()">
                 <div class="info_input">
                     <label for="">Usuário</label> <br>
                     <input type="text" name="usuario" id="usuario"  autocomplete="off" [(ngModel)]="nomeUsuario">
@@ -32,7 +31,6 @@
 
                     </button>
                 </div>
-
             </form>
 
             <div class="alternative-content">
@@ -43,25 +41,15 @@
                     <div class="line"></div>
                 </div>
 
-                <button class="btn-2" id="google">
-
+                <button class="btn-2" id="google" [routerLink]="['cadastro']" >
                     <i class="bx bxl-google"></i>
-
                 </button>
 
                 <button class="btn-3" id="linkedin">
-
                    <i class="bx bxl-linkedin"></i>
-
                 </button>
-
-            </div>
-
-            
-       
-        </div>
-        
-    </div>
-
-    
+                
+            </div>           
+        </div>      
+    </div>    
 </div>

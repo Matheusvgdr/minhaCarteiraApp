@@ -62,5 +62,4 @@ export class CambioPage implements OnInit {
     })
     console.log(this.totalSaque);
   }
-
 }
