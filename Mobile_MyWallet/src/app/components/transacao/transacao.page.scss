@@ -1,0 +1,144 @@
+@import "../../../global.scss";
+
+.conteudo{
+    font-family: $fonte-texto;
+    min-height: 100%;
+    width: 100%;
+    background: var(--cor-primaria);
+}
+.box {
+    //padding: 20px 40px;
+    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+    color: var(--cor-texto);
+
+    h3 {
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i {
+            transform: scale(1.2);
+        }
+    }
+
+    .enviar {
+        margin-top: 10px;
+        background: var(--cor-terciaria);
+        z-index: 4;
+        width: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        font-size: $fonte-button;
+        font-family: $fonte-texto;
+        color: var(--cor-texto);
+        border: none;
+    }
+
+
+    p {
+        font-size: $fonte-pequena;
+    }
+
+    .content {
+        padding: 10px 25px;
+    }
+
+    i {
+        color: var(--cor-texto);
+    }
+
+    select {
+        background: var(--cor-secundaria);
+        color: var(--cor-texto);
+        font-family: $fonte-texto;
+        padding: 4px 15px;
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 8px;
+    }
+
+    option {
+        background: var(--cor-secundaria);
+        border: none;
+    }
+
+    select:focus {
+        outline: none;
+    }
+}
+
+.img-container {
+    width: 100%;
+    height: 50%;
+    background-color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ilustracao {
+        width: 95%;
+    }
+
+}
+
+
+form {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+        background: transparent;
+        color: var(--cor-texto);
+        border: none;
+        width: 100%;
+        font-family: $fonte-texto;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        grid-column: 1/3;
+        margin-top: 10px;
+        padding: 10px 0;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+}
+
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 15px;
+    width: 100%;
+    background: var(--cor-secundaria);
+    margin-top: 5px;
+    border-radius: 8px;
+}
+
+.info_input i {
+    position: relative;
+    transform: scale(1.1);
+    color: #616161;
+}

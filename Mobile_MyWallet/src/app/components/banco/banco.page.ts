@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Banco } from 'src/app/models/banco.model';
 import { BancoService } from 'src/app/service/banco.service';
 
@@ -11,10 +12,14 @@ export class BancoPage implements OnInit {
 
   banco! : Banco[];
 
-  constructor(private service: BancoService) { }
+  constructor(private service: BancoService, private navControl: NavController) { }
 
   ngOnInit(): void{
-    this.getListarBanco();
+    //this.getListarBanco();
+  }
+
+  voltar(){
+    this.navControl.navigateForward("home");
   }
 
   private getListarBanco(){

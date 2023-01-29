@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <header>
+    <i class="ph-wallet"></i>
+    <p>Suas carteiras</p>
+  </header>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <div class="carteiras">
+    <ion-item-sliding>
+      <ion-item color="dark">
+       
+        <div class="container">
+          <div class="sliding-carteira">
+            <div class="nomeCar">
+              <p>Casa</p>
+            </div>
+            <div class="dinheiro">
+              R$ 501,80
+            </div>
+          </div>
+          <img src="../../assets/img/dinheiro.png" alt="">
+        </div>
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="success" (click)="inserirDinheiro()"><i class="ph-currency-dollar"></i></ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options>
+        <ion-item-option color="primary" (click)="editar()"><i class="ph-pencil-simple"></i></ion-item-option>
+        <ion-item-option color="danger" (click)="excluir()"><i class="ph-trash"></i></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    
+    <ion-item-sliding>
+      <ion-item color="dark">
+       
+        <div class="container">
+          <div class="sliding-carteira">
+            <div class="nomeCar">
+              <p>Passagem</p>
+            </div>
+            <div class="dinheiro">
+              R$ 501,80
+            </div>
+          </div>
+          <img src="../../assets/img/dinheiro.png" alt="">
+        </div>
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="success"><ion-icon name="checkmark-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options>
+        <ion-item-option color="primary" (click)="editar()"><i class="ph-pencil-simple"></i></ion-item-option>
+        <ion-item-option color="danger" (click)="excluir()"><i class="ph-trash"></i></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="success" (click)="adicionarCarteira()">
+      <ion-icon name="add">
+
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
