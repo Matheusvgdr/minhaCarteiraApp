@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  
-  constructor( private router: Router, private exibirSidebarEmitter: EventEmitter<boolean>) { }
+  @Input() exibirSidebarEmitter: EventEmitter<boolean> = new EventEmitter();
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.exibirSidebarEmitter.subscribe(() => {

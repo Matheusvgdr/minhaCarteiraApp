@@ -15,12 +15,10 @@ export class LoginComponent implements OnInit {
 
   @Output() exibirSidebarEmitter = new EventEmitter<boolean>();
 
-  constructor(private servico: UsuarioService, private router: Router ) {
-    
+  constructor(private servico: UsuarioService, private router: Router ) { 
    }
 
   ngOnInit(): void {
-    
   }
 
   onSubmit() {
@@ -39,9 +37,9 @@ export class LoginComponent implements OnInit {
 
           sessionStorage.setItem("usuario", JSON.stringify(response));
           console.log(sessionStorage);
-          this.exibirSidebarEmitter.emit();
-
-          this.router.navigate(["home"]);
+          
+          this.exibirSidebarEmitter.emit(true);
+          this.router.navigate(["home"]);         
         }
       }
     })

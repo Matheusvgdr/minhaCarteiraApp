@@ -1,7 +1,7 @@
 CREATE DATABASE db_myWalletUpdt;
 
 use db_myWalletUpdt;
-
+select * from tb_usuario;
 -- TABELAS ----------------------------------------------
 
 CREATE TABLE tb_usuario(
