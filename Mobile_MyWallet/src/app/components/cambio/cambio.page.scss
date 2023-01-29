@@ -1,0 +1,57 @@
+@import "../../../global.scss";
+.conteudo{
+    font-family: $fonte-texto;
+    min-height: 100%;
+    width: 100%;
+    background: var(--cor-primaria);
+    display: grid;
+    padding: 20px 15px 35px 15px;
+    grid-gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+
+    .container-cambio{
+        background-color: var(--cor-card);
+        box-shadow: 5px 5px  #d0fe6dbe;
+        border-radius: 8px;
+        padding: 20px 18px;
+        color: var(--cor-texto);
+
+        .moeda{
+            font-weight: 600;
+        }
+
+        .total{
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .valor{
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .titulo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resumo{
+            margin-top: 20px;
+        }
+        .circulo{
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            background-color: #D0FE6D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i{
+                transform: scale(1.2);
+            color: var(--cor-primaria);
+
+            }
+        }
+    }
+}

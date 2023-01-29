@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>transacao</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <header>
+    <i class="ph-coins"></i>
+    <p>Transações</p>
+  </header>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div class="conteudo">
+
+    <div class="transacao-conta box">
+      <div class="img-container">
+        <img src="../../../assets/img/Allura - Feedback Session.png" class="ilustracao" alt="">
+      </div>
+
+      <div class="content">
+        <div class="titulo">
+          <h3> <i class="bx bx-sort-alt-2"></i> Faça transações na sua conta</h3>
+          <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
+        </div>
+        <form action="">
+          <div class="info_input">
+            <label for="">Dinheiro</label> <br>
+            <div class="flex">
+              <input type="text" name="nome" id="nome" autocomplete="off" required>
+              <i class="bx bx-money"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <label for="">Data</label> <br>
+            <div class="flex">
+              <input type="text" name="nome" id="nome" autocomplete="off" required>
+              <i class="bx bx-calendar"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <label for="">Tipo</label> <br>
+
+            <select name="" id="">
+              <option *ngFor="let tipo of tiposT">{{tipo.descricao}}</option>
+            </select>
+            <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
+
+          </div>
+          <div class="info_input">
+            <label for="">Banco</label> <br>
+            <select name="" id="">
+              <option *ngFor="let banco of bancos">{{banco.banco}}</option>
+            </select>
+          </div>
+          <button class="enviar" id="enter">
+            <strong>Enviar</strong>
+            <i class="bx bx-money-withdraw"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" (click)="voltar()">
+      <ion-icon name="arrow-back-outline">
+
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

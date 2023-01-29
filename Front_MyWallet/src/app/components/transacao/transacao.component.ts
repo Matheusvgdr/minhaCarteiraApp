@@ -55,4 +55,13 @@ export class TransacaoComponent implements OnInit {
       }
     })
   }
+
+/*  private postRealizarTransacao(){
+    this.MoviService.postRealizarTransacao().subscribe({
+      next: (response) => {
+        this.movi = response;
+        console.log(response);
+      }
+    })
+  } */
 }

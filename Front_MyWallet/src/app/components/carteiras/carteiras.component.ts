@@ -44,12 +44,10 @@ export class CarteirasComponent implements OnInit {
   ngOnInit(): void {
     this.getListarCarteiras(this.usuario.id || 0);
     this.getListarBanco();
-
   }
 
   onSubmit() {
-    this.cadastrarCarteira(this.carteira);
-    
+    this.cadastrarCarteira(this.carteira);   
   }
 
   private getListarBanco(){
@@ -62,11 +60,20 @@ export class CarteirasComponent implements OnInit {
   }
 
   private cadastrarCarteira(carteira: Carteira) {
-    this.servico.postCadastrarCarteira(carteira).subscribe({ next: (response) => { console.log(response); } })
+    this.servico.postCadastrarCarteira(carteira).subscribe({
+       next: (response) => {
+         console.log(response); 
+        } 
+      });
   }
 
   private getListarCarteiras(idUsuario: number) {
-    this.servico.getListarCarteiras(idUsuario).subscribe({ next: (response) => { this.carteiras = response; console.log(response); } });
+    this.servico.getListarCarteiras(idUsuario).subscribe({
+       next: (response) => {
+         this.carteiras = response;
+          console.log(response); 
+        } 
+      });
   }
 
   mostrar() {
@@ -85,6 +92,4 @@ export class CarteirasComponent implements OnInit {
     const modal = this.modal?.nativeElement;
     this.renderer.setStyle(modal, 'display', "none");
   }
-
-
 }

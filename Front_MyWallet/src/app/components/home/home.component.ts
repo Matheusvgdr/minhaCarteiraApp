@@ -24,18 +24,20 @@ export class HomeComponent implements OnInit {
   saldo: number = 0;
 
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
-
+  idUsuario: number = this.usuario.id || 0;
   constructor(private renderer: Renderer2, private servico: MovimentacaoService) { }
 
 
+  movimentacoes!: Movi[];
+  dias!: Date[];
   
-  dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom',]
 
   ngOnInit(): void {
 
+    this.getListarMovimentacoes(this.idUsuario);
     this.getListarDepositos(this.usuario.id || 0, 1);
     this.getListarSaques(this.usuario.id || 0, 2);
-    
+
     new Chart('MyChart', {
       type: 'line',
       data: {
@@ -94,6 +96,10 @@ export class HomeComponent implements OnInit {
         this.calcularSaq(response);
       }
     })
+  }
+
+  private getListarMovimentacoes(idUsuario: number){
+    this.servico.getListarMovimentacao(idUsuario).subscribe({next: (response) => {this.movimentacoes = response; console.log(response); }})
   }
 
   calcularDep(dinheiro: Movi[]){

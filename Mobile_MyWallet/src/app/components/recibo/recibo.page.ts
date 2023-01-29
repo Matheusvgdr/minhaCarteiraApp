@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Movi } from 'src/app/models/movimentacao.model';
 import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 
@@ -9,12 +10,16 @@ import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 })
 export class ReciboPage implements OnInit {
 
-  constructor(private servico: MovimentacaoService) { }
+  constructor(private servico: MovimentacaoService, private navControl: NavController) { }
 
   movimentacoes!: Movi[];
 
   ngOnInit(): void {
     this.getListarMovimentacoes(1);
+  }
+
+  voltar(){
+    this.navControl.navigateForward("home");
   }
 
   private getListarMovimentacoes(idUsuario: number){

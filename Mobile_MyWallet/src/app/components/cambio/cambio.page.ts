@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Movi } from 'src/app/models/movimentacao.model';
 import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 
@@ -9,6 +10,15 @@ import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 })
 export class CambioPage implements OnInit {
 
+  moedas = [
+    {nome: "Dollar", icon: "$"},
+    {nome: "Libra", icon: "$"},
+    {nome: "Peso", icon: "$"},
+    {nome: "Yen", icon: "$"},
+    {nome: "Euro", icon: "$"},
+    {nome: "Franco", icon: "$"}
+  ]
+
   deposito!: Movi[];
   saque!: Movi[];
   teste!: Movi;
@@ -16,11 +26,15 @@ export class CambioPage implements OnInit {
   totalSaque: number = 0;
   saldo: number = 0;
 
-  constructor(private servico: MovimentacaoService) { }
+  constructor(private servico: MovimentacaoService, private navControl: NavController) { }
 
   ngOnInit() {
     this.getListarDepositos(1,1);
     this.getListarSaques(1,2);
+  }
+
+  voltar(){
+    this.navControl.navigateForward("home");
   }
 
   getListarDepositos(idConta: number, idTipo: number){
@@ -62,5 +76,4 @@ export class CambioPage implements OnInit {
     })
     console.log(this.totalSaque);
   }
-
 }
