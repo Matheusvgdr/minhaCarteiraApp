@@ -12,10 +12,3 @@ DROP TABLE tb_item;
 DROP TABLE tb_movimentacao;
 
 DROP TABLE tb_tipoTransacao;
-
-
-
-
-
-
-

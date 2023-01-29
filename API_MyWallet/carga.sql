@@ -23,10 +23,3 @@ INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id
 INSERT INTO tb_movimentacao(dataMovimentacao, dinheiro, id_tipo, id_carteira, id_usuario, id_banco) VALUES("2022-12-01", 150, 2, 1, 1, 1);
 
 INSERT INTO tb_item(conteudo, dinheiro, id_usuario, id_carteira, id_banco) VALUES("batata", 10, 1, 1, 1);
-
-
-
-
-
-
-
