@@ -15,7 +15,7 @@ export class BancoPage implements OnInit {
   constructor(private service: BancoService, private navControl: NavController) { }
 
   ngOnInit(): void{
-    //this.getListarBanco();
+    this.getListarBanco();
   }
 
   voltar(){
