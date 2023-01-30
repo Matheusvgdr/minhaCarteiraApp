@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController, ToastController } from '@ionic/angular';
+import { Banco } from 'src/app/models/banco.model';
+import { Carteira } from 'src/app/models/carteira.model';
+import { Usuario } from 'src/app/models/usuario.model';
+import { BancoService } from 'src/app/service/banco.service';
+import { CarteiraService } from 'src/app/service/carteira.service';
 
 @Component({
   selector: 'app-carteira',
@@ -8,9 +13,32 @@ import { AlertController, NavController, ToastController } from '@ionic/angular'
 })
 export class CarteiraPage implements OnInit {
 
-  constructor(private alerta: AlertController, private toast: ToastController, private navControl: NavController) { }
+  usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
+
+  carteiras!: Carteira[];
+
+
+  banc: Banco = {
+    banco: "",
+    id_usuario: this.usuario
+  }
+  
+  carteira: Carteira ={
+    nomeCarteira: "",
+    dinheiro: 0,
+    id_usuario: this.usuario,
+    id_banco: this.banc
+
+  }
+
+  bancos!: Banco[];
+
+
+  constructor(private alerta: AlertController, private toast: ToastController, private navControl: NavController, private servico: CarteiraService, private bancoServ: BancoService) { }
 
   ngOnInit() {
+    this.getListarCarteiras(this.usuario.id || 0);
+    this.getListarBanco();
   }
 
   voltar(){
@@ -74,9 +102,9 @@ export class CarteiraPage implements OnInit {
               position: 'top',
               color: 'success'
             });
-      
             TOAST.present();
           }
+          
         }
       ]
     });
@@ -99,8 +127,34 @@ export class CarteiraPage implements OnInit {
         }
       ]
     });
-
     ALERTA.present();
   }
 
+  /* ===================================================== */
+
+  private getListarBanco(){
+    this.bancoServ.getListarBanco().subscribe({
+      next: (response) => {
+        this.bancos = response;
+        console.log(this.bancos);
+      }
+    })
+  }
+
+  private cadastrarCarteira(carteira: Carteira) {
+    this.servico.postCadastrarCarteira(carteira).subscribe({
+       next: (response) => {
+         console.log(response); 
+        } 
+      });
+  }
+
+  private getListarCarteiras(idUsuario: number) {
+    this.servico.getListarCarteiras(idUsuario).subscribe({
+       next: (response) => {
+         this.carteiras = response;
+          console.log(response); 
+        } 
+      });
+  }
 }

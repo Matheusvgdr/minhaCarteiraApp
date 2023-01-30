@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
-
+  <form #form="ngForm" (submit)="onSubmit()">
+    <ion-item lines="full">
+      <ion-label position="floating">Usuário</ion-label>
+      <ion-input type="text" required name="usuario" id="usuario"  autocomplete="off" [(ngModel)]="nomeUsuario"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" required name="senha" id="senha" autocomplete="off" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>

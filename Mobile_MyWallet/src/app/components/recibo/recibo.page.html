@@ -8,19 +8,19 @@
 <ion-content [fullscreen]="true">
   <div class="conteudo">
     <div class="recibos">
-      <div class="recibo saque " >
+      <div class="recibo saque" *ngFor="let movimentacao of movimentacoes">
           <div class="dinheiro flex ">
               <div class="circulo"><i class="ph-coins"></i></div>
-              <p>1200</p>
+              <p>{{movimentacao.dinheiro}}</p>
           </div>
           <div class="tipo flex">
               <div class="circulo"><i class="ph-bank"></i></div>
-              <p>Deposito</p>
+              <p>{{movimentacao.id_tipo.descricao}}</p>
               <!-- Se deposito mudar a cor da borda, se saque vermelho -->
           </div>
           <div class="data flex">
               <div class="circulo"><i class="ph-calendar-blank"></i></div>
-              <p>20-02-2023</p>
+              <p>{{movimentacao.dataMovimentacao}}</p>
           </div>
           <!-- <div class="cartao flex">
               <div class="circulo"><i class="ph-credit-card"></i></div>
@@ -30,31 +30,8 @@
               <div class="circulo"><i class="ph-wallet"></i></div>
               <p>Casa</p>
           </div>
-      </div>
-      <div class="recibo deposito" >
-        <div class="dinheiro flex">
-            <div class="circulo"><i class="ph-coins"></i></div>
-            <p>1200</p>
-        </div>
-        <div class="tipo flex">
-            <div class="circulo"><i class="ph-bank"></i></div>
-            <p>Deposito</p>
-        </div>
-        <div class="data flex">
-            <div class="circulo"><i class="ph-calendar-blank"></i></div>
-            <p>20-02-2023</p>
-        </div>
-        <!-- <div class="cartao flex">
-            <div class="circulo"><i class="ph-credit-card"></i></div>
-            <p>Nubank</p>
-        </div> -->
-        <div class="carteira flex">
-            <div class="circulo"><i class="ph-wallet"></i></div>
-            <p>Casa</p>
-        </div>
+      </div>     
     </div>
-    
-  </div>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
@@ -64,6 +41,4 @@
       </ion-icon>
     </ion-fab-button>
   </ion-fab>
-
-
 </ion-content>

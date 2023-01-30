@@ -42,5 +42,4 @@ export class TransacaoPage implements OnInit {
       }
     })
   }
-
 }
