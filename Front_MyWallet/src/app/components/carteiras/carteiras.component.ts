@@ -20,7 +20,7 @@ export class CarteirasComponent implements OnInit {
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
 
   carteiras!: Carteira[];
-
+  bancos!: Banco[];
 
   banc: Banco = {
     banco: "",
@@ -34,9 +34,6 @@ export class CarteirasComponent implements OnInit {
     id_banco: this.banc
 
   }
-
-  bancos!: Banco[];
-
 
   constructor(private renderer: Renderer2, private servico: CarteiraService, private bancoServ: BancoService) { }
 
