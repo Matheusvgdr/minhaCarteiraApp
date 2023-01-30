@@ -73,10 +73,8 @@ export class HomeComponent implements OnInit {
       }
     
     });
-  
   }
 
-  
    getListarDepositos(idConta: number, idTipo: number){
     this.servico.getListarDepositos(idConta, idTipo).subscribe({
       next: (response) => {
@@ -108,10 +106,6 @@ export class HomeComponent implements OnInit {
       this.totalDep += deposito.dinheiro
     })
     console.log(this.totalDep);
-
-    /* for(let i = 0; i < dinheiro.length; i++){
-      this.total += dinheiro[i].dinheiro;
-    } */
   }
 
   calcularSaq(dinheiro: Movi[]){
