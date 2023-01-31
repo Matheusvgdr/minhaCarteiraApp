@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilPageRoutingModule } from './perfil-routing.module';
+import { CarteiraPageRoutingModule } from './carteira-routing.module';
 
-import { PerfilPage } from './perfil.page';
+import { CarteiraPage } from './carteira.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule
+    CarteiraPageRoutingModule
   ],
-  declarations: [PerfilPage]
+  declarations: [CarteiraPage]
 })
-export class PerfilPageModule {}
+export class CarteiraPageModule {}

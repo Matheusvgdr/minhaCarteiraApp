@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>banco</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <header>
+    <i class="ph-receipt"></i>
+    <p>Banco</p>
+  </header>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" >
+  <ion-card *ngFor="let banco of banco">
+    <ion-card-header>
+      <ion-card-title>{{banco.banco}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <div class="conteudo"></div>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="dark" (click)="voltar()">
+      <ion-icon name="arrow-back-outline">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>

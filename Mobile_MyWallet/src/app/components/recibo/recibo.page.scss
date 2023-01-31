@@ -1,0 +1,52 @@
+@import "../../../global.scss";
+
+.conteudo{
+    font-family: $fonte-texto;
+    min-height: 100%;
+    width: 100%;
+    background: var(--cor-primaria);
+    //padding: 10px 0 0 0;
+
+    .recibo{
+        padding: 20px;
+        background: var(--cor-secundaria);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--cor-texto);
+        border-bottom: 1px solid var(--cor-card);
+
+        .flex{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .circulo{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                background: var(--cor-card);
+            }
+        }
+
+        i{
+            transform: scale(1.5);
+        }
+        p{
+            margin-top: 5px;
+            font-size: 11px;
+        }
+    }
+
+    .saque{
+        border-left: 3px solid #eb445a;
+    }
+
+    .deposito{
+        border-left: 3px solid #2fdf75;
+
+    }
+}

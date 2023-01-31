@@ -1,123 +1,66 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <header>
-    <i class="ph-wallet"></i>
-    <p>Suas carteiras</p>
+    <i class="ph-hand-waving"></i>
+    <p> Bem-vindo, {{usuario.nome}}</p>
   </header>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  
-  <div class="carteiras">
-    <ion-item-sliding>
-      <ion-item color="dark">
-       
-        <div class="container">
-          <div class="sliding-carteira">
-            <div class="nomeCar">
-              <p>Casa</p>
-            </div>
-            <div class="dinheiro">
-              R$ 501,80
-            </div>
-          </div>
-          <img src="../../assets/img/dinheiro.png" alt="">
-        </div>
-      </ion-item>
-  
-      <ion-item-options side="start">
-        <ion-item-option color="success"><i class="ph-currency-dollar"></i></ion-item-option>
-      </ion-item-options>
-  
-      <ion-item-options>
-        <ion-item-option color="primary"><i class="ph-pencil-simple"></i></ion-item-option>
-        <ion-item-option color="danger"><i class="ph-trash"></i></ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    
-    <ion-item-sliding>
-      <ion-item color="dark">
-       
-        <div class="container">
-          <div class="sliding-carteira">
-            <div class="nomeCar">
-              <p>Passagem</p>
-            </div>
-            <div class="dinheiro">
-              R$ 501,80
-            </div>
-          </div>
-          <img src="../../assets/img/dinheiro.png" alt="">
-        </div>
-      </ion-item>
-  
-      <ion-item-options side="start">
-        <ion-item-option color="success"><ion-icon name="checkmark-outline"></ion-icon></ion-item-option>
-      </ion-item-options>
-  
-      <ion-item-options>
-        <ion-item-option color="primary"><i class="ph-pencil-simple"></i></ion-item-option>
-        <ion-item-option color="danger"><i class="ph-trash"></i></ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    <!-- <div class="container-carteira">
+  <div class="conteudo">
+    <div class="links-container">
+      <div class="link"><a href="recibo"><i class="ph-receipt"></i></a></div>
+      <div class="link"><a href="carteira"><i class="ph-wallet"></i></a></div>
+      <div class="link"><a href="transacao"><i class="ph-coins"></i></a></div>
+      <div class="link"><a href="cambio"><i class="ph-currency-circle-dollar"></i></a></div>
+    </div>
 
-      <div class="carteira">
-        <div class="nomeCar">
-          <p>Casa</p>
-          <div class="icons">
-            <i class="ph-pencil-simple"></i>
-            <i class="ph-trash"></i>
-          </div>
-        </div>
+    <div class="banco">
+      <p> <i class="ph-bank"></i>Meu banco</p>
+    </div>
 
+    <div class="visao-geral">
+
+      <div class="container-saldo">
+        <div class="titulo">
+          <p>Saldo atual</p>
+        </div>
         <div class="dinheiro">
-          R$ 162,60
+          <p>{{totalDep - totalSaque}}</p>
         </div>
       </div>
-      <div class="carteira">
 
-        <div class="nomeCar">
-          <p>Casa</p>
-          <div class="icons">
-            <i class="ph-pencil-simple"></i>
-            <i class="ph-trash"></i>
-          </div>
+      <img src="../../assets/img/banco.png" alt="">
+
+    </div>
+
+    <div class="transacoes">
+      <div class="saques">
+        <div class="titulo">
+          <p> <i class="ph-arrow-circle-down"></i>Saques</p>
         </div>
-
         <div class="dinheiro">
-          R$ 162,60
+          <p>R$ {{totalSaque}}</p>
         </div>
       </div>
-
-      <div class="carteira">
-        
-      </div>
-      <div class="carteira">
-
-        <div class="nomeCar">
-          <p>Casa</p>
-          <div class="icons">
-            <i class="ph-pencil-simple"></i>
-            <i class="ph-trash"></i>
-          </div>
+      
+      <div class="depositos">
+        <div class="titulo">
+          <p> <i class="ph-arrow-circle-up"></i>Depósitos</p>
         </div>
-
         <div class="dinheiro">
-          R$ 162,60
+          <p>R$ {{totalDep}}</p>
         </div>
       </div>
+    </div>
 
-    </div> -->
+    <div class="carteiras" *ngIf="carteiras">
+      <p> <i class="ph-wallet"></i>Carteiras</p>
+      <div class="qntdCart"><p>{{carteiras.length}}</p></div>
+    </div>
+
+
+    <!-- <canvas id="MyChart"></canvas> -->
+
   </div>
-
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success">
-      <ion-icon name="add">
-
-      </ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
 </ion-content>

@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cambio</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <header>
+    <i class="ph-currency-circle-dollar"></i>
+    <p>Câmbio</p>
+  </header>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div class="conteudo">
+    <div class="container-cambio" *ngFor="let moeda of moedas">
+      <div class="titulo">
+
+        <div class="circulo">
+          <i class="">{{moeda.icon}}</i>
+        </div>
+          <p class="moeda">{{moeda.nome}}</p>
+      </div>
+
+      <div class="resumo">
+        <p class="total">Total</p>
+        <p class="valor"> {{moeda.icon}} 30,00</p>
+      </div>
+    </div>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="dark" (click)="voltar()">
+      <ion-icon name="arrow-back-outline">
+
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

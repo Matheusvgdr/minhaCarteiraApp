@@ -1,0 +1,134 @@
+@import "../../../global.scss";
+ion-slides {
+    height: 100%;
+}
+
+.enviar {
+    margin-top: 20px;
+    background: var(--cor-terciaria);
+    z-index: 4;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: $fonte-button;
+    font-family: $fonte-texto;
+    color: var(--cor-texto);
+    border: none;
+    margin-bottom: 14px;
+}
+
+
+.login{
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items:center;
+    padding: 0 0 16px 0;
+
+
+    i{
+        transform: scale(3);
+    }
+    
+    p{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.cadastrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    gap: 7px;
+
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+.container-button{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.img-container {
+    width: 100%;
+    height: 50%;
+    background-color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ilustracao {
+        width: 95%;
+    }
+
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+    width: 65%;
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+        background: transparent;
+        color: var(--cor-secundaria);
+        border: none;
+        width: 100%;
+        font-family: $fonte-texto;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+}
+
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 15px;
+    width: 100%;
+    background: var(--cor-texto);
+    border: 2px solid var(--cor-secundaria);
+    margin-top: 5px;
+    border-radius: 8px;
+}
+
+.info_input i {
+    position: relative;
+    transform: scale(1.1);
+    color: #616161;
+}
