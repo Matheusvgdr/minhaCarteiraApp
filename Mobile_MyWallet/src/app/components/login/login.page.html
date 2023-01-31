@@ -1,23 +1,108 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="false">
+  <div class="login">
+    <i class="ph-wallet"></i>
+    <p>My Wallet</p>
+  </div>
 </ion-header>
 
-<ion-content>
-  <form #form="ngForm" (submit)="onSubmit()">
-    <ion-item lines="full">
-      <ion-label position="floating">Usuário</ion-label>
-      <ion-input type="text" required name="usuario" id="usuario"  autocomplete="off" [(ngModel)]="nomeUsuario"></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" required name="senha" id="senha" autocomplete="off" [(ngModel)]="senha"></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+<ion-content [fullscreen]="true">
+  <ion-slides pager="true" [options]="slideOpts" >
+    <ion-slide>
+      
+      <div class="conteudo">
+       <div class="img-container"><img src="../../../assets/img/Allura - Feedback Session.png" alt=""></div>
+        <form #form="ngForm" (submit)="onSubmit()">
+          <div class="info_input">
+            <!-- <label for="">Usuário</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <!-- <label for="">Senha</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+          </div>
+          <!-- 
+          <ion-item lines="full">
+            <ion-label position="floating">Usuário</ion-label>
+            <ion-input type="text" required name="usuario" id="usuario"  autocomplete="off" [(ngModel)]="nomeUsuario"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" required name="senha" id="senha" autocomplete="off" [(ngModel)]="senha"></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col>
+              <div class="container-button">
+                <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
+                <ion-button type="submit" color="danger" expand="block">Entrar</ion-button>
+              </div>
+            </ion-col>
+          </ion-row> -->
+
+          <button class="enviar" id="enter">
+            <strong>Entrar</strong>
+            <i class="bx bx-airplane"></i>
+          </button>
+        </form>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="conteudo">
+
+        <div class="img-container"><img src="../../../assets/img/Allura - Feedback Session.png" alt=""></div>
+        <form action="">
+          <div class="info_input">
+            <!-- <label for="">Usuário</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <!-- <label for="">Senha</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+          </div> <div class="info_input">
+            <!-- <label for="">Usuário</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <!-- <label for="">Senha</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+          </div> <div class="info_input">
+            <!-- <label for="">Usuário</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="info_input">
+            <!-- <label for="">Senha</label> <br> -->
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+          </div>
+
+          <button class="enviar" id="enter">
+            <strong>Entrar</strong>
+            <i class="bx bx-airplane"></i>
+          </button>
+        </form>
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

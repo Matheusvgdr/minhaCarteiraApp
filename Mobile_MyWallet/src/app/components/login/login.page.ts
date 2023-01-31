@@ -9,6 +9,11 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class LoginPage implements OnInit {
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
   constructor(private servico: UsuarioService, private router: Router) { }
 
   nomeUsuario: string = '';
