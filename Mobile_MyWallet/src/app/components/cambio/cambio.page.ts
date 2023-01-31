@@ -10,21 +10,23 @@ import { MovimentacaoService } from 'src/app/service/movimentacao.service';
 })
 export class CambioPage implements OnInit {
 
-  moedas = [
-    {nome: "Dollar", icon: "$"},
-    {nome: "Libra", icon: "$"},
-    {nome: "Peso", icon: "$"},
-    {nome: "Yen", icon: "$"},
-    {nome: "Euro", icon: "$"},
-    {nome: "Franco", icon: "$"}
-  ]
-
   deposito!: Movi[];
   saque!: Movi[];
   teste!: Movi;
   totalDep: number = 0;
   totalSaque: number = 0;
   saldo: number = 0;
+
+  moedas: any = [
+    {nome: "Dollar", icon: "$", valor: 5.13},
+    {nome: "Libra", icon: "£", valor: 6.32},
+    {nome: "Peso", icon: "$", valor: 0.27},
+    {nome: "Yen", icon: "¥", valor: 0.039},
+    {nome: "Euro", icon: "Є", valor: 5.55},
+    {nome: "Franco", icon: "fr", valor: 5.53}
+  ]
+
+
 
   constructor(private servico: MovimentacaoService, private navControl: NavController) { }
 

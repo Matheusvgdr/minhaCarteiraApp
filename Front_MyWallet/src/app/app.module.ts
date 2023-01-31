@@ -53,8 +53,9 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CarteiraService,
     ListaService,
     MovimentacaoService,
-    TipoTransacaoService
+    TipoTransacaoService  
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
