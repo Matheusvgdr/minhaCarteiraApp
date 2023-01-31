@@ -47,7 +47,7 @@
                         <label for="">Telefone</label> <br>
                         <div class="flex">
                             <input type="text" name="telefone" id="telefone" autocomplete="off" required
-                                [(ngModel)]="usuario.telefone">
+                                [(ngModel)]="usuario.telefone" mask="(00) 00000-0000">
                             <i class="bx bx-phone"></i>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <label for="">Nascimento</label> <br>
                         <div class="flex">
                             <input type="text" name="nascimento" id="nascimento" autocomplete="off" required
-                                [(ngModel)]="usuario.nascimento">
+                                [(ngModel)]="usuario.nascimento" mask="00/00/0000">
                             <i class="bx bx-calendar"></i>
                         </div>
                     </div>
