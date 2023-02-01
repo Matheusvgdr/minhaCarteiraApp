@@ -16,9 +16,9 @@ export class CarteiraPage implements OnInit {
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
 
   carteiras!: Carteira[];
+  bancos!: Banco[];
 
-
-  banc: Banco = {
+  banco: Banco = {
     banco: "",
     id_usuario: this.usuario
   }
@@ -27,11 +27,9 @@ export class CarteiraPage implements OnInit {
     nomeCarteira: "",
     dinheiro: 0,
     id_usuario: this.usuario,
-    id_banco: this.banc
+    id_banco: this.banco
 
   }
-
-  bancos!: Banco[];
 
 
   constructor(private alerta: AlertController, private toast: ToastController, private navControl: NavController, private servico: CarteiraService, private bancoServ: BancoService) { }
@@ -49,13 +47,24 @@ export class CarteiraPage implements OnInit {
     const ALERTA = await this.alerta.create({
       header: 'Dê um nome a sua carteira.',
       inputs: [
-        { name: 'carteira', type: 'text', placeholder: 'Digite o nome da carteira' }
+        { name: 'carteira', type: 'text', placeholder: 'Digite o nome da carteira'},
+        { name: 'dinheiro', value: '0'},
+        { name: 'id_usuario', value: this.usuario},
+        { name: 'id_banco', value: this.banco}
       ],
       buttons: [
         { text: 'Cancelar', handler: () => { console.log('cancelou'); } },
         {
-          text: 'Adicionar', handler: (carteira) => {
-            console.log(carteira)
+          text: 'Adicionar', handler: (form) => {
+            let cart: Carteira={
+              nomeCarteira: form.carteira,
+              dinheiro: form.dinheiro,
+              id_usuario: form.id_usuario,
+              id_banco: form.id_banco
+            }
+
+            this.cadastrarCarteira(cart);
+            console.log(cart)
           }
         }
       ]
@@ -95,7 +104,8 @@ export class CarteiraPage implements OnInit {
         },
         {
           text: 'Sim',
-          handler: async () => {
+          handler: async (form) => {
+            this.apagarCarteira(form);
             const TOAST = await this.toast.create({
               message: 'Carteira apagada',
               duration: 2000,
@@ -113,6 +123,7 @@ export class CarteiraPage implements OnInit {
   }
 
   async inserirDinheiro(){
+    
     const ALERTA = await this.alerta.create({
       header: 'Quanto deseja inserir ou retirar?',
       inputs: [
@@ -132,6 +143,28 @@ export class CarteiraPage implements OnInit {
 
   /* ===================================================== */
 
+  apagarCarteira(idCarteira: number){
+    this.servico.delDeletarCarteira(idCarteira).subscribe({
+      next: (response) => {
+        window.location.reload();
+        console.log(response);        
+      }
+    });
+  }
+/* 
+  editarCarteira(){
+    this.editCarteira(this.cart);
+  }
+ */
+  private editCarteira(carteira: Carteira){
+    this.servico.postModificarCarteira(carteira).subscribe({
+      next: (response) => {
+       // window.location.reload();
+        console.log(response);
+      }
+    })
+  }
+
   private getListarBanco(){
     this.bancoServ.getListarBanco().subscribe({
       next: (response) => {
@@ -144,6 +177,7 @@ export class CarteiraPage implements OnInit {
   private cadastrarCarteira(carteira: Carteira) {
     this.servico.postCadastrarCarteira(carteira).subscribe({
        next: (response) => {
+         window.location.reload();
          console.log(response); 
         } 
       });

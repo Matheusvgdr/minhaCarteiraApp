@@ -19,7 +19,7 @@ export class ReciboPage implements OnInit {
   movimentacoes!: Movi[];
 
   ngOnInit(): void {
-    this.getListarMovimentacoes(1);
+    this.getListarMovimentacoes(this.usu.id || 1);
   }
 
   private getListarMovimentacoes(idUsuario: number){
