@@ -1,17 +1,19 @@
-<div class="conteudo">
+<div class="tudo">
+  <div class="conteudo">
     <div class="container-cambio" *ngFor="let moeda of moedas">
       <div class="titulo">
-
+  
         <div class="circulo">
           <i class="">{{moeda.icon}}</i>
         </div>
-          <p class="moeda">{{moeda.nome}}</p>
+        <p class="moeda">{{moeda.nome}}</p>
       </div>
-
+  
       <div class="resumo">
         <p class="total">Total</p>
         <p class="valor"> {{moeda.icon}} {{(totalDep - totalSaque) / moeda.valor}}</p>
       </div>
     </div>
-
+  
   </div>
+</div>

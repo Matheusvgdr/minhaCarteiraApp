@@ -4,6 +4,7 @@
     width: 100%;
     height: 100%;
     border-radius: 14px;
+    padding: 27px 27px 27px 0;
 
 
     .topo {
@@ -24,7 +25,7 @@
         height: 87.7%;
         border-radius: 14px;
         background-color: var(--cor-secundaria);
-        padding: 50px;
+        padding: 30px 40px;
     }
 
     .line {
@@ -116,6 +117,7 @@
             padding: 4px 12px;
             border-radius: 8px;
             background: var(--cor-terciaria);
+            color: var(--cor-texto);
         }
 
 

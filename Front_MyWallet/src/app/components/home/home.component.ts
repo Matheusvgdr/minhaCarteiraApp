@@ -30,8 +30,7 @@ export class HomeComponent implements OnInit {
 
 
   movimentacoes!: Movi[];
-  dias!: Date[];
-  
+  dias = ["Seg", "Ter", "Quar", "Quin", "Sex", "Sab", "Dom"]
 
   ngOnInit(): void {
 
@@ -45,7 +44,7 @@ export class HomeComponent implements OnInit {
         labels: this.dias,
         datasets: [{
           label: 'Gastos da semana',
-          data: [12, 19, 3, 5, 2, 3, 32],
+          data: [103.20, 20.50, 0, 68.10, 8.15, 16, 24.90],
           borderWidth: 2,
           backgroundColor:[
             '#fff',

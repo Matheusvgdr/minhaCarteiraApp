@@ -1,99 +1,101 @@
-<div class="container-transacao">
-
-    <div class="transacao-conta box">
-        <div class="img-container">
-            <img src="../../../assets/img/Allura - Feedback Session.png" class="ilustracao" alt="">
-        </div>
-        
-        <div class="content">
-            <div class="titulo">
-                <h3> <i class="bx bx-sort-alt-2"></i>Faça transações na sua conta: </h3>
-                <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
+<div class="tudo">
+    <div class="container-transacao">
+    
+        <div class="transacao-conta box">
+            <div class="img-container">
+                <img src="../../../assets/img/Allura - Feedback Session.png" class="ilustracao" alt="">
             </div>
-            <form action="" #form="ngForm" (submit)="realizarTransacao()">
-                <div class="info_input">
-                    <label for="">Dinheiro</label> <br>
-                    <div class="flex">
-                        <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="movimentacao.dinheiro"> 
-                        <i class="bx bx-money"></i>
-                    </div>
+    
+            <div class="content">
+                <div class="titulo">
+                    <h3> <i class="bx bx-sort-alt-2"></i>Faça transações na sua conta: </h3>
+                    <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
                 </div>
-                <div class="info_input">
-                    <label for="">Data</label> <br>
-                    <div class="flex">
-                        <input type="text" name="dataMovimentacao" id="dataMovimentacao" autocomplete="off" required  [(ngModel)]="movimentacao.dataMovimentacao">
-                        <i class="bx bx-calendar"></i>
+                <form action="" #form="ngForm" (submit)="realizarTransacao()">
+                    <div class="info_input">
+                        <label for="">Dinheiro</label> <br>
+                        <div class="flex">
+                            <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="movimentacao.dinheiro">
+                            <i class="bx bx-money"></i>
+                        </div>
                     </div>
+                    <div class="info_input">
+                        <label for="">Data</label> <br>
+                        <div class="flex">
+                            <input type="text" name="dataMovimentacao" id="dataMovimentacao" autocomplete="off" required  [(ngModel)]="movimentacao.dataMovimentacao">
+                            <i class="bx bx-calendar"></i>
+                        </div>
+                    </div>
+                    <div class="info_input">
+                        <label for="">Tipo</label> <br>
+    
+                            <select name="id_tipo" id="id_tipo" [(ngModel)]="tipo.id">
+                                <option >Selecione</option>
+                                <option *ngFor="let tp of tiposT" [value]="tp.id">{{tp.descricao}}</option>
+                            </select>
+                           <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
+    
+                    </div>
+                    <div class="info_input">
+                        <label for="">Banco</label> <br>
+                        <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
+                            <option >Selecione</option>
+                            <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
+                        </select>
+                    </div>
+    
+                    <button class="enviar" id="enter">
+                        <strong>Enviar</strong>
+                        <i class="bx bx-money-withdraw"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="transacao-carteira box">
+            <div class="img-container">
+                <img src="../../../assets/img/cofre.png" alt="">
+            </div>
+            <div class="content">
+                <div class="titulo">
+                    <h3> <i class="bx bx-sort-alt-2"></i>Separe seu saldo em suas carteiras: </h3>
+                    <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
                 </div>
-                <div class="info_input">
-                    <label for="">Tipo</label> <br>
-                    
+                <form action="" #form="ngForm" (submit)="transacaoCart()">
+                    <input type="hidden" name="dataMovimentacao" id="dataMovimentacao" [value]="2010-06-06">
+                    <div class="info_input">
+                        <label for="">Dinheiro</label> <br>
+                        <div class="flex">
+                            <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="moviCart.dinheiro">
+                            <i class="bx bx-money"></i>
+                        </div>
+                    </div>
+                    <div class="info_input">
+                        <label for="">Carteira</label> <br>
+                            <select >
+                                <option *ngFor="let carteira of carteiras" [value]="carteira.id">{{carteira.nomeCarteira}}</option>
+                            </select>
+    
+                    </div>
+                    <div class="info_input">
+                        <label for="">Tipo</label> <br>
                         <select name="id_tipo" id="id_tipo" [(ngModel)]="tipo.id">
                             <option >Selecione</option>
                             <option *ngFor="let tp of tiposT" [value]="tp.id">{{tp.descricao}}</option>
                         </select>
-                       <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
-                    
-                </div>
-                <div class="info_input">
-                    <label for="">Banco</label> <br>
-                    <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
-                        <option >Selecione</option>
-                        <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
-                    </select>
-                </div>
-                
-                <button class="enviar" id="enter">
-                    <strong>Enviar</strong>
-                    <i class="bx bx-money-withdraw"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="transacao-carteira box">
-        <div class="img-container">
-            <img src="../../../assets/img/cofre.png" alt="">
-        </div>
-        <div class="content">
-            <div class="titulo">
-                <h3> <i class="bx bx-sort-alt-2"></i>Separe seu saldo em suas carteiras: </h3>
-                <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
-            </div>
-            <form action="" #form="ngForm" (submit)="transacaoCart()">
-                <input type="hidden" name="dataMovimentacao" id="dataMovimentacao" [value]="2010-06-06">
-                <div class="info_input">
-                    <label for="">Dinheiro</label> <br>
-                    <div class="flex">
-                        <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="moviCart.dinheiro">
-                        <i class="bx bx-money"></i>
                     </div>
-                </div>
-                <div class="info_input">
-                    <label for="">Carteira</label> <br>
-                        <select >
-                            <option *ngFor="let carteira of carteiras" [value]="carteira.id">{{carteira.nomeCarteira}}</option>
+                    <div class="info_input">
+                        <label for="">Banco</label> <br>
+                        <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
+                            <option >Selecione</option>
+                            <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
                         </select>
-                   
-                </div>
-                <div class="info_input">
-                    <label for="">Tipo</label> <br>
-                    <select name="id_tipo" id="id_tipo" [(ngModel)]="tipo.id">
-                        <option >Selecione</option>
-                        <option *ngFor="let tp of tiposT" [value]="tp.id">{{tp.descricao}}</option>
-                    </select>
-                </div>
-                <div class="info_input">
-                    <label for="">Banco</label> <br>
-                    <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
-                        <option >Selecione</option>
-                        <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
-                    </select>
-                </div>
-                <button class="enviar" id="enter">
-                    <strong>Enviar</strong>
-                    <i class="bx bx-money-withdraw"></i>
-                </button>
-            </form>
+                    </div>
+                    <button class="enviar" id="enter">
+                        <strong>Enviar</strong>
+                        <i class="bx bx-money-withdraw"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
