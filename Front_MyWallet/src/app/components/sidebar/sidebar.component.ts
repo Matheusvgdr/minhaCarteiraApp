@@ -12,8 +12,9 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.exibirSidebarEmitter.subscribe(() => {
-      this.loadRoute();
+    this.exibirSidebarEmitter.subscribe((x) => {
+      console.log(x);
+      
     })
   }
   

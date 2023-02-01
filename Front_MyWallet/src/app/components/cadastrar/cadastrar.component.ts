@@ -21,7 +21,6 @@ export class CadastrarComponent implements OnInit {
     nascimento: '',
     cidade: '',
     estado: ''
-
   }
 
   constructor(private servico: UsuarioService,  private router: Router) { }

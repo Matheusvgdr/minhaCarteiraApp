@@ -52,8 +52,16 @@ export class TransacaoComponent implements OnInit {
     id_tipo: this.tipo
   }
 
+  moviCart: Movi = {
+    dataMovimentacao: "",
+    dinheiro: 0,
+    id_banco: this.banco,
+    id_usuario: this.usuario,
+    id_tipo: this.tipo
+  }
+
 teste(){
-  console.log(this.movimentacao);
+  console.log(this.moviCart);
 }
 
 
@@ -68,6 +76,10 @@ teste(){
 
   realizarTransacao(){
     this.postRealizarTransacao();
+  }
+
+  transacaoCart(){
+    this.transacaoCarteira(this.moviCart);
   }
 
   private getListarCarteiras(idUsuario: number){
@@ -103,5 +115,14 @@ teste(){
         console.log(response);
       }
     })
-  } 
+  }
+  
+  private transacaoCarteira(movimentacao: Movi){
+    this.movimentacaoServ.postRealizarTransacaoCarteira(movimentacao).subscribe({
+      next: (response) =>{
+        this.movimentacao = response;
+        console.log(response);
+      }
+    })
+  }
 }

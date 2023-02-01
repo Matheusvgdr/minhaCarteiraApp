@@ -31,9 +31,13 @@
                 <div class="info-carteira">
                     <div class="titulo">
 
-                        <p>{{carteira.nomeCarteira}}</p>
+                        <form action="" #form="ngForm" (submit)="editarCarteira()" >
+                            <input class="inputNomeCarteira" value="{{carteira.nomeCarteira}}" [(ngModel)]="cart.nomeCarteira"/> 
+                            <input type="hidden" name="id" id="id" value="{{carteira.id}}" [(ngModel)]="cart.id">                          
+                            <button class="btnEdit"><i class="bx bx-pencil"></i></button>                        
+                        </form>
                         <div class="circulo">
-                            <i class="bx bx-pencil"></i>
+                            <i class="bx bx-trash" (click)="apagarCarteira(carteira.id || 1)"></i>
                         </div>
                     </div>
                     <div class="info-dinheiro">
@@ -68,10 +72,11 @@
 
                     <div class="info_input">
                         <label for="">Banco</label> <br>
-                        <select name="id_banco" id="id_banco" [(ngModel)]="carteira.id_banco">
-                            <option [value]="banco.id" *ngFor="let banco of bancos">{{banco.banco}}</option>
+                        <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
+                            <option [value]="banc.id" *ngFor="let banc of bancos">{{banc.banco}}</option>
                         </select>
                     </div>
+
                     <input type="text" name="id_usuario" id="id_usuario" autocomplete="off" [(ngModel)]="carteira.id_usuario.id">
     
                     <div class="buttons">

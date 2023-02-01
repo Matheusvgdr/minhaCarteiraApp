@@ -59,31 +59,34 @@
                 <h3> <i class="bx bx-sort-alt-2"></i>Separe seu saldo em suas carteiras: </h3>
                 <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
             </div>
-            <form action="">
+            <form action="" #form="ngForm" (submit)="transacaoCart()">
+                <input type="hidden" name="dataMovimentacao" id="dataMovimentacao" [value]="2010-06-06">
                 <div class="info_input">
                     <label for="">Dinheiro</label> <br>
                     <div class="flex">
-                        <input type="text" name="nome" id="nome" autocomplete="off" required>
+                        <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="moviCart.dinheiro">
                         <i class="bx bx-money"></i>
                     </div>
                 </div>
                 <div class="info_input">
                     <label for="">Carteira</label> <br>
                         <select >
-                            <option *ngFor="let carteira of carteiras">{{carteira.nomeCarteira}}</option>
+                            <option *ngFor="let carteira of carteiras" [value]="carteira.id">{{carteira.nomeCarteira}}</option>
                         </select>
                    
                 </div>
                 <div class="info_input">
                     <label for="">Tipo</label> <br>
-                    <select name="" id="">
-                        <option *ngFor="let tipo of tiposT">{{tipo.descricao}}</option>
+                    <select name="id_tipo" id="id_tipo" [(ngModel)]="tipo.id">
+                        <option >Selecione</option>
+                        <option *ngFor="let tp of tiposT" [value]="tp.id">{{tp.descricao}}</option>
                     </select>
                 </div>
                 <div class="info_input">
                     <label for="">Banco</label> <br>
-                    <select name="" id="">
-                        <option *ngFor="let banco of bancos">{{banco.banco}}</option>
+                    <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
+                        <option >Selecione</option>
+                        <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
                     </select>
                 </div>
                 <button class="enviar" id="enter">
