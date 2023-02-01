@@ -55,44 +55,52 @@
       <div class="conteudo">
 
         <div class="img-container"><img src="../../../assets/img/Allura - Feedback Session.png" alt=""></div>
-        <form action="">
+        <form action="" #form="ngForm" (submit)="onSubmit()">
           <div class="info_input">
             <!-- <label for="">Usuário</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu nome:" autocomplete="off" required [(ngModel)]="usuario.nome">
               <i class="bx bx-user"></i>
             </div>
           </div>
           <div class="info_input">
             <!-- <label for="">Senha</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu email:" autocomplete="off" required [(ngModel)]="usuario.email">
               <i class="bx bx-lock-alt"></i>
             </div>
           </div> <div class="info_input">
             <!-- <label for="">Usuário</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="usuario.nomeUsuario">
               <i class="bx bx-user"></i>
             </div>
           </div>
           <div class="info_input">
             <!-- <label for="">Senha</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="usuario.senha">
               <i class="bx bx-lock-alt"></i>
             </div>
           </div> <div class="info_input">
             <!-- <label for="">Usuário</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira seu usuário" autocomplete="off" required [(ngModel)]="nomeUsuario">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu telefone" autocomplete="off" required [(ngModel)]="usuario.telefone">
               <i class="bx bx-user"></i>
             </div>
           </div>
           <div class="info_input">
             <!-- <label for="">Senha</label> <br> -->
             <div class="flex">
-              <input type="text" name="nome" id="nome" placeholder="Insira sua senha" autocomplete="off" required [(ngModel)]="senha">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua data de Nascimento" autocomplete="off" required [(ngModel)]="usuario.nascimento">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira sua cidade" autocomplete="off" required [(ngModel)]="usuario.cidade">
+              <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="flex">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu estado" autocomplete="off" required [(ngModel)]="usuario.estado">
               <i class="bx bx-lock-alt"></i>
             </div>
           </div>

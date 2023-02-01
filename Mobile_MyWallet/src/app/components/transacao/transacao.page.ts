@@ -107,5 +107,14 @@ teste(){
         console.log(response);
       }
     })
-  } 
+  }
+  
+  private transacaoCarteira(movimentacao: Movi){
+    this.movimentacaoServ.postRealizarTransacaoCarteira(movimentacao).subscribe({
+      next: (response) =>{
+        this.movimentacao = response;
+        console.log(response);
+      }
+    })
+  }
 }
