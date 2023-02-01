@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <header>
     <i class="ph-hand-waving"></i>
-    <p> Bem-vindo, Matheus</p>
+    <p> Bem-vindo, {{usuario.nome}}</p>
   </header>
 </ion-header>
 
@@ -26,7 +26,7 @@
           <p>Saldo atual</p>
         </div>
         <div class="dinheiro">
-          <p>R$ 1200,00</p>
+          <p>{{totalDep - totalSaque}}</p>
         </div>
       </div>
 
@@ -40,7 +40,7 @@
           <p> <i class="ph-arrow-circle-down"></i>Saques</p>
         </div>
         <div class="dinheiro">
-          <p>R$ 300,00</p>
+          <p>R$ {{totalSaque}}</p>
         </div>
       </div>
       
@@ -49,15 +49,14 @@
           <p> <i class="ph-arrow-circle-up"></i>Depósitos</p>
         </div>
         <div class="dinheiro">
-          <p>R$ 800,00</p>
+          <p>R$ {{totalDep}}</p>
         </div>
       </div>
     </div>
 
-    <div class="carteiras">
+    <div class="carteiras" *ngIf="carteiras">
       <p> <i class="ph-wallet"></i>Carteiras</p>
-
-      <div class="qntdCart"><p>7</p></div>
+      <div class="qntdCart"><p>{{carteiras.length}}</p></div>
     </div>
 
 

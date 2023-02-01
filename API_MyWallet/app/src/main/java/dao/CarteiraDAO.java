@@ -111,7 +111,7 @@ public boolean modificarCarteira(Carteira md) {
 	
 	conex = DAO.criarConexao();
 	
-	String sql = "UPDATE tb_usuario SET nome = ? WHERE id = ?;";
+	String sql = "UPDATE tb_carteira SET nomeCarteira = ? WHERE id = ?;";
 	
 	try {
 		

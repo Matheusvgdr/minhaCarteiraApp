@@ -20,9 +20,9 @@ export class CarteirasComponent implements OnInit {
   usuario: Usuario = JSON.parse(sessionStorage.getItem("usuario") || "") as Usuario;
 
   carteiras!: Carteira[];
+  bancos!: Banco[];
 
-
-  banc: Banco = {
+  banco: Banco = {
     banco: "",
     id_usuario: this.usuario
   }
@@ -31,12 +31,16 @@ export class CarteirasComponent implements OnInit {
     nomeCarteira: "",
     dinheiro: 0,
     id_usuario: this.usuario,
-    id_banco: this.banc
+    id_banco: this.banco
 
   }
 
-  bancos!: Banco[];
-
+  cart: Carteira={
+    nomeCarteira: "",
+    dinheiro: 0,
+    id_usuario: this.usuario,
+    id_banco: this.banco
+  }
 
   constructor(private renderer: Renderer2, private servico: CarteiraService, private bancoServ: BancoService) { }
 
@@ -48,6 +52,32 @@ export class CarteirasComponent implements OnInit {
 
   onSubmit() {
     this.cadastrarCarteira(this.carteira);   
+  }
+
+  apagarCarteira(idCarteira: number){
+    this.servico.delDeletarCarteira(idCarteira).subscribe({
+      next: (response) => {
+        window.location.reload();
+        console.log(response);        
+      }
+    });
+  }
+
+  editarCarteira(){
+    this.editCarteira(this.cart);
+  }
+
+  teste(){
+    console.log(this.cart);
+  }
+
+  private editCarteira(carteira: Carteira){
+    this.servico.postModificarCarteira(carteira).subscribe({
+      next: (response) => {
+       // window.location.reload();
+        console.log(response);
+      }
+    })
   }
 
   private getListarBanco(){
@@ -62,6 +92,7 @@ export class CarteirasComponent implements OnInit {
   private cadastrarCarteira(carteira: Carteira) {
     this.servico.postCadastrarCarteira(carteira).subscribe({
        next: (response) => {
+         window.location.reload();
          console.log(response); 
         } 
       });

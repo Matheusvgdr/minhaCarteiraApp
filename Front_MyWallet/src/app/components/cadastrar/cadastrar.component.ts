@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
 import { DatePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {  Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -20,10 +21,9 @@ export class CadastrarComponent implements OnInit {
     nascimento: '',
     cidade: '',
     estado: ''
-
   }
 
-  constructor(private servico: UsuarioService) { }
+  constructor(private servico: UsuarioService,  private router: Router) { }
 
   ngOnInit(): void {
    
@@ -38,6 +38,13 @@ export class CadastrarComponent implements OnInit {
       next: (response) => {
         this.usuario = response;
         console.log(response);
+
+        sessionStorage.clear();
+        if(sessionStorage.getItem("usuario") == null){
+          this.router.navigate([""]);
+        }else{
+          console.log("não redirecionou");
+        } 
       }
     })
   }

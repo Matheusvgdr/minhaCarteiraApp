@@ -1,6 +1,64 @@
+.tudo{
+    padding: 27px 27px 27px 0;
+    height: 100%;
+    display: flex;
+}
 .container-banco{
     width: 100%;
     height: 100%;
     border-radius: 14px;
     background-color: var(--cor-secundaria);
+    padding: 65px 35px 35px 70px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .texto{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        color: var(--cor-texto);
+    }
+    
+    i{
+        transform: scale(4);
+    }
+    .banco{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        padding-bottom: 40px;
+        height: 80%;
+        width: 80%;
+        border-radius: 10px;
+        background: var(--cor-primaria);
+    }
+    .nen{
+        box-shadow: -10px 8px #c3c3c3;
+    }
+    .cai{
+        box-shadow: -10px 8px #175b97;
+    }
+
+    .san{
+        box-shadow: -10px 8px #e72828;
+    }
+
+    .bra{
+        box-shadow: -10px 8px #f7003e;
+    }
+    .ban{
+        box-shadow: -10px 8px #eedf22;
+    }
+    .neo{
+        box-shadow: -10px 8px #02c5d8;
+    }
+    .nub{
+        box-shadow: -10px 8px #BA4DE3;
+    }
+    .ita{
+        box-shadow: -10px 8px #f76a00;
+    }
+    
 }

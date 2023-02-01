@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { Movi } from 'src/app/models/movimentacao.model';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -29,8 +30,7 @@ export class HomeComponent implements OnInit {
 
 
   movimentacoes!: Movi[];
-  dias!: Date[];
-  
+  dias = ["Seg", "Ter", "Quar", "Quin", "Sex", "Sab", "Dom"]
 
   ngOnInit(): void {
 
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         labels: this.dias,
         datasets: [{
           label: 'Gastos da semana',
-          data: [12, 19, 3, 5, 2, 3, 32],
+          data: [103.20, 20.50, 0, 68.10, 8.15, 16, 24.90],
           borderWidth: 2,
           backgroundColor:[
             '#fff',
@@ -72,10 +72,8 @@ export class HomeComponent implements OnInit {
       }
     
     });
-  
   }
 
-  
    getListarDepositos(idConta: number, idTipo: number){
     this.servico.getListarDepositos(idConta, idTipo).subscribe({
       next: (response) => {
@@ -107,10 +105,6 @@ export class HomeComponent implements OnInit {
       this.totalDep += deposito.dinheiro
     })
     console.log(this.totalDep);
-
-    /* for(let i = 0; i < dinheiro.length; i++){
-      this.total += dinheiro[i].dinheiro;
-    } */
   }
 
   calcularSaq(dinheiro: Movi[]){
@@ -119,8 +113,6 @@ export class HomeComponent implements OnInit {
     })
     console.log(this.totalSaque);
   }
-
-
 
   mudarTemaLight(){
     this.renderer.addClass(document.body, 'light');

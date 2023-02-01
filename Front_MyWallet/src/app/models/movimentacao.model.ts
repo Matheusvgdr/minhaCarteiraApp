@@ -7,10 +7,10 @@ export {Movimentacao as Movi}
 
 interface Movimentacao{
     id?: number;
-    dataMovimentacao: Date;
+    dataMovimentacao: String;
     dinheiro: number;
     id_tipo: TT;
-    id_carteira: Carteira;
+    id_carteira?: Carteira;
     id_usuario: Usuario;
     id_banco: Banco;
 }

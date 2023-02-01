@@ -9,7 +9,7 @@
 
   
   <div class="carteiras">
-    <ion-item-sliding>
+   <!--  <ion-item-sliding>
       <ion-item color="dark">
        
         <div class="container">
@@ -33,24 +33,24 @@
         <ion-item-option color="primary" (click)="editar()"><i class="ph-pencil-simple"></i></ion-item-option>
         <ion-item-option color="danger" (click)="excluir()"><i class="ph-trash"></i></ion-item-option>
       </ion-item-options>
-    </ion-item-sliding>
+    </ion-item-sliding> -->
     
-    <ion-item-sliding>
-      <ion-item color="dark">
+    <ion-item-sliding *ngFor="let carteira of carteiras">
+      <ion-item color="dark" >
        
         <div class="container">
-          <div class="sliding-carteira">
+          <div class="sliding-carteira" >
             <div class="nomeCar">
-              <p>Passagem</p>
+              <p>{{carteira.nomeCarteira}}</p>
             </div>
             <div class="dinheiro">
-              R$ 501,80
+              R$ {{carteira.dinheiro}}
             </div>
           </div>
           <img src="../../assets/img/dinheiro.png" alt="">
         </div>
+
       </ion-item>
-  
       <ion-item-options side="start">
         <ion-item-option color="success"><ion-icon name="checkmark-outline"></ion-icon></ion-item-option>
       </ion-item-options>
@@ -58,10 +58,9 @@
       <ion-item-options>
         <ion-item-option color="primary" (click)="editar()"><i class="ph-pencil-simple"></i></ion-item-option>
         <ion-item-option color="danger" (click)="excluir()"><i class="ph-trash"></i></ion-item-option>
-      </ion-item-options>
+      </ion-item-options>      
     </ion-item-sliding>
   </div>
-
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
     <ion-fab-button color="success" (click)="adicionarCarteira()">
@@ -70,5 +69,4 @@
       </ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <header>
     <i class="ph-currency-circle-dollar"></i>
     <p>Câmbio</p>
@@ -18,7 +18,7 @@
 
       <div class="resumo">
         <p class="total">Total</p>
-        <p class="valor"> {{moeda.icon}} 30,00</p>
+        <p class="valor"> {{moeda.icon}} {{(totalDep - totalSaque) * moeda.valor}}</p>
       </div>
     </div>
 

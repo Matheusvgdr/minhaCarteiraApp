@@ -27,7 +27,7 @@
                     <div class="info_input">
                         <label for="">Nascimento</label> <br>
                         <div class="flex">
-                            <input type="text" autocomplete="off"  name="nascimento" id="nascimento" required [(ngModel)] = "usuario.nascimento">
+                            <input type="text" autocomplete="off"  name="nascimento" id="nascimento" required [(ngModel)] = "usuario.nascimento" mask="00/00/0000">
                             <i class="bx bxs-calendar"></i>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="info_input">
                         <label for="">Telefone</label> <br>
                         <div class="flex">
-                            <input type="text" autocomplete="off"  name="telefone" id="telefone" required [(ngModel)] = "usuario.telefone">
+                            <input type="text" autocomplete="off"  name="telefone" id="telefone" required [(ngModel)] = "usuario.telefone" [hiddenInput]="true" mask="(XX) XXXXX-XXXX">
                             <i class="bx bxs-phone"></i>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                     <div class="info_input">
                         <label for="">Senha</label> <br>
                         <div class="flex">
-                            <input type="text" autocomplete="off" name="senha" id="senha" required [(ngModel)] = "usuario.senha">
+                            <input type="password" autocomplete="off" name="senha" id="senha" required [(ngModel)] = "usuario.senha" >
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                     </div>

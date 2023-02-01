@@ -18,41 +18,44 @@
           <h3> <i class="bx bx-sort-alt-2"></i> Faça transações na sua conta</h3>
           <!-- <p>Insira ou retire dinheiro da sua conta</p> -->
         </div>
-        <form action="">
+        <form action="" #form="ngForm" (submit)="realizarTransacao()">
           <div class="info_input">
-            <label for="">Dinheiro</label> <br>
-            <div class="flex">
-              <input type="text" name="nome" id="nome" autocomplete="off" required>
-              <i class="bx bx-money"></i>
-            </div>
+              <label for="">Dinheiro</label> <br>
+              <div class="flex">
+                  <input type="text" name="nome" id="nome" autocomplete="off" required [(ngModel)]="movimentacao.dinheiro"> 
+                  <i class="bx bx-money"></i>
+              </div>
           </div>
           <div class="info_input">
-            <label for="">Data</label> <br>
-            <div class="flex">
-              <input type="text" name="nome" id="nome" autocomplete="off" required>
-              <i class="bx bx-calendar"></i>
-            </div>
+              <label for="">Data</label> <br>
+              <div class="flex">
+                  <input type="text" name="dataMovimentacao" id="dataMovimentacao" autocomplete="off" required  [(ngModel)]="movimentacao.dataMovimentacao">
+                  <i class="bx bx-calendar"></i>
+              </div>
           </div>
           <div class="info_input">
-            <label for="">Tipo</label> <br>
-
-            <select name="" id="">
-              <option *ngFor="let tipo of tiposT">{{tipo.descricao}}</option>
-            </select>
-            <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
-
+              <label for="">Tipo</label> <br>
+              
+                  <select name="id_tipo" id="id_tipo" [(ngModel)]="tipo.id">
+                      <option >Selecione</option>
+                      <option *ngFor="let tp of tiposT" [value]="tp.id">{{tp.descricao}}</option>
+                  </select>
+                 <!-- : <input type="text" name="nome" id="nome" autocomplete="off" required> -->
+              
           </div>
           <div class="info_input">
-            <label for="">Banco</label> <br>
-            <select name="" id="">
-              <option *ngFor="let banco of bancos">{{banco.banco}}</option>
-            </select>
+              <label for="">Banco</label> <br>
+              <select name="id_banco" id="id_banco" [(ngModel)]="banco.id">
+                  <option >Selecione</option>
+                  <option *ngFor="let banc of bancos" [value]="banc.id">{{banc.banco}}</option>
+              </select>
           </div>
+          
           <button class="enviar" id="enter">
-            <strong>Enviar</strong>
-            <i class="bx bx-money-withdraw"></i>
+              <strong>Enviar</strong>
+              <i class="bx bx-money-withdraw"></i>
           </button>
-        </form>
+      </form>
       </div>
     </div>
   </div>

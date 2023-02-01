@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routes';
-
 import { HttpClientModule} from '@angular/common/http'
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +22,7 @@ import { TransacaoComponent } from './components/transacao/transacao.component';
 import { BancoComponent } from './components/banco/banco.component';
 import { CambioComponent } from './components/cambio/cambio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -45,7 +43,10 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    }),
   ],
   providers: [
     UsuarioService,
@@ -53,8 +54,9 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CarteiraService,
     ListaService,
     MovimentacaoService,
-    TipoTransacaoService
+    TipoTransacaoService  
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

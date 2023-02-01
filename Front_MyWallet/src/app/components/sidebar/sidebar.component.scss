@@ -3,6 +3,7 @@
 .sidebar{
     display: flex;
     flex-direction: column;
+    padding: 27px 0 27px 27px;
     width: 100%;
     height: 100%;
 
@@ -47,6 +48,11 @@
                     font-family: $fonte-texto;
                 }
 
+                a:hover{
+                    background-color: var(--cor-terciaria);
+                    color: #fff;
+                }
+
 
             }
         }
@@ -75,6 +81,11 @@
 
         i{
             transform: scale(1.5);
+            
+        }
+
+        i:hover{
+            color: #fff;
         }
     }
 

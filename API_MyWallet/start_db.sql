@@ -1,7 +1,7 @@
 CREATE DATABASE db_myWalletUpdt;
 
 use db_myWalletUpdt;
-
+select * from tb_usuario;
 -- TABELAS ----------------------------------------------
 
 CREATE TABLE tb_usuario(
@@ -74,9 +74,3 @@ ALTER TABLE tb_item ADD CONSTRAINT fk_bancoI FOREIGN KEY(id_banco) REFERENCES tb
 
 -- FAZER A CONEXÃO DAS CHAVES ESTRANGEIRAS COM A TB_CARTOES -------------------------------------------------------
 ALTER TABLE tb_banco ADD CONSTRAINT fk_usuarioCT FOREIGN KEY(id_usuario) REFERENCES tb_usuario(id) ON DELETE CASCADE;
-
-
-
-
-
-

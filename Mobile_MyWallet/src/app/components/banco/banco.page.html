@@ -5,15 +5,19 @@
   </header>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
+  <ion-card *ngFor="let banco of banco">
+    <ion-card-header>
+      <ion-card-title>{{banco.banco}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
   <div class="conteudo"></div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
     <ion-fab-button color="dark" (click)="voltar()">
       <ion-icon name="arrow-back-outline">
-
       </ion-icon>
     </ion-fab-button>
   </ion-fab>
-
+  
 </ion-content>

@@ -11,7 +11,7 @@
             <i class="ph-palette-bold"></i>
             <div class="tema" (click)="mudarTemaLight()"></div>
             <div class="tema" (click)="mudarTemaCaramel()"></div>
-            <div class="tema" (click)="mudarTemaGrey()"></div>
+           
             <div class="tema" (click)="mudarTemaRose()"></div>
             <div class="tema" (click)="mudarTemaDark()"></div>
         </div>
@@ -40,10 +40,10 @@
         <div class="texto">
             <div class="boas-vindas">
                 <p>Bem vindo, {{usuario.nome}}</p>
-                <p>A My Wallet está muito feliz em recebê-lo, caso tenha dúvidas, <span>acesse a página Tutorial.</span>
+                <p>A My Wallet está muito feliz em recebê-lo, caso tenha dúvidas, <span>entre em contato com nosso SAC.</span>
                 </p>
             </div>
-            <a [routerLink]="['/']">Mostrar Tutorial</a>
+          <!-- <a [routerLink]="['/']">Mostrar Tutorial</a> -->
         </div>
 
         <img src="../../../assets/img/cofre.png" alt="">
@@ -125,6 +125,21 @@
         <div class="cartao">
             <div class="titulo">
                 <p>Banco</p> <i class="ph-credit-card"></i>
+            </div>
+
+        </div>
+        <div class="toggle">
+            <div class="titulo">
+                <p>Temas</p> <i class="ph-palette"></i>
+            </div>
+
+            <div class="container-cores">
+                <div class="black cores" (click)="mudarTemaDark()">
+                    <p>Dark</p> <i class="ph-moon"></i>
+                </div>
+                <div class="white cores" (click)="mudarTemaGrey()">
+                    <p>Light</p> <i class="ph-sun-dim"></i>
+                </div>
             </div>
 
         </div>

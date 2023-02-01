@@ -1,3 +1,55 @@
-<div class="container-banco">
-    
+<div class="tudo">
+  <div class="container-banco">
+  
+    <div class="encaps" *ngFor="let banc of banco">
+      <div class="banco nen" *ngIf="banc.banco == 'Nenhum'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco ita" *ngIf="banc.banco == 'Itaú'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco cai" *ngIf="banc.banco == 'Caixa'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco bra" *ngIf="banc.banco == 'Bradesco'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco nub" *ngIf="banc.banco == 'Nubank'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco san" *ngIf="banc.banco == 'Santander'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco ban" *ngIf="banc.banco == 'Banco do Brasil'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+      <div class="banco neo" *ngIf="banc.banco == 'Neon'" >
+        <div class="texto">
+          <i class="ph-bank"></i>
+          <p>{{banc.banco}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
